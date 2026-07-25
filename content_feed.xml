@@ -1,5 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sat, 25 Jul 2026 19:36:26 +0000</lastBuildDate>
+<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sat, 25 Jul 2026 20:37:34 +0000</lastBuildDate>
+<item><title>Zone 2 is boring on purpose</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26c-zone-2-is-boring-on-purpose.md</link><guid isPermaLink="false">2026-07-26c-zone-2-is-boring-on-purpose.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of coaching and the hardest thing I sell isn&#x27;t the brutal session — it&#x27;s
+the easy one. Everybody wants to leave the gym wrecked. Almost nobody wants to do the
+unglamorous aerobic work that makes every hard session recoverable. I&#x27;ve watched more
+progress die from &quot;every run was a race&quot; than from any injury.
+
+Named failure modes I&#x27;ve paid for:
+- **The gray-zone treadmill**: too hard to build the aerobic base, too easy to be a real
+  stimulus. I&#x27;ve coached runners who trained six days a week for years in that zone and
+  plateaued the entire time. Fix: polarize — genuinely easy most days, genuinely hard on
+  the scheduled days, nothing in between by accident.
+- **The ego pace**: easy pace creeps up because a training partner showed up or a
+  stranger passed you. I&#x27;ve done it myself and paid with a flat race three weeks later.
+  Fix: easy means conversational — full sentences, nasal breathing if you want a
+  built-in governor. If you can&#x27;t talk, it isn&#x27;t easy.
+- **The boredom bailout**: people quit zone 2 not because it&#x27;s hard but because it&#x27;s
+  dull. Fix: attach it to something — podcasts, calls with your mother, an audiobook you
+  only allow yourself on easy days. Bribe t</description></item>
+<item><title>Reassurance is a loan with interest</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/psychology/2026-07-26c-reassurance-is-a-loan-with-interest.md</link><guid isPermaLink="false">2026-07-26c-reassurance-is-a-loan-with-interest.md</guid><category>psychology</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years in the therapy room and the pattern I&#x27;ve watched most reliably keep
+anxious people anxious isn&#x27;t the worry itself — it&#x27;s the reassurance-seeking that
+follows it. &quot;Are you sure it&#x27;s fine?&quot; feels like relief. It works for about an hour.
+Then the doubt comes back, and now it wants a bigger dose.
+
+Named failure modes I&#x27;ve paid for:
+- **The checking spiral**: one more Google search, one more &quot;does this look normal to
+  you?&quot;, one more re-read of the sent email. I&#x27;ve watched clients spend whole evenings
+  buying ten-minute windows of calm at compound interest. Fix: name it as a behavior,
+  not a thought — you can&#x27;t argue with the doubt, but you can delay the check by
+  twenty minutes and watch the urge fall on its own.
+- **The recruited partner**: spouses and friends get trained into reassurance machines,
+  and the relationship quietly becomes a compulsion-delivery system. I&#x27;ve sat with
+  couples where &quot;it&#x27;s fine, I promise&quot; was said forty times a day and meant nothing.
+  Fix: the partner learns one loving script — &quot;I know this is the worry asking, and
+  I&#x27;m not going to feed it&quot; — said warmly, held firmly.
+- **The certainty demand**: the underlying contract is &quot;I must be 10</description></item>
+<item><title>Crowd work is a tool, not a life raft</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/comedy/2026-07-26c-crowd-work-is-a-tool-not-a-life-raft.md</link><guid isPermaLink="false">2026-07-26c-crowd-work-is-a-tool-not-a-life-raft.md</guid><category>comedy</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years on stage and I can tell within ninety seconds whether a comic is doing
+crowd work because it serves the set or because they&#x27;re fleeing their own material.
+The audience can tell too. I&#x27;ve bombed both ways, so I know the difference from the
+inside.
+
+Named failure modes I&#x27;ve paid for:
+- **The panic pivot**: a joke dies, so you lunge at the front row like a drowning man.
+  I&#x27;ve done it — the crowd smells the fear, and now you&#x27;re bombing AND improvising.
+  Fix: have a planted recovery line for a dead joke. Crowd work from strength, never
+  from rescue.
+- **The interview trap**: &quot;what do you do for a living?&quot; with no plan for the answer.
+  I&#x27;ve watched comics ask the question and then just... repeat the answer back with an
+  amazed face. That&#x27;s not a bit, that&#x27;s small talk with a microphone. Fix: only open a
+  crowd-work door if you have at least two exits — a tag you can hang on any job, any
+  town, any couple.
+- **The hostage situation**: grinding one audience member for ten minutes while the
+  other two hundred people check their phones. Fix: crowd work is a spice. Three
+  exchanges, take the gift, get back to the act.
+
+The rule: crowd work should make the room feel like </description></item>
+<item><title>A rollback you&#x27;ve never run is a prayer</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26c-a-rollback-youve-never-run-is-a-prayer.md</link><guid isPermaLink="false">2026-07-26c-a-rollback-youve-never-run-is-a-prayer.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of deploys and the most dangerous sentence I still hear in change reviews
+is &quot;we can always roll back.&quot; Can you? Have you? Because I&#x27;ve watched teams discover at
+the worst moment that their rollback plan was a comfort blanket, not a capability.
+
+Named failure modes I&#x27;ve paid for:
+- **The one-way migration**: the deploy shipped a schema change, the rollback redeploys
+  old code against a new schema, and now you&#x27;re down harder than the bug you were
+  fleeing. I&#x27;ve signed the incident review for that one. Fix: every migration ships with
+  a tested down-path, or it&#x27;s declared irreversible in the change ticket — in writing.
+- **The rollback that needs the broken thing**: your deploy tool runs on the cluster
+  that&#x27;s on fire. I&#x27;ve watched a team unable to roll back because rollback required the
+  CI system that the bad deploy had just wedged. Fix: the rollback path must not depend
+  on any component the deploy can break. Rehearse it from a laptop.
+- **The version nobody kept**: &quot;just redeploy the previous artifact&quot; — which the
+  retention policy deleted three days ago. Fix: pin and retain the last known-good
+  artifact for as long as the change is considered risky, and verif</description></item>
 <item><title>The opener buys the room, not the laugh</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/comedy/2026-07-26b-the-opener-buys-the-room-not-the-laugh.md</link><guid isPermaLink="false">2026-07-26b-the-opener-buys-the-room-not-the-laugh.md</guid><category>comedy</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of walking into cold rooms and I&#x27;ll say the unpopular thing: your opener&#x27;s
 job isn&#x27;t to be your funniest joke. Its job is to answer the only question the audience
 is silently asking — &quot;are we in good hands?&quot; Get that yes, and they&#x27;ll ride with you.
