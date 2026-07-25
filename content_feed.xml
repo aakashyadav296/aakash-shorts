@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sat, 25 Jul 2026 17:35:37 +0000</lastBuildDate>
+<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sat, 25 Jul 2026 18:37:15 +0000</lastBuildDate>
+<item><title>Sleep debt doesn&#x27;t forgive — it refinances</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26a-sleep-debt-doesnt-forgive-it-refinances.md</link><guid isPermaLink="false">2026-07-26a-sleep-debt-doesnt-forgive-it-refinances.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>I&#x27;ve coached people for two decades who treated sleep like a credit line: borrow all week, repay Saturday. I&#x27;ve watched that ledger from the training floor — the repayment never clears the balance, it just rolls the interest forward into their lifts, their mood, and their injuries.
+
+Named failure modes I&#x27;ve watched wreck progress:
+
+- **The weekend binge repay.** Five short nights, then eleven hours Saturday. The circadian whiplash means Monday feels like jet lag, and the training week starts in a hole again.
+- **The caffeine refinance.** The debt gets serviced with a second and third coffee, which pushes bedtime later, which deepens the debt. It&#x27;s a payday loan with a nicer smell.
+- **The &quot;I&#x27;m fine&quot; adaptation.** After a couple of weeks of short sleep, people stop feeling tired — but I&#x27;ve watched their bar speed, their reaction time, and their patience with their kids all say otherwise. You adapt to the feeling, not the deficit.
+- **The heavy day collision.** The week&#x27;s worst night somehow always lands before the heaviest session, because both were scheduled around the same overloaded life. That&#x27;s where tweaks and misses come from.
+
+The fix that actually worked for the people I&#x27;ve </description></item>
+<item><title>Reassurance-seeking is scratching a bite — it spreads the itch</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/psychology/2026-07-26a-reassurance-seeking-is-scratching-a-bite-it-spreads-the-itch.md</link><guid isPermaLink="false">2026-07-26a-reassurance-seeking-is-scratching-a-bite-it-spreads-the-itch.md</guid><category>psychology</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of sitting with anxious minds and I&#x27;ve watched the same trade happen thousands of times: a moment of relief purchased now, paid for with a bigger dose of doubt tomorrow. Reassurance works — that&#x27;s exactly the problem. It works like scratching works.
+
+Named failure modes I&#x27;ve watched people cycle through:
+
+- **The escalating dose.** &quot;Are we okay?&quot; once a month becomes once a week becomes nightly. The reassurance still lands, but the half-life shrinks every time, and the asker feels crazier, not calmer.
+- **The outsourced certainty.** The person stops consulting their own judgment entirely. Every decision gets pre-cleared with a partner, a friend, a search bar. The muscle that tolerates not-knowing atrophies from disuse.
+- **The reassurer&#x27;s burnout.** The partner who lovingly answers every &quot;are you sure?&quot; is training the loop while slowly resenting it. I&#x27;ve watched relationships buckle not from the anxiety but from the reassurance economy built around it.
+- **The disguised check.** It stops looking like a question — it becomes rereading the sent email, re-checking the lock, scanning their face at dinner. Same loop, quieter costume.
+
+What actually worked: name the loop ou</description></item>
+<item><title>Crowd work is a detour, not a destination</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/comedy/2026-07-26a-crowd-work-is-a-detour-not-a-destination.md</link><guid isPermaLink="false">2026-07-26a-crowd-work-is-a-detour-not-a-destination.md</guid><category>comedy</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>I&#x27;ve bombed enough rooms over twenty years to know the seduction: crowd work gets the fastest laughs in the building, so young comics start treating it as the act. I&#x27;ve watched killers-in-the-room become nobodies-on-tape because nothing they did could survive outside that one Tuesday.
+
+Named failure modes I&#x27;ve paid for on stage:
+
+- **The rented laugh.** The bit belongs to the drunk dentist in row two. It dies the second he leaves. You built nothing you can use tomorrow.
+- **The escape hatch habit.** Every time a written joke wobbles, you bail into &quot;where are you from?&quot; — and your material never gets the reps it needs to get good, because you never let it fail long enough to fix it.
+- **The hostage interview.** You mistake interrogating a shy table for engagement. The room isn&#x27;t laughing with you, it&#x27;s relieved you haven&#x27;t picked them. That tension reads as energy from the stage and reads as cruelty on tape.
+- **The tape that can&#x27;t travel.** The booker asks for a clip and everything killer you have is fifteen minutes of local references and one guy&#x27;s divorce. Nothing submits, nothing books.
+
+What actually worked: I treat crowd work as seasoning — a bridge back into written material,</description></item>
+<item><title>An on-call rotation without a handoff is a relay with no baton</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26a-an-oncall-rotation-without-a-handoff-is-a-relay-with-no-baton.md</link><guid isPermaLink="false">2026-07-26a-an-oncall-rotation-without-a-handoff-is-a-relay-with-no-baton.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>I&#x27;ve watched an incident burn for six extra hours because the outgoing on-call knew exactly what was smoldering and the incoming one found out from the pager. Twenty years of rotations and the pattern never changes: the schedule tool is immaculate, the handoff is a shrug in Slack.
+
+Named failure modes I&#x27;ve eaten:
+
+- **The silent smolder.** Outgoing engineer watched a queue depth creep all week, decided it &quot;wasn&#x27;t page-worthy yet,&quot; and told nobody. It became page-worthy at 3am on the new person&#x27;s first night.
+- **The tribal runbook.** The fix lives in one person&#x27;s head — &quot;oh you just restart the consumer with the flag&quot; — and that person is now on a plane. The written runbook was last touched two reorgs ago.
+- **The mute inheritance.** Previous on-call muted a flapping alert to survive their week and never unmuted it. The next real incident of that class fired into a black hole.
+- **The context cliff.** A risky deploy shipped Friday afternoon; the weekend on-call didn&#x27;t know it existed. Every symptom got debugged from zero instead of from &quot;what changed.&quot;
+
+The fix that actually worked: a mandatory 15-minute synchronous handoff with a written template — open smolders, muted alerts, rec</description></item>
 <item><title>The callback is a gift you set up before you give it</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/comedy/2026-07-25z-the-callback-is-a-gift-you-set-up-before-you-give-it.md</link><guid isPermaLink="false">2026-07-25z-the-callback-is-a-gift-you-set-up-before-you-give-it.md</guid><category>comedy</category><pubDate>Sat, 25 Jul 2026 09:00:00 +0000</pubDate><description>I&#x27;ve bombed with a callback that should have crushed, purely because I never planted the seed cleanly the first time. A callback isn&#x27;t a joke you find at the end — it&#x27;s a promise you made in the first two minutes and forgot to keep with intent.
 
 Failure modes I&#x27;ve watched newer comics fall into:
