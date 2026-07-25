@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sat, 25 Jul 2026 21:35:38 +0000</lastBuildDate>
+<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sat, 25 Jul 2026 22:35:50 +0000</lastBuildDate>
+<item><title>Soreness is a receipt, not a scoreboard</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26e-soreness-is-a-receipt-not-a-scoreboard.md</link><guid isPermaLink="false">2026-07-26e-soreness-is-a-receipt-not-a-scoreboard.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades coaching and the most stubborn myth on the floor is still &quot;no soreness,
+no progress.&quot; I&#x27;ve watched lifters chase pain like it was the product, and quit the
+program that was actually working because it stopped hurting.
+
+Failure modes I see every single week:
+- **The novelty chaser**: swapping exercises every session to stay sore, which
+  guarantees you&#x27;re always a beginner at everything. Soreness from novelty is not
+  adaptation — it&#x27;s unfamiliarity. Fix: keep the same core lifts for 8–12 weeks and
+  let the log book, not the ache, tell you it&#x27;s working.
+- **The soreness-as-permission trap**: &quot;I&#x27;m not sore, so I must not have trained
+  hard — better double the volume.&quot; I&#x27;ve watched that spiral end in a month off with
+  a cranky lower back. Fix: progress is measured in load, reps, and bar speed across
+  weeks. Soreness measures none of those.
+- **The wrecked-beginner special**: first session back after a layoff, ego loads the
+  eccentric work, and the next four days are lost to DOMS so bad training stops
+  entirely. Fix: the first week back is a rehearsal week — leave angry, come back
+  Wednesday. Consistency beats intensity you can&#x27;t repeat.
+
+Do this: treat soreness like</description></item>
+<item><title>Busyness is anesthesia with a calendar</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/psychology/2026-07-26e-busyness-is-anesthesia-with-a-calendar.md</link><guid isPermaLink="false">2026-07-26e-busyness-is-anesthesia-with-a-calendar.md</guid><category>psychology</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades across the table and the most socially rewarded avoidance strategy
+I&#x27;ve watched is busyness. Nobody stages an intervention for the person answering
+email at 11 p.m. — we promote them. Which is exactly why it&#x27;s the hardest habit
+to treat.
+
+Failure modes I&#x27;ve watched play out:
+- **The grief schedule**: the person who lost someone and immediately took on two
+  extra projects. The calendar was full, so the feelings could never get an
+  appointment. It works — for about eighteen months, and then it stops working all
+  at once. Fix: unstructured time is not a reward for finishing; it&#x27;s a scheduled
+  requirement, twenty minutes with nothing to metabolize the day.
+- **The importance transfusion**: mistaking being needed for being well. I&#x27;ve sat
+  with people whose whole identity was &quot;the reliable one&quot; — remove the demands and
+  there was nobody home. Fix: notice what you feel in the first hour of a free
+  Saturday. Dread is diagnostic.
+- **The productive procrastination shuffle**: reorganizing the garage instead of
+  having the conversation. The task is real, the effort is real, the avoidance is
+  also real. Fix: write the avoided thing at the top of the list before adding
+  an</description></item>
+<item><title>Bombing is tuition, not a verdict</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/comedy/2026-07-26e-bombing-is-tuition-not-a-verdict.md</link><guid isPermaLink="false">2026-07-26e-bombing-is-tuition-not-a-verdict.md</guid><category>comedy</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of stage time and I can tell you the difference between comics who
+last and comics who vanish: it&#x27;s what they do in the car after a bomb. I&#x27;ve bombed
+in every configuration a human can bomb — silent rooms, hostile rooms, rooms where
+the sound guy laughed at the wrong parts only.
+
+Scar tissue, catalogued:
+- **The audience autopsy**: blaming the crowd all the way home. &quot;They were a bad
+  room.&quot; Sometimes true — and completely useless, because you can&#x27;t rewrite the
+  audience. Fix: within 24 hours, listen to the recording and mark the exact second
+  each bit lost them. The tape is brutal and the tape is the teacher.
+- **The full-set purge**: torching twenty minutes of material after one bad night.
+  I&#x27;ve watched comics delete bits that later became closers — the bit wasn&#x27;t dead,
+  the delivery was rushed because panic sets in at the first silence. Fix: a bit
+  gets three different rooms before it&#x27;s sentenced.
+- **The safety-set retreat**: after a bomb, running only proven material for six
+  months. Comfortable, and it&#x27;s how you stop growing. The comics who plateau
+  hardest are the ones who stopped risking silence. Fix: every set carries one new
+  minute — the tax you pay</description></item>
+<item><title>A retry without idempotency is a duplicate generator</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26e-a-retry-without-idempotency-is-a-duplicate-generator.md</link><guid isPermaLink="false">2026-07-26e-a-retry-without-idempotency-is-a-duplicate-generator.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of distributed systems and the bug I&#x27;ve paid for most often isn&#x27;t the
+failure — it&#x27;s the retry. Teams bolt on &quot;resilience&quot; with a retry loop and quietly
+build a machine that charges customers twice, sends three welcome emails, and
+creates ghost orders at 2 a.m.
+
+Named failure modes I&#x27;ve signed the postmortem for:
+- **The optimistic timeout**: the request didn&#x27;t fail, it was just slow. The client
+  gave up, retried, and both writes landed. I&#x27;ve watched a payments team refund a
+  week of double-charges because of one aggressive timeout. Fix: no retry on a
+  non-idempotent endpoint until it carries an idempotency key the server actually
+  checks — not one it logs and ignores.
+- **The retry storm amplifier**: downstream hiccups, every caller retries at the
+  same interval, and the recovering service gets hit with 5x its normal load the
+  second it comes back. Fix: jittered exponential backoff plus a circuit breaker;
+  a fleet retrying in sync is a self-inflicted DDoS.
+- **The queue re-delivery surprise**: &quot;exactly-once&quot; in the broker brochure,
+  at-least-once in production. The consumer that assumed one delivery corrupted
+  state on the second. Fix: consumers are idempoten</description></item>
 <item><title>Warm-ups are rehearsal, not a toll</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26d-warmups-are-rehearsal-not-a-toll.md</link><guid isPermaLink="false">2026-07-26d-warmups-are-rehearsal-not-a-toll.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades on gym floors and the lifters who stall hardest treat the warm-up like a
 tax — something to pay quickly so the real training can start. I&#x27;ve watched the same
 people wonder why their first working set feels like a stranger&#x27;s body.
