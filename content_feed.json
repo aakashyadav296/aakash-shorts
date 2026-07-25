@@ -4,6 +4,16 @@
  "description": "Reviewed drafts across tech/health/comedy/psychology",
  "items": [
   {
+   "id": "tech/2026-07-26c-a-rollback-youve-never-run-is-a-prayer.md",
+   "title": "[tech] A rollback you've never run is a prayer",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# A rollback you've never run is a prayer\n\nTwenty years of deploys and the most dangerous sentence I still hear in change reviews\nis \"we can always roll back.\" Can you? Have you? Because I've watched teams discover at\nthe worst moment that their rollback plan was a comfort blanket, not a capability.\n\nNamed failure modes I've paid for:\n- **The one-way migration**: the deploy shipped a schema change, the rollback redeploys\n  old code against a new schema, and now you're down harder than the bug you were\n  fleeing. I've signed the incident review for that one. Fix: every migration ships with\n  a tested down-path, or it's declared irreversible in the change ticket — in writing.\n- **The rollback that needs the broken thing**: your deploy tool runs on the cluster\n  that's on fire. I've watched a team unable to roll back because rollback required the\n  CI system that the bad deploy had just wedged. Fix: the rollback path must not depend\n  on any component the deploy can break. Rehearse it from a laptop.\n- **The version nobody kept**: \"just redeploy the previous artifact\" — which the\n  retention policy deleted three days ago. Fix: pin and retain the last known-good\n  artifact for as long as the change is considered risky, and verify it exists before\n  the deploy starts, not after it fails.\n\nThe rule: a rollback is a deploy. It needs the same testing, the same rehearsal, and\nthe same paranoia. If you've never run it, you don't have a rollback — you have a\nprayer with a runbook number.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "tech",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "tech/2026-07-26b-a-runbook-nobody-rehearses-is-a-novel.md",
    "title": "[tech] A runbook nobody rehearses is a novel",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# A runbook nobody rehearses is a novel\n\nTwenty years of incidents and I've stopped counting the 2am pages where the runbook\nexisted, was beautifully formatted, and was wrong in the third step. A runbook that's\nnever been executed under pressure isn't documentation — it's fiction with headers.\n\nNamed failure modes I've paid for:\n- **The stale credential step**: \"log into the admin console\" — with an account that was\n  deprovisioned two quarters ago. I've watched an outage stretch forty minutes while we\n  hunted for anyone who still had access. Fix: every runbook step that touches auth gets\n  exercised in the quarterly game day, by the newest person on the team, not the author.\n- **The tribal-knowledge gap**: step four says \"restart the service\" and assumes you know\n  which of the six systemd units is *the* service. The author knew. The author is on a\n  plane. Fix: runbooks are written for the person who has never seen the system — exact\n  commands, exact hostnames, copy-pasteable.\n- **The happy-path runbook**: it covers the restart but not what to do when the restart\n  hangs, which is the only time you'd be reading it. Fix: every runbook ends with an\n  \"if this didn't work\" branch and a named escalation human, not a team alias.\n\nThe rule: a runbook is a program executed by a terrified human at 2am. Test it like a\nprogram, or accept that you've shipped untested code to your worst possible runtime.\n",
@@ -510,6 +520,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "tech",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "psychology/2026-07-26c-reassurance-is-a-loan-with-interest.md",
+   "title": "[psychology] Reassurance is a loan with interest",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Reassurance is a loan with interest\n\nTwenty years in the therapy room and the pattern I've watched most reliably keep\nanxious people anxious isn't the worry itself — it's the reassurance-seeking that\nfollows it. \"Are you sure it's fine?\" feels like relief. It works for about an hour.\nThen the doubt comes back, and now it wants a bigger dose.\n\nNamed failure modes I've paid for:\n- **The checking spiral**: one more Google search, one more \"does this look normal to\n  you?\", one more re-read of the sent email. I've watched clients spend whole evenings\n  buying ten-minute windows of calm at compound interest. Fix: name it as a behavior,\n  not a thought — you can't argue with the doubt, but you can delay the check by\n  twenty minutes and watch the urge fall on its own.\n- **The recruited partner**: spouses and friends get trained into reassurance machines,\n  and the relationship quietly becomes a compulsion-delivery system. I've sat with\n  couples where \"it's fine, I promise\" was said forty times a day and meant nothing.\n  Fix: the partner learns one loving script — \"I know this is the worry asking, and\n  I'm not going to feed it\" — said warmly, held firmly.\n- **The certainty demand**: the underlying contract is \"I must be 100 percent sure\n  before I can relax.\" Nothing real clears that bar. Fix: practice acting while\n  uncertain in small, chosen doses. Tolerance for doubt is a muscle, and it only grows\n  under load.\n\nThe rule: reassurance treats the feeling and feeds the disorder. The way out isn't a\nbetter answer to the doubt — it's a shorter leash on the checking.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "psychology",
     "veteran-voice"
    ]
   },
@@ -1024,6 +1044,16 @@
    ]
   },
   {
+   "id": "health/2026-07-26c-zone-2-is-boring-on-purpose.md",
+   "title": "[health] Zone 2 is boring on purpose",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Zone 2 is boring on purpose\n\nTwenty years of coaching and the hardest thing I sell isn't the brutal session — it's\nthe easy one. Everybody wants to leave the gym wrecked. Almost nobody wants to do the\nunglamorous aerobic work that makes every hard session recoverable. I've watched more\nprogress die from \"every run was a race\" than from any injury.\n\nNamed failure modes I've paid for:\n- **The gray-zone treadmill**: too hard to build the aerobic base, too easy to be a real\n  stimulus. I've coached runners who trained six days a week for years in that zone and\n  plateaued the entire time. Fix: polarize — genuinely easy most days, genuinely hard on\n  the scheduled days, nothing in between by accident.\n- **The ego pace**: easy pace creeps up because a training partner showed up or a\n  stranger passed you. I've done it myself and paid with a flat race three weeks later.\n  Fix: easy means conversational — full sentences, nasal breathing if you want a\n  built-in governor. If you can't talk, it isn't easy.\n- **The boredom bailout**: people quit zone 2 not because it's hard but because it's\n  dull. Fix: attach it to something — podcasts, calls with your mother, an audiobook you\n  only allow yourself on easy days. Bribe the discipline into existence.\n\nThe rule: the easy work is the tank, the hard work is the engine. Build the tank first\nor the engine runs dry every single time.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "health",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "health/2026-07-26b-hydration-is-a-schedule-not-a-sensation.md",
    "title": "[health] Hydration is a schedule, not a sensation",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Hydration is a schedule, not a sensation\n\nTwo decades of coaching and the clients who fade in the last third of a session are\nrarely under-fueled — they're under-watered and waiting for thirst to tell them. By the\ntime thirst shows up, you're already behind, and behind is where lifts get ugly.\n\nFailure modes I see on repeat:\n- **The camel strategy**: nothing all day, then a liter chugged in the parking lot before\n  training. I've watched people cramp mid-set and blame electrolytes when the real issue\n  was showing up dry and trying to fix it in ten minutes. Fix: water rides along with\n  meals and transitions — sip on a schedule the body can actually absorb.\n- **The coffee accounting error**: counting three espressos and a pre-workout as fluid\n  intake. The math feels right and the afternoon headache disagrees. Fix: caffeine drinks\n  are neutral at best — they don't earn hydration credit, they just don't cost much.\n- **The clear-urine trophy hunt**: overcorrecting into constant chugging, flushing\n  electrolytes, feeling sloshy and weirdly flat. More is not the fix; timing is. Fix: pale\n  yellow is the target, and salt your food like an adult who sweats.\n\nDo this: put water where the habit already lives — desk, car, bag, rack. The mechanism\nisn't willpower, it's proximity. You drink what's within reach; make reach do the work.\n",
@@ -1530,6 +1560,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "health",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "comedy/2026-07-26c-crowd-work-is-a-tool-not-a-life-raft.md",
+   "title": "[comedy] Crowd work is a tool, not a life raft",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Crowd work is a tool, not a life raft\n\nTwenty years on stage and I can tell within ninety seconds whether a comic is doing\ncrowd work because it serves the set or because they're fleeing their own material.\nThe audience can tell too. I've bombed both ways, so I know the difference from the\ninside.\n\nNamed failure modes I've paid for:\n- **The panic pivot**: a joke dies, so you lunge at the front row like a drowning man.\n  I've done it — the crowd smells the fear, and now you're bombing AND improvising.\n  Fix: have a planted recovery line for a dead joke. Crowd work from strength, never\n  from rescue.\n- **The interview trap**: \"what do you do for a living?\" with no plan for the answer.\n  I've watched comics ask the question and then just... repeat the answer back with an\n  amazed face. That's not a bit, that's small talk with a microphone. Fix: only open a\n  crowd-work door if you have at least two exits — a tag you can hang on any job, any\n  town, any couple.\n- **The hostage situation**: grinding one audience member for ten minutes while the\n  other two hundred people check their phones. Fix: crowd work is a spice. Three\n  exchanges, take the gift, get back to the act.\n\nThe rule: crowd work should make the room feel like tonight is the only night this show\ncould happen. If you're using it to avoid your own writing, the room feels that instead\n— and they're right.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "comedy",
     "veteran-voice"
    ]
   },
