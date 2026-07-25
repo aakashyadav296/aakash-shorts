@@ -4,6 +4,16 @@
  "description": "Reviewed drafts across tech/health/comedy/psychology",
  "items": [
   {
+   "id": "tech/2026-07-26e-a-retry-without-idempotency-is-a-duplicate-generator.md",
+   "title": "[tech] A retry without idempotency is a duplicate generator",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# A retry without idempotency is a duplicate generator\n\nTwenty years of distributed systems and the bug I've paid for most often isn't the\nfailure — it's the retry. Teams bolt on \"resilience\" with a retry loop and quietly\nbuild a machine that charges customers twice, sends three welcome emails, and\ncreates ghost orders at 2 a.m.\n\nNamed failure modes I've signed the postmortem for:\n- **The optimistic timeout**: the request didn't fail, it was just slow. The client\n  gave up, retried, and both writes landed. I've watched a payments team refund a\n  week of double-charges because of one aggressive timeout. Fix: no retry on a\n  non-idempotent endpoint until it carries an idempotency key the server actually\n  checks — not one it logs and ignores.\n- **The retry storm amplifier**: downstream hiccups, every caller retries at the\n  same interval, and the recovering service gets hit with 5x its normal load the\n  second it comes back. Fix: jittered exponential backoff plus a circuit breaker;\n  a fleet retrying in sync is a self-inflicted DDoS.\n- **The queue re-delivery surprise**: \"exactly-once\" in the broker brochure,\n  at-least-once in production. The consumer that assumed one delivery corrupted\n  state on the second. Fix: consumers are idempotent by design — dedupe table,\n  conditional writes, or version checks. The broker's promise is not your contract.\n\nThe rule: retries multiply whatever your system already does. If it does the wrong\nthing once, retries make it do the wrong thing at scale.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "tech",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "tech/2026-07-26d-a-dashboard-nobody-alerts-on-is-wallpaper.md",
    "title": "[tech] A dashboard nobody alerts on is wallpaper",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# A dashboard nobody alerts on is wallpaper\n\nTwenty years of production systems and I've stopped being impressed by dashboards.\nI've watched teams build forty-panel Grafana walls that nobody looked at during the\none incident that mattered. If a graph can go red without paging a human, it's not\nobservability — it's interior decorating.\n\nNamed failure modes I've paid for:\n- **The vanity wall**: a giant TV of green panels in the office, and the outage was\n  discovered by a customer tweet. The wall was for visitors, not operators. Fix: every\n  panel must answer \"what action do I take when this moves?\" — if there's no answer,\n  delete the panel.\n- **The threshold set once, in 2019**: an alert tuned for last year's traffic that now\n  fires nightly, so everyone muted it. The week we needed it, it was in a silenced\n  channel. Fix: alert review is a quarterly calendar event with an owner, same as\n  dependency upgrades.\n- **The average that hides the fire**: mean latency looked flat while p99 was on fire\n  for the one enterprise customer paying the bills. I've sat in that postmortem. Fix:\n  percentiles per customer tier, not fleet-wide means.\n\nThe rule: dashboards are for diagnosis, alerts are for detection. If detection\ndepends on a human staring at a screen, you don't have monitoring — you have a\nscented candle.\n",
@@ -530,6 +540,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "tech",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "psychology/2026-07-26e-busyness-is-anesthesia-with-a-calendar.md",
+   "title": "[psychology] Busyness is anesthesia with a calendar",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Busyness is anesthesia with a calendar\n\nTwo decades across the table and the most socially rewarded avoidance strategy\nI've watched is busyness. Nobody stages an intervention for the person answering\nemail at 11 p.m. — we promote them. Which is exactly why it's the hardest habit\nto treat.\n\nFailure modes I've watched play out:\n- **The grief schedule**: the person who lost someone and immediately took on two\n  extra projects. The calendar was full, so the feelings could never get an\n  appointment. It works — for about eighteen months, and then it stops working all\n  at once. Fix: unstructured time is not a reward for finishing; it's a scheduled\n  requirement, twenty minutes with nothing to metabolize the day.\n- **The importance transfusion**: mistaking being needed for being well. I've sat\n  with people whose whole identity was \"the reliable one\" — remove the demands and\n  there was nobody home. Fix: notice what you feel in the first hour of a free\n  Saturday. Dread is diagnostic.\n- **The productive procrastination shuffle**: reorganizing the garage instead of\n  having the conversation. The task is real, the effort is real, the avoidance is\n  also real. Fix: write the avoided thing at the top of the list before adding\n  anything else — busyness only counts after you've faced the first line.\n\nDo this: once a week, sit still for ten unscheduled minutes and see what shows up.\nWhatever arrives is what the busyness was holding back — and it's the actual to-do\nlist.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "psychology",
     "veteran-voice"
    ]
   },
@@ -1064,6 +1084,16 @@
    ]
   },
   {
+   "id": "health/2026-07-26e-soreness-is-a-receipt-not-a-scoreboard.md",
+   "title": "[health] Soreness is a receipt, not a scoreboard",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Soreness is a receipt, not a scoreboard\n\nTwo decades coaching and the most stubborn myth on the floor is still \"no soreness,\nno progress.\" I've watched lifters chase pain like it was the product, and quit the\nprogram that was actually working because it stopped hurting.\n\nFailure modes I see every single week:\n- **The novelty chaser**: swapping exercises every session to stay sore, which\n  guarantees you're always a beginner at everything. Soreness from novelty is not\n  adaptation — it's unfamiliarity. Fix: keep the same core lifts for 8–12 weeks and\n  let the log book, not the ache, tell you it's working.\n- **The soreness-as-permission trap**: \"I'm not sore, so I must not have trained\n  hard — better double the volume.\" I've watched that spiral end in a month off with\n  a cranky lower back. Fix: progress is measured in load, reps, and bar speed across\n  weeks. Soreness measures none of those.\n- **The wrecked-beginner special**: first session back after a layoff, ego loads the\n  eccentric work, and the next four days are lost to DOMS so bad training stops\n  entirely. Fix: the first week back is a rehearsal week — leave angry, come back\n  Wednesday. Consistency beats intensity you can't repeat.\n\nDo this: treat soreness like a receipt — proof a transaction happened, useless for\ntelling you whether it was a good one. The training log is the scoreboard.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "health",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "health/2026-07-26d-warmups-are-rehearsal-not-a-toll.md",
    "title": "[health] Warm-ups are rehearsal, not a toll",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Warm-ups are rehearsal, not a toll\n\nTwo decades on gym floors and the lifters who stall hardest treat the warm-up like a\ntax — something to pay quickly so the real training can start. I've watched the same\npeople wonder why their first working set feels like a stranger's body.\n\nFailure modes I see every week:\n- **The empty-bar sprint**: three rushed sets with no intent, then a jump straight to\n  working weight. The first heavy set becomes the actual warm-up, and it's the ugliest\n  rep of the day. Fix: warm-up sets rehearse the exact bar path and bracing of the top\n  set — same setup ritual, same cues, lighter load.\n- **The cardio confusion**: ten minutes on a bike and calling it done. Being warm and\n  being prepared are different states. I've watched sweaty people pull a hamstring on\n  their opener. Fix: general heat first, then movement-specific ramping — the lift you're\n  about to do, in ascending doses.\n- **The mobility rabbit hole**: twenty-five minutes of bands and foam before touching a\n  bar, arriving at the working sets already drained. Fix: mobility work earns its place\n  only if it targets a limitation that shows up in *today's* lifts — two drills, tops.\n\nDo this: script your warm-up like sets and reps, because it is sets and reps. The top\nset is a performance; everything before it is the dress rehearsal it deserves.\n",
@@ -1590,6 +1620,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "health",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "comedy/2026-07-26e-bombing-is-tuition-not-a-verdict.md",
+   "title": "[comedy] Bombing is tuition, not a verdict",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Bombing is tuition, not a verdict\n\nTwenty years of stage time and I can tell you the difference between comics who\nlast and comics who vanish: it's what they do in the car after a bomb. I've bombed\nin every configuration a human can bomb — silent rooms, hostile rooms, rooms where\nthe sound guy laughed at the wrong parts only.\n\nScar tissue, catalogued:\n- **The audience autopsy**: blaming the crowd all the way home. \"They were a bad\n  room.\" Sometimes true — and completely useless, because you can't rewrite the\n  audience. Fix: within 24 hours, listen to the recording and mark the exact second\n  each bit lost them. The tape is brutal and the tape is the teacher.\n- **The full-set purge**: torching twenty minutes of material after one bad night.\n  I've watched comics delete bits that later became closers — the bit wasn't dead,\n  the delivery was rushed because panic sets in at the first silence. Fix: a bit\n  gets three different rooms before it's sentenced.\n- **The safety-set retreat**: after a bomb, running only proven material for six\n  months. Comfortable, and it's how you stop growing. The comics who plateau\n  hardest are the ones who stopped risking silence. Fix: every set carries one new\n  minute — the tax you pay to keep improving.\n\nThe rule: the bomb already happened; the only variable left is whether you paid\nfor the lesson or just the parking.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "comedy",
     "veteran-voice"
    ]
   },
