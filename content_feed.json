@@ -4,6 +4,16 @@
  "description": "Reviewed drafts across tech/health/comedy/psychology",
  "items": [
   {
+   "id": "tech/2026-07-26a-an-oncall-rotation-without-a-handoff-is-a-relay-with-no-baton.md",
+   "title": "[tech] An on-call rotation without a handoff is a relay with no baton",
+   "content_text": "# An on-call rotation without a handoff is a relay with no baton\n\nSTATUS: DRAFT — reviewed (content_gate, veteran-voice)\n\nI've watched an incident burn for six extra hours because the outgoing on-call knew exactly what was smoldering and the incoming one found out from the pager. Twenty years of rotations and the pattern never changes: the schedule tool is immaculate, the handoff is a shrug in Slack.\n\nNamed failure modes I've eaten:\n\n- **The silent smolder.** Outgoing engineer watched a queue depth creep all week, decided it \"wasn't page-worthy yet,\" and told nobody. It became page-worthy at 3am on the new person's first night.\n- **The tribal runbook.** The fix lives in one person's head — \"oh you just restart the consumer with the flag\" — and that person is now on a plane. The written runbook was last touched two reorgs ago.\n- **The mute inheritance.** Previous on-call muted a flapping alert to survive their week and never unmuted it. The next real incident of that class fired into a black hole.\n- **The context cliff.** A risky deploy shipped Friday afternoon; the weekend on-call didn't know it existed. Every symptom got debugged from zero instead of from \"what changed.\"\n\nThe fix that actually worked: a mandatory 15-minute synchronous handoff with a written template — open smolders, muted alerts, recent deploys, active weirdness — and the rule that you cannot leave rotation until the incoming person acknowledges the doc. Boring, ritual, non-negotiable.\n\n**Bottom line:** the pager transfers automatically; the context never does. The rule: no handoff doc acknowledged, no rotation ended — the baton is the doc, not the schedule.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "tech",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "tech/2026-07-25z-a-dependency-you-dont-pin-is-a-deploy-you-dont-control.md",
    "title": "[tech] A dependency you don't pin is a deploy you don't control",
    "content_text": "# A dependency you don't pin is a deploy you don't control\n\nSTATUS: DRAFT — reviewed (content_gate, veteran-voice)\n\nI've watched a green build turn red overnight with not one line of our code changed. A transitive dep shipped a patch release, our unpinned range pulled it, and a Friday deploy became a Saturday incident. \"It's just a patch bump\" is the most expensive sentence in software.\n\nNamed failure modes I've eaten:\n\n- **The floating range.** A caret or tilde range that silently pulls a new minor the moment upstream publishes. Your lockfile said one thing, your CI runner resolved another, and now \"works on my machine\" is literally true and useless.\n- **The phantom transitive.** You pinned your direct deps and felt safe, but a dep-of-a-dep floated freely underneath. The breaking change came from a package you've never heard of and can't grep for.\n- **The lockfile nobody commits.** The team pins in theory but the lock file is gitignored \"because it's noisy in diffs.\" Every developer and every CI run resolves a slightly different tree. Reproducible builds are a myth you tell auditors.\n- **The vendored fork that drifted.** Someone patched a dep locally to fix one bug, never upstreamed it, and now every security update means re-doing the patch by hand — which means it never gets done.\n- **The registry outage.** Your build fetches from the public registry live, every time. The day the registry has an incident, your ability to ship anything — including the hotfix for the registry-triggered outage — evaporates.\n\nThe fix that actually worked: pin exact versions, commit the lockfile, and treat every dependency update as a reviewed change with its own PR and its own test run — never an ambient side effect of `install`. Mirror or cache your registry so a public outage can't hold your deploys hostage. Upgrades become a decision you schedule, not a surprise you absorb.\n\n**Bottom line:** an unpinned dependency is someone else's deploy wearing your name. The rule: pin exact, commit the lock, upgrade on purpose — never let `install` resolve a tree you didn't review.\n",
@@ -490,6 +500,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "tech",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "psychology/2026-07-26a-reassurance-seeking-is-scratching-a-bite-it-spreads-the-itch.md",
+   "title": "[psychology] Reassurance-seeking is scratching a bite — it spreads the itch",
+   "content_text": "# Reassurance-seeking is scratching a bite — it spreads the itch\n\nSTATUS: DRAFT — reviewed (content_gate, veteran-voice)\n\nTwenty years of sitting with anxious minds and I've watched the same trade happen thousands of times: a moment of relief purchased now, paid for with a bigger dose of doubt tomorrow. Reassurance works — that's exactly the problem. It works like scratching works.\n\nNamed failure modes I've watched people cycle through:\n\n- **The escalating dose.** \"Are we okay?\" once a month becomes once a week becomes nightly. The reassurance still lands, but the half-life shrinks every time, and the asker feels crazier, not calmer.\n- **The outsourced certainty.** The person stops consulting their own judgment entirely. Every decision gets pre-cleared with a partner, a friend, a search bar. The muscle that tolerates not-knowing atrophies from disuse.\n- **The reassurer's burnout.** The partner who lovingly answers every \"are you sure?\" is training the loop while slowly resenting it. I've watched relationships buckle not from the anxiety but from the reassurance economy built around it.\n- **The disguised check.** It stops looking like a question — it becomes rereading the sent email, re-checking the lock, scanning their face at dinner. Same loop, quieter costume.\n\nWhat actually worked: name the loop out loud with everyone in it, agree on a gentle refusal script (\"I love you, and I'm not answering that one — you already know\"), and practice sitting with the unanswered question until the wave passes on its own. It always passes; that's the lesson the loop was blocking.\n\n**Bottom line:** every reassurance is a rep for the doubt, not against it. The rule: notice the urge, delay the ask, and let the discomfort finish its arc — tolerance is built in the gap between itch and scratch.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "psychology",
     "veteran-voice"
    ]
   },
@@ -984,6 +1004,16 @@
    ]
   },
   {
+   "id": "health/2026-07-26a-sleep-debt-doesnt-forgive-it-refinances.md",
+   "title": "[health] Sleep debt doesn't forgive — it refinances",
+   "content_text": "# Sleep debt doesn't forgive — it refinances\n\nSTATUS: DRAFT — reviewed (content_gate, veteran-voice)\n\nI've coached people for two decades who treated sleep like a credit line: borrow all week, repay Saturday. I've watched that ledger from the training floor — the repayment never clears the balance, it just rolls the interest forward into their lifts, their mood, and their injuries.\n\nNamed failure modes I've watched wreck progress:\n\n- **The weekend binge repay.** Five short nights, then eleven hours Saturday. The circadian whiplash means Monday feels like jet lag, and the training week starts in a hole again.\n- **The caffeine refinance.** The debt gets serviced with a second and third coffee, which pushes bedtime later, which deepens the debt. It's a payday loan with a nicer smell.\n- **The \"I'm fine\" adaptation.** After a couple of weeks of short sleep, people stop feeling tired — but I've watched their bar speed, their reaction time, and their patience with their kids all say otherwise. You adapt to the feeling, not the deficit.\n- **The heavy day collision.** The week's worst night somehow always lands before the heaviest session, because both were scheduled around the same overloaded life. That's where tweaks and misses come from.\n\nThe fix that actually worked for the people I've coached: defend a fixed wake time seven days a week, move the heavy sessions to follow the historically good nights, and treat one protected pre-sleep hour as part of the training program — written into it, not left to willpower.\n\n**Bottom line:** you don't pay sleep debt back, you restructure your life so you stop borrowing. The rule: fix the wake time first, schedule hard training after good nights, and count the wind-down hour as a set.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "health",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "health/2026-07-25z-protein-is-the-floor-not-the-ceiling-of-a-diet.md",
    "title": "[health] Protein is the floor, not the ceiling, of a diet",
    "content_text": "# Protein is the floor, not the ceiling, of a diet\n\nSTATUS: DRAFT — reviewed (content_gate, veteran-voice)\n\nI've coached people who tracked every macro to the gram and still lost muscle on a cut, because they treated protein as the thing to minimize around everything else. Backwards. Protein is the number you hit FIRST and build the rest of the plate around.\n\nFailure modes I've watched trap people:\n\n- **The last-slot protein.** They fill up on carbs and fat, then squeeze in whatever protein fits the calorie budget. On a deficit that means chronically under-eating it, and the scale drops because muscle is leaving, not just fat.\n- **The single-dose day.** All their protein in one giant dinner. The body can only do so much with one massive bolus; spreading it across the day does far more for holding muscle than one heroic steak.\n- **The \"clean\" trap.** They chase only whole-food protein and fall short every day because chicken and eggs alone are hard to hit volume with. A shake isn't cheating; it's a tool that closes the gap when appetite or time won't.\n- **The plant hand-wave.** Going plant-based and assuming beans \"count\" the same. They're valuable, but the amino profile and the sheer volume needed means you have to be deliberate, not casual, or you fall short without noticing.\n- **The rest-day drop.** They eat protein hard on training days and let it collapse on rest days — exactly the days recovery is happening. Muscle repair doesn't check your calendar.\n\nThe fix that actually worked for the people I train: set a daily protein target based on bodyweight, hit it every single day regardless of training, and spread it across three or four feedings. Fill remaining calories with carbs and fat to taste. Everything else in nutrition is negotiable; this floor isn't.\n\n**Bottom line:** protein is a floor you clear daily, not a leftover you fit in. Do this: pick your number, hit it first, spread it out — build the rest of the plate around what's already locked in.\n",
@@ -1470,6 +1500,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "health",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "comedy/2026-07-26a-crowd-work-is-a-detour-not-a-destination.md",
+   "title": "[comedy] Crowd work is a detour, not a destination",
+   "content_text": "# Crowd work is a detour, not a destination\n\nSTATUS: DRAFT — reviewed (content_gate, veteran-voice)\n\nI've bombed enough rooms over twenty years to know the seduction: crowd work gets the fastest laughs in the building, so young comics start treating it as the act. I've watched killers-in-the-room become nobodies-on-tape because nothing they did could survive outside that one Tuesday.\n\nNamed failure modes I've paid for on stage:\n\n- **The rented laugh.** The bit belongs to the drunk dentist in row two. It dies the second he leaves. You built nothing you can use tomorrow.\n- **The escape hatch habit.** Every time a written joke wobbles, you bail into \"where are you from?\" — and your material never gets the reps it needs to get good, because you never let it fail long enough to fix it.\n- **The hostage interview.** You mistake interrogating a shy table for engagement. The room isn't laughing with you, it's relieved you haven't picked them. That tension reads as energy from the stage and reads as cruelty on tape.\n- **The tape that can't travel.** The booker asks for a clip and everything killer you have is fifteen minutes of local references and one guy's divorce. Nothing submits, nothing books.\n\nWhat actually worked: I treat crowd work as seasoning — a bridge back into written material, never a replacement for it. Every crowd moment gets one job: hand me a segue into a bit I own.\n\n**Bottom line:** crowd work proves you're alive; material proves you're a comic. The rule: use the room to set up your act, never to replace it — if the laugh can't leave the building with you, it doesn't count.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "comedy",
     "veteran-voice"
    ]
   },
