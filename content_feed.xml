@@ -1,5 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sat, 25 Jul 2026 18:37:15 +0000</lastBuildDate>
+<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sat, 25 Jul 2026 19:36:26 +0000</lastBuildDate>
+<item><title>The opener buys the room, not the laugh</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/comedy/2026-07-26b-the-opener-buys-the-room-not-the-laugh.md</link><guid isPermaLink="false">2026-07-26b-the-opener-buys-the-room-not-the-laugh.md</guid><category>comedy</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of walking into cold rooms and I&#x27;ll say the unpopular thing: your opener&#x27;s
+job isn&#x27;t to be your funniest joke. Its job is to answer the only question the audience
+is silently asking — &quot;are we in good hands?&quot; Get that yes, and they&#x27;ll ride with you.
+
+Scar tissue, catalogued:
+- **The masterpiece opener**: leading with your best, most layered bit before the room
+  trusts you. I&#x27;ve bombed with material that killed twenty minutes deep in other sets,
+  because a cold room won&#x27;t do the work a warm one will. Fix: open with something short,
+  sturdy, and crowd-proof — save the cathedral for after they&#x27;ve bought a ticket.
+- **The apology walk-on**: opening with &quot;I just wrote this&quot; or fiddling with the mic
+  stand for eight seconds of dead air. The room reads nerves faster than words. Fix: the
+  first ten seconds are choreography — planted feet, first line loaded, no preamble.
+- **The borrowed-energy trap**: matching a hype host&#x27;s frantic energy when your act is
+  dry and slow. You spend the whole set as someone else. I&#x27;ve watched comics burn their
+  first five minutes impersonating the intro. Fix: reset the room to *your* tempo with
+  your first line — the audience recalibrates </description></item>
+<item><title>Hydration is a schedule, not a sensation</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26b-hydration-is-a-schedule-not-a-sensation.md</link><guid isPermaLink="false">2026-07-26b-hydration-is-a-schedule-not-a-sensation.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades of coaching and the clients who fade in the last third of a session are
+rarely under-fueled — they&#x27;re under-watered and waiting for thirst to tell them. By the
+time thirst shows up, you&#x27;re already behind, and behind is where lifts get ugly.
+
+Failure modes I see on repeat:
+- **The camel strategy**: nothing all day, then a liter chugged in the parking lot before
+  training. I&#x27;ve watched people cramp mid-set and blame electrolytes when the real issue
+  was showing up dry and trying to fix it in ten minutes. Fix: water rides along with
+  meals and transitions — sip on a schedule the body can actually absorb.
+- **The coffee accounting error**: counting three espressos and a pre-workout as fluid
+  intake. The math feels right and the afternoon headache disagrees. Fix: caffeine drinks
+  are neutral at best — they don&#x27;t earn hydration credit, they just don&#x27;t cost much.
+- **The clear-urine trophy hunt**: overcorrecting into constant chugging, flushing
+  electrolytes, feeling sloshy and weirdly flat. More is not the fix; timing is. Fix: pale
+  yellow is the target, and salt your food like an adult who sweats.
+
+Do this: put water where the habit already lives — desk, car, bag, rac</description></item>
+<item><title>Avoidance pays interest daily</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/psychology/2026-07-26b-avoidance-pays-interest-daily.md</link><guid isPermaLink="false">2026-07-26b-avoidance-pays-interest-daily.md</guid><category>psychology</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades across the table and the most expensive habit I&#x27;ve watched isn&#x27;t rage or
+panic — it&#x27;s the unopened envelope. The email not replied to, the scan not booked, the
+conversation postponed until it calcifies. Avoidance always feels like a loan with no
+payments due. It isn&#x27;t. It compounds while you sleep.
+
+Failure modes I&#x27;ve watched play out:
+- **The relief trap**: dodging the hard thing produces instant calm, and the brain files
+  that relief as evidence the dodge worked. I&#x27;ve watched people build entire routines
+  around never touching one folder. Fix: name the mechanism out loud — &quot;this calm is the
+  drug, not the solution&quot; — because a labeled trap catches fewer feet.
+- **The threat inflation spiral**: the longer a task is avoided, the bigger it grows in
+  imagination. A two-line reply becomes a confrontation, becomes a catastrophe. The task
+  never changed; the story did. Fix: write down what the task actually requires in
+  physical steps. Paper shrinks what imagination inflates.
+- **The perfect-conditions alibi**: &quot;I&#x27;ll deal with it when things settle down.&quot; I&#x27;ve
+  watched that sentence hold for years. Conditions never settle; they rotate. Fix: attach
+  the avoided thing </description></item>
+<item><title>A runbook nobody rehearses is a novel</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26b-a-runbook-nobody-rehearses-is-a-novel.md</link><guid isPermaLink="false">2026-07-26b-a-runbook-nobody-rehearses-is-a-novel.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of incidents and I&#x27;ve stopped counting the 2am pages where the runbook
+existed, was beautifully formatted, and was wrong in the third step. A runbook that&#x27;s
+never been executed under pressure isn&#x27;t documentation — it&#x27;s fiction with headers.
+
+Named failure modes I&#x27;ve paid for:
+- **The stale credential step**: &quot;log into the admin console&quot; — with an account that was
+  deprovisioned two quarters ago. I&#x27;ve watched an outage stretch forty minutes while we
+  hunted for anyone who still had access. Fix: every runbook step that touches auth gets
+  exercised in the quarterly game day, by the newest person on the team, not the author.
+- **The tribal-knowledge gap**: step four says &quot;restart the service&quot; and assumes you know
+  which of the six systemd units is *the* service. The author knew. The author is on a
+  plane. Fix: runbooks are written for the person who has never seen the system — exact
+  commands, exact hostnames, copy-pasteable.
+- **The happy-path runbook**: it covers the restart but not what to do when the restart
+  hangs, which is the only time you&#x27;d be reading it. Fix: every runbook ends with an
+  &quot;if this didn&#x27;t work&quot; branch and a named escalation human, not a team </description></item>
 <item><title>Sleep debt doesn&#x27;t forgive — it refinances</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26a-sleep-debt-doesnt-forgive-it-refinances.md</link><guid isPermaLink="false">2026-07-26a-sleep-debt-doesnt-forgive-it-refinances.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>I&#x27;ve coached people for two decades who treated sleep like a credit line: borrow all week, repay Saturday. I&#x27;ve watched that ledger from the training floor — the repayment never clears the balance, it just rolls the interest forward into their lifts, their mood, and their injuries.
 
 Named failure modes I&#x27;ve watched wreck progress:
