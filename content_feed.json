@@ -4,6 +4,16 @@
  "description": "Reviewed drafts across tech/health/comedy/psychology",
  "items": [
   {
+   "id": "tech/2026-07-26f-your-staging-env-is-lying-to-you.md",
+   "title": "[tech] Your staging environment is lying to you",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Your staging environment is lying to you\n\nTwenty years of shipping and the most expensive fiction I keep meeting is \"it\npassed staging.\" Staging is a diorama — same shapes as production, none of the\nweather. Every team that trusts it fully eventually learns the same lesson,\nusually at 3 a.m.\n\nNamed failure modes I've personally paid for:\n- **The empty-database mirage**: staging has 4,000 rows; production has 400\n  million. The query that ran in 40ms in staging table-scanned production into a\n  lock pileup. Fix: staging gets a scrubbed, production-scale data snapshot, or\n  every query review assumes worst-case cardinality — no exceptions for \"simple\"\n  reads.\n- **The single-tenant illusion**: one tester clicking around never reproduces two\n  users mutating the same record. The race condition doesn't exist until traffic\n  does. Fix: load tests with concurrent writers on the exact endpoints that share\n  state, before the feature flag flips.\n- **The config drift trap**: staging quietly runs different env vars, older\n  sidecars, laxer timeouts. The deploy \"worked\" because it was tested on a\n  different machine wearing the same name. Fix: config is code, diffed in CI\n  between environments, and any drift fails the pipeline loudly.\n\nThe rule: staging can prove your code is broken; it can never prove it works.\nOnly production traffic does that — which is why canaries and fast rollback are\nthe real test suite.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "tech",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "tech/2026-07-26e-a-retry-without-idempotency-is-a-duplicate-generator.md",
    "title": "[tech] A retry without idempotency is a duplicate generator",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# A retry without idempotency is a duplicate generator\n\nTwenty years of distributed systems and the bug I've paid for most often isn't the\nfailure — it's the retry. Teams bolt on \"resilience\" with a retry loop and quietly\nbuild a machine that charges customers twice, sends three welcome emails, and\ncreates ghost orders at 2 a.m.\n\nNamed failure modes I've signed the postmortem for:\n- **The optimistic timeout**: the request didn't fail, it was just slow. The client\n  gave up, retried, and both writes landed. I've watched a payments team refund a\n  week of double-charges because of one aggressive timeout. Fix: no retry on a\n  non-idempotent endpoint until it carries an idempotency key the server actually\n  checks — not one it logs and ignores.\n- **The retry storm amplifier**: downstream hiccups, every caller retries at the\n  same interval, and the recovering service gets hit with 5x its normal load the\n  second it comes back. Fix: jittered exponential backoff plus a circuit breaker;\n  a fleet retrying in sync is a self-inflicted DDoS.\n- **The queue re-delivery surprise**: \"exactly-once\" in the broker brochure,\n  at-least-once in production. The consumer that assumed one delivery corrupted\n  state on the second. Fix: consumers are idempotent by design — dedupe table,\n  conditional writes, or version checks. The broker's promise is not your contract.\n\nThe rule: retries multiply whatever your system already does. If it does the wrong\nthing once, retries make it do the wrong thing at scale.\n",
@@ -540,6 +550,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "tech",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "psychology/2026-07-26f-advice-is-often-a-way-to-stop-listening.md",
+   "title": "[psychology] Advice is often a way to stop listening",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Advice is often a way to stop listening\n\nTwo decades across the table and the pattern that damages the most\nrelationships isn't cruelty — it's premature advice. Someone brings you a\nstruggle, and within ninety seconds you're solving it. It feels like help. It\nusually functions as a door closing.\n\nFailure modes I've watched play out:\n- **The fix-it reflex**: the listener's own discomfort with the feeling drives\n  the solution, not the speaker's need. The advice is real, the timing makes it\n  a rejection. Fix: ask one question first — \"do you want ideas, or do you want\n  me to just hear this?\" It changes the entire conversation.\n- **The autobiography hijack**: \"the same thing happened to me\" and suddenly the\n  struggling person is audience to your story. I've watched people stop bringing\n  anything real to a friend after two of those. Fix: your story earns a sentence,\n  not the floor — then hand it back.\n- **The advice ledger**: unsolicited advice given, then resentment when it isn't\n  followed. Now there's a debt in the relationship neither party agreed to. Fix:\n  advice given freely means outcome released freely; if you need them to comply,\n  that wasn't advice, it was control.\n\nDo this: next time someone brings you a problem, count to ten before offering\nanything. What most people need first is evidence they were heard — the solving,\nif it's wanted, goes better after.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "psychology",
     "veteran-voice"
    ]
   },
@@ -1084,6 +1104,16 @@
    ]
   },
   {
+   "id": "health/2026-07-26f-sleep-debt-compounds-like-a-loan-shark.md",
+   "title": "[health] Sleep debt compounds like a loan shark",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Sleep debt compounds like a loan shark\n\nTwo decades coaching and the variable that quietly wrecks more programs than bad\nform ever did is sleep. Lifters will argue for an hour about protein timing and\nthen train four days a week on five hours a night, wondering why nothing moves.\n\nFailure modes I watch on repeat:\n- **The weekend repayment fantasy**: five short nights, then a twelve-hour\n  Saturday coma to \"catch up.\" The training week still happened underslept — the\n  bad sessions, the sloppy reps, the cravings all already got billed. Fix: defend\n  a consistent window seven days a week; boring beats heroic.\n- **The pre-workout escalation spiral**: tired, so more caffeine; wired at\n  midnight, so less sleep; more tired, so more caffeine. I've watched lifters ride\n  that loop into resting heart rates that scared them. Fix: hard caffeine cutoff\n  eight hours before bed, and treat a needed nap as training, not weakness.\n- **The deload denial**: chronic short sleep plus full training volume, and the\n  lifter blames the program when joints start barking. Underslept weeks ARE\n  deload weeks whether you schedule them or not — your body will take the\n  discount somewhere. Fix: sleep under six hours two nights running, the next\n  session drops a set from everything. Pre-agreed, no negotiation.\n\nDo this: track bedtime like you track the bar. The log book that only counts\nlifts is telling half the story.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "health",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "health/2026-07-26e-soreness-is-a-receipt-not-a-scoreboard.md",
    "title": "[health] Soreness is a receipt, not a scoreboard",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Soreness is a receipt, not a scoreboard\n\nTwo decades coaching and the most stubborn myth on the floor is still \"no soreness,\nno progress.\" I've watched lifters chase pain like it was the product, and quit the\nprogram that was actually working because it stopped hurting.\n\nFailure modes I see every single week:\n- **The novelty chaser**: swapping exercises every session to stay sore, which\n  guarantees you're always a beginner at everything. Soreness from novelty is not\n  adaptation — it's unfamiliarity. Fix: keep the same core lifts for 8–12 weeks and\n  let the log book, not the ache, tell you it's working.\n- **The soreness-as-permission trap**: \"I'm not sore, so I must not have trained\n  hard — better double the volume.\" I've watched that spiral end in a month off with\n  a cranky lower back. Fix: progress is measured in load, reps, and bar speed across\n  weeks. Soreness measures none of those.\n- **The wrecked-beginner special**: first session back after a layoff, ego loads the\n  eccentric work, and the next four days are lost to DOMS so bad training stops\n  entirely. Fix: the first week back is a rehearsal week — leave angry, come back\n  Wednesday. Consistency beats intensity you can't repeat.\n\nDo this: treat soreness like a receipt — proof a transaction happened, useless for\ntelling you whether it was a good one. The training log is the scoreboard.\n",
@@ -1620,6 +1650,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "health",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "comedy/2026-07-26f-the-crowd-work-crutch.md",
+   "title": "[comedy] The crowd work crutch",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# The crowd work crutch\n\nTwenty years in and I can spot it from the back of the room: a comic who can\nriff but can't write, leaning on crowd work like a folding chair. The clips do\nnumbers, the room laughs, and the act quietly stops developing.\n\nScar tissue, catalogued:\n- **The front-row dependency**: the whole set lives or dies on whether seat 3\n  gives you something. I've watched killers in bar shows go silent at a corporate\n  gig where nobody would talk back. Fix: crowd work is seasoning, not the meal —\n  the written act has to be able to run the full clock alone.\n- **The clip-chasing distortion**: crowd work clips outperform bits online, so\n  the comic optimizes for interruptions. Two years later there's no tight five to\n  submit anywhere, because festivals and bookers still buy material. Fix: every\n  month, one recorded run of pure written material, no audience contact allowed.\n- **The mean-streak drift**: riffing rewards the fastest laugh, and the fastest\n  laugh is often just cruelty with timing. The room laughs nervously, and word\n  gets around before you hear it. Fix: punch at what the person said, never at\n  who they are — the recording test is whether THEY would share the clip.\n\nThe rule: crowd work proves you're quick. The notebook proves you're a writer.\nCareers get built on the second one.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "comedy",
     "veteran-voice"
    ]
   },
