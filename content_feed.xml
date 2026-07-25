@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sat, 25 Jul 2026 20:37:34 +0000</lastBuildDate>
+<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sat, 25 Jul 2026 21:35:38 +0000</lastBuildDate>
+<item><title>Warm-ups are rehearsal, not a toll</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26d-warmups-are-rehearsal-not-a-toll.md</link><guid isPermaLink="false">2026-07-26d-warmups-are-rehearsal-not-a-toll.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades on gym floors and the lifters who stall hardest treat the warm-up like a
+tax — something to pay quickly so the real training can start. I&#x27;ve watched the same
+people wonder why their first working set feels like a stranger&#x27;s body.
+
+Failure modes I see every week:
+- **The empty-bar sprint**: three rushed sets with no intent, then a jump straight to
+  working weight. The first heavy set becomes the actual warm-up, and it&#x27;s the ugliest
+  rep of the day. Fix: warm-up sets rehearse the exact bar path and bracing of the top
+  set — same setup ritual, same cues, lighter load.
+- **The cardio confusion**: ten minutes on a bike and calling it done. Being warm and
+  being prepared are different states. I&#x27;ve watched sweaty people pull a hamstring on
+  their opener. Fix: general heat first, then movement-specific ramping — the lift you&#x27;re
+  about to do, in ascending doses.
+- **The mobility rabbit hole**: twenty-five minutes of bands and foam before touching a
+  bar, arriving at the working sets already drained. Fix: mobility work earns its place
+  only if it targets a limitation that shows up in *today&#x27;s* lifts — two drills, tops.
+
+Do this: script your warm-up like sets and reps, bec</description></item>
+<item><title>The callback is a trust receipt</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/comedy/2026-07-26d-the-callback-is-a-trust-receipt.md</link><guid isPermaLink="false">2026-07-26d-the-callback-is-a-trust-receipt.md</guid><category>comedy</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of sets and the cheapest big laugh in comedy is still the callback — and
+I&#x27;ve watched more comics fumble it than any other tool. A callback isn&#x27;t a repeat; it&#x27;s
+a receipt. It tells the room &quot;you were paying attention, and it paid off.&quot;
+
+Scar tissue, catalogued:
+- **The premature callback**: calling back a joke that only half-hit the first time.
+  You&#x27;re asking the audience to reinvest in a stock they already passed on. I&#x27;ve bombed
+  doing exactly this. Fix: only call back the bits that got the *whole* room — a callback
+  amplifies whatever reaction the original earned, including silence.
+- **The label-and-ruin**: saying &quot;remember earlier when I said...&quot; — the comedy
+  equivalent of explaining a magic trick mid-trick. The joy of a callback is the audience
+  doing the connecting. Fix: drop the reference cold and trust them; the half-second of
+  recognition IS the laugh.
+- **The callback pile-up**: closing on five stacked callbacks because one worked once.
+  By the fourth, the room feels the formula and the receipts bounce. Fix: two, maybe
+  three per set, spent like rent money — deliberately.
+
+The rule: a callback rewards attention. Rewarded audiences lean in harder for </description></item>
+<item><title>Comparison steals with a cropped photo</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/psychology/2026-07-26d-comparison-steals-with-a-cropped-photo.md</link><guid isPermaLink="false">2026-07-26d-comparison-steals-with-a-cropped-photo.md</guid><category>psychology</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades across the table and comparison is the quietest thief I&#x27;ve watched work.
+It never announces itself — it just borrows your attention for a scroll, a colleague&#x27;s
+promotion, a cousin&#x27;s house, and returns it with the joy skimmed off the top.
+
+Failure modes I&#x27;ve watched play out:
+- **The highlight-versus-backstage swap**: comparing your unedited daily life against
+  someone&#x27;s curated output. I&#x27;ve sat with people devastated by a feed they knew was
+  staged — knowing it&#x27;s cropped doesn&#x27;t stop the sting. Fix: name the crop out loud
+  every time — &quot;I am comparing my rehearsal to their premiere&quot; — the sentence sounds
+  absurd because the habit is.
+- **The moving-podium problem**: hitting the goal, then instantly re-ranking against a
+  new, richer reference group. The finish line moves the moment you cross it. I&#x27;ve
+  watched people out-earn every dream they had at 25 and feel behind at 40. Fix: keep a
+  written record of what &quot;enough&quot; meant three years ago and read it when the podium
+  moves.
+- **The single-axis trap**: measuring your whole life against someone else&#x27;s one strong
+  suit — their salary, their body, their marriage — never the full ledger. Fix: nobody
+  trades lives o</description></item>
+<item><title>A dashboard nobody alerts on is wallpaper</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26d-a-dashboard-nobody-alerts-on-is-wallpaper.md</link><guid isPermaLink="false">2026-07-26d-a-dashboard-nobody-alerts-on-is-wallpaper.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of production systems and I&#x27;ve stopped being impressed by dashboards.
+I&#x27;ve watched teams build forty-panel Grafana walls that nobody looked at during the
+one incident that mattered. If a graph can go red without paging a human, it&#x27;s not
+observability — it&#x27;s interior decorating.
+
+Named failure modes I&#x27;ve paid for:
+- **The vanity wall**: a giant TV of green panels in the office, and the outage was
+  discovered by a customer tweet. The wall was for visitors, not operators. Fix: every
+  panel must answer &quot;what action do I take when this moves?&quot; — if there&#x27;s no answer,
+  delete the panel.
+- **The threshold set once, in 2019**: an alert tuned for last year&#x27;s traffic that now
+  fires nightly, so everyone muted it. The week we needed it, it was in a silenced
+  channel. Fix: alert review is a quarterly calendar event with an owner, same as
+  dependency upgrades.
+- **The average that hides the fire**: mean latency looked flat while p99 was on fire
+  for the one enterprise customer paying the bills. I&#x27;ve sat in that postmortem. Fix:
+  percentiles per customer tier, not fleet-wide means.
+
+The rule: dashboards are for diagnosis, alerts are for detection. If detection
+depends on a h</description></item>
 <item><title>Zone 2 is boring on purpose</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26c-zone-2-is-boring-on-purpose.md</link><guid isPermaLink="false">2026-07-26c-zone-2-is-boring-on-purpose.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of coaching and the hardest thing I sell isn&#x27;t the brutal session — it&#x27;s
 the easy one. Everybody wants to leave the gym wrecked. Almost nobody wants to do the
 unglamorous aerobic work that makes every hard session recoverable. I&#x27;ve watched more
