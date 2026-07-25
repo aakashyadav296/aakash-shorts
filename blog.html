@@ -1,0 +1,1098 @@
+<!doctype html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aakash — 184 veteran-voice drafts</title>
+<style>body{font-family:system-ui;max-width:760px;margin:2rem auto;padding:0 1rem;background:#0d1117;color:#e6edf3}
+article{border-bottom:1px solid #30363d;padding:1rem 0}h2{font-size:1.05rem;margin:0}
+.meta{color:#8b949e;font-size:.8rem}a{color:#58a6ff}</style></head><body>
+<h1>Content drafts (184)</h1>
+<p><a href="index.html">→ Shorts showcase</a></p>
+<article><h2>[tech] A dependency you don&#x27;t pin is a deploy you don&#x27;t control</h2><p class="meta">2026-07-25 · tech</p><p># A dependency you don&#x27;t pin is a deploy you don&#x27;t control
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve watched a green build turn red overnight with not one line of our code changed. A transitive dep shipped a patch release, our unpinned range pulled it, and a Friday deploy became a Saturday incident. &quot;It&#x27;s just a patch bump&quot; is the most expensive sentence in software.
+
+Named fai…</p></article><article><h2>[tech] A feature flag you never remove becomes a second codebase</h2><p class="meta">2026-07-25 · tech</p><p># A feature flag you never remove becomes a second codebase
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve shipped flags that outlived the feature they gated by years. Nobody deletes them because nobody&#x27;s sure who&#x27;s still on the old path. That&#x27;s how you end up maintaining two products with one team.
+
+Named failure modes I&#x27;ve eaten:
+
+- **The zombie flag.** Feature fully rolled out, fl…</p></article><article><h2>[tech] A log line nobody reads is just disk you pay to fill</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A log line nobody reads is just disk you pay to fill
+
+Twenty years of shipping backends and the most expensive silence I&#x27;ve lived through wasn&#x27;t a missing log — it was ten thousand log lines a second that nobody could search when it mattered. We had everything. At 3am, during the incident, we had nothing usable. Volume is not observability.
+…</p></article><article><h2>[tech] A retry without a budget is a denial-of-service you wrote yourself</h2><p class="meta">2026-07-25 · tech</p><p># A retry without a budget is a denial-of-service you wrote yourself
+STATUS: DRAFT
+
+Two decades of shipping backend systems taught me that the outage that hurts most is rarely the one the vendor caused — it&#x27;s the one your own retry loop amplified. I&#x27;ve watched a single flaky downstream turn into a full-region brownout because every caller retried instantly, three times, forever. The dependency bli…</p></article><article><h2>[tech] A healthcheck that can&#x27;t fail is a green light to nowhere</h2><p class="meta">2026-07-25 · tech</p><p># A healthcheck that can&#x27;t fail is a green light to nowhere
+STATUS: DRAFT
+
+Twenty years of on-call taught me the scariest dashboard is the all-green one, because green is only as honest as the check behind it. I&#x27;ve watched a `/health` endpoint return 200 while the app couldn&#x27;t reach its database — the handler just returned `&quot;ok&quot;` as a string constant. Nobody wired the actual dependency into the pr…</p></article><article><h2>[tech] A cache you can&#x27;t invalidate is a second database you didn&#x27;t mean to build</h2><p class="meta">2026-07-25 · tech</p><p># A cache you can&#x27;t invalidate is a second database you didn&#x27;t mean to build
+
+STATUS: DRAFT
+
+Twenty years in and the cache bugs still cost me the most sleep. Not because caching is hard — because the day you add one, you quietly forked your source of truth and told nobody, including yourself.
+
+The named failure modes I&#x27;ve actually eaten:
+
+1. **The TTL-as-a-prayer.** Someone sets a 300-second TTL &quot;…</p></article><article><h2>[tech] A Timeout You Didn&#x27;t Set Is a Timeout Someone Else Chose</h2><p class="meta">2026-07-25 · tech</p><p># A Timeout You Didn&#x27;t Set Is a Timeout Someone Else Chose
+STATUS: DRAFT
+
+Twenty years wiring backend services together and the outages that scared me most weren&#x27;t crashes — they were the hangs. A crash tells you where it died. A hang just sits there, holding a connection, while the queue behind it fills up and the whole system browns out in slow motion.
+
+Named failure modes I&#x27;ve personally paid f…</p></article><article><h2>[tech] A Config Flag Is a Branch You Forgot to Test</h2><p class="meta">2026-07-25 · tech</p><p># A Config Flag Is a Branch You Forgot to Test
+STATUS: DRAFT
+
+Twenty years shipping backend systems and I&#x27;ve lost more nights to configuration than to code. The bug is never in the function you rewrote three times — it&#x27;s in the YAML nobody reviews, the environment variable that means one thing in staging and the opposite in prod.
+
+Named failure modes I&#x27;ve personally paid for:
+
+**The flag that only…</p></article><article><h2>[tech] A Retry Without a Budget Is a Self-Inflicted Outage</h2><p class="meta">2026-07-25 · tech</p><p># A Retry Without a Budget Is a Self-Inflicted Outage
+STATUS: DRAFT
+
+Twenty years building distributed systems and the single most common way I&#x27;ve watched teams turn a blip into an outage is the naive retry. A downstream service hiccups for 200ms, and the client library — helpfully — retries. Then every caller retries. Then their callers retry. You didn&#x27;t recover from the incident; you manufacture…</p></article><article><h2>[tech] A Dead-Letter Queue Nobody Reads Is a Landfill</h2><p class="meta">2026-07-25 · tech</p><p># A Dead-Letter Queue Nobody Reads Is a Landfill
+STATUS: DRAFT
+
+Twenty years shipping message-driven systems and I&#x27;ve watched the dead-letter queue become the place where accountability goes to die. Teams add a DLQ, feel safe, and never look at it again. It&#x27;s not a safety net — it&#x27;s a landfill with a nice name.
+
+Named failure modes I&#x27;ve personally paid for:
+
+**The DLQ with no alarm.** Messages fai…</p></article><article><h2>[tech] A Cache Is a Second Source of Truth You Forgot to Govern</h2><p class="meta">2026-07-25 · tech</p><p># A Cache Is a Second Source of Truth You Forgot to Govern
+STATUS: DRAFT
+
+Twenty years in and I&#x27;ve watched more incidents born from caches than from the databases they were meant to protect. The moment you add a cache you&#x27;ve forked truth — and nobody put the fork on the org chart.
+
+Named failure modes I&#x27;ve personally paid for:
+
+**The thundering herd on expiry.** A hot key expires. Ten thousand req…</p></article><article><h2>[tech] A healthcheck that only checks itself is theater</h2><p class="meta">2026-07-25 · tech</p><p># A healthcheck that only checks itself is theater
+STATUS: DRAFT
+
+Twenty years of on-call and the healthchecks that fooled me longest were the ones that returned 200 because the web server was up — while the database it needed was face-down in the mud. Green dashboard, dead product.
+
+Named failure modes I&#x27;ve paid for:
+
+- **The self-referential probe.** `/health` returns &quot;OK&quot; if the process can ans…</p></article><article><h2>[tech] TECH — Observability is not monitoring (20-yr distributed-systems voice)</h2><p class="meta">2026-07-25 · tech</p><p># TECH — Observability is not monitoring (20-yr distributed-systems voice)
+STATUS: DRAFT
+
+**Hook:** After twenty years on call, I can tell you monitoring answers &quot;is it down?&quot; — observability answers &quot;why is it weird?&quot; — and most teams pay for the first while begging for the second.
+
+**Body:**
+The scar that taught me: a payments service passing every health check while a fraction of users silently…</p></article><article><h2>[tech] A metric you don&#x27;t alert on is a diary entry, not monitoring</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A metric you don&#x27;t alert on is a diary entry, not monitoring
+
+Twenty years in and the postmortem line I&#x27;ve written most is some variant of &quot;the
+dashboard showed it the whole time.&quot; We had the graph. Nobody was looking at 3am.
+A metric with no alert is a diary you read after the funeral.
+
+Named failure modes I&#x27;ve paid for:
+- **The vanity dash…</p></article><article><h2>[tech] A feature flag you never remove is just tech debt with a toggle</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A feature flag you never remove is just tech debt with a toggle
+
+Twenty years in and the flag graveyard is real: I&#x27;ve inherited codebases where a third of
+the flags were &quot;temporary&quot; rollouts from three years ago, each one a live `if` branch that
+QA never covers and nobody dares delete. A flag is a promise to make a decision later. When
+later…</p></article><article><h2>[tech] A retry without a cap is a DDoS you wrote against yourself</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A retry without a cap is a DDoS you wrote against yourself
+
+Twenty years in and the outage that still makes me wince wasn&#x27;t caused by the failing
+service — it was caused by everything downstream &quot;helpfully&quot; retrying it into the ground.
+The dependency blipped for two seconds; the retries kept it down for twenty minutes.
+
+Named failure modes I…</p></article><article><h2>[tech] A cache you can&#x27;t invalidate on demand is a bug with good latency</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A cache you can&#x27;t invalidate on demand is a bug with good latency
+
+Twenty years in and the outages that scared me most weren&#x27;t the loud ones — they were
+the quiet stale reads. A cache makes the fast path fast and the wrong path invisible.
+Nobody pages you for &quot;correct but two hours old.&quot; The user just quietly gets a lie.
+
+Named failure modes…</p></article><article><h2>[tech] A rollback plan you&#x27;ve never actually run is a wish, not a plan</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A rollback plan you&#x27;ve never actually run is a wish, not a plan
+
+Twenty years of deploys and the incident that still stings: we had a rollback
+&quot;procedure&quot; in the runbook, everyone signed off on it, and the night we needed it
+it took forty minutes to discover step 3 hadn&#x27;t worked since a schema change six
+months earlier. A rollback you haven&#x27;…</p></article><article><h2>[tech] Backfills are outages in slow motion</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Backfills are outages in slow motion
+
+Twenty years in and the scariest deploy I&#x27;ve ever watched wasn&#x27;t a feature — it was
+a &quot;quick backfill.&quot; Teams treat backfills as chores. They&#x27;re not. A backfill is a
+production write path that runs unthrottled, against cold data, with none of the
+guardrails your live traffic earned over years. I&#x27;ve paid …</p></article><article><h2>[tech] Idempotency is a contract, not a retry checkbox</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Idempotency is a contract, not a retry checkbox
+
+Twenty years in and I still see teams treat idempotency as a thing you sprinkle on
+a handler when the on-call gets paged. It isn&#x27;t a feature you add — it&#x27;s a contract
+you either honor at every layer or silently violate at the one that matters.
+
+Named failure modes I&#x27;ve personally cleaned up at…</p></article><article><h2>[tech] Your cache is a second source of truth, and nobody agreed to that</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Your cache is a second source of truth, and nobody agreed to that
+
+Twenty years of shipping and the nastiest data bugs I&#x27;ve chased almost never lived in the
+database. They lived in the cache — the layer everyone treats as a performance detail and
+nobody treats as state. The moment a cache can return an answer the database wouldn&#x27;t, you
+have …</p></article><article><h2>[tech] Your logs are not a database — stop querying them like one</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Your logs are not a database — stop querying them like one
+
+Twenty years in and I keep meeting teams who deleted their metrics budget because
+&quot;we can just grep the logs.&quot; Then an incident hits and they&#x27;re paying a fortune to
+scan terabytes to answer a question a cheap counter would have answered instantly.
+
+Named failure modes I&#x27;ve personall…</p></article><article><h2>[tech] Your database is not a queue — stop making it one</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Your database is not a queue — stop making it one
+
+Twenty years in and the same pattern keeps walking in the door: a `status` column,
+a cron that `SELECT ... WHERE status=&#x27;pending&#x27;`, and a team convinced they&#x27;ve built
+a job system. They&#x27;ve built a slow-motion outage generator.
+
+Named failure modes I&#x27;ve personally paid for:
+- **The polling st…</p></article><article><h2>[tech] A rollback you never rehearsed is a rumor</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A rollback you never rehearsed is a rumor
+
+Twenty years of deploys and the worst nights were never the bad release — they were the
+moment we reached for the rollback and discovered it was a story we&#x27;d been telling
+ourselves. &quot;We can always roll back&quot; is the most expensive sentence in operations when
+nobody has actually done it since the sche…</p></article><article><h2>[tech] An alert you ignore twice is a policy you wrote by accident</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# An alert you ignore twice is a policy you wrote by accident
+
+Twenty years of on-call and the outages that embarrassed me most were never silent — the
+system was screaming for days and we&#x27;d all agreed, without a meeting, not to listen. Every
+muted channel, every &quot;known flaky&quot; alert, is a policy document nobody signed.
+
+Named failure modes I&#x27;v…</p></article><article><h2>[tech] A backup you never restored is a rumor</h2><p class="meta">2026-07-25 · tech</p><p># A backup you never restored is a rumor
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve watched a company discover, at 2 a.m. with the primary database gone, that eighteen months of nightly backups were empty tarballs. The cron job ran. The green checkmark showed. Nobody had ever restored one. The backup system wasn&#x27;t broken that night — it had been broken for a year and a half, and…</p></article><article><h2>[tech] A timeout you copied is a decision you never made</h2><p class="meta">2026-07-25 · tech</p><p># A timeout you copied is a decision you never made
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve watched a whole payment stack fall over because every service in the call chain shipped with the same default 30-second timeout — copied from a blog post, from a template, from the service next door. When the database slowed down, nothing failed fast. Everything failed together, thirty…</p></article><article><h2>[tech] A migration without a rollback is a bet-the-company ticket</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A migration without a rollback is a bet-the-company ticket
+
+Twenty years of schema changes and the migrations that hurt me were never the complicated
+ones — those got respect, review, and a rehearsal. The ones that hurt were &quot;trivial&quot;: rename a
+column, backfill a flag, five minutes tops. Trivial is where the rollback plan goes to die.
+
+Named…</p></article><article><h2>[tech] An alert you always ignore is a pager you already turned off</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# An alert you always ignore is a pager you already turned off
+
+Twenty years of on-call and the worst incidents I&#x27;ve worked were never silent — they were
+announced, loudly, into a channel everyone had muted. The alert fired. Nobody moved. We had
+trained ourselves, one false alarm at a time, to hear noise instead of signal.
+
+Named failure modes…</p></article><article><h2>[tech] A backup you never restore is a hope, not a plan</h2><p class="meta">2026-07-25 · tech</p><p># A backup you never restore is a hope, not a plan
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve watched a team discover, at two in the morning during a real incident, that eighteen months of nightly backups were empty tarballs. The cron job was green. The dashboard was green. The files were zero bytes. Nobody had ever run a restore. In twenty years of shipping infrastructure I hav…</p></article><article><h2>[tech] A retry without a budget is a self-inflicted DDoS</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A retry without a budget is a self-inflicted DDoS
+
+Twenty years of on-call and the outages that scared me most weren&#x27;t caused by attackers — they
+were caused by our own clients being loyal. A dependency hiccuped for thirty seconds, and every
+caller retried instantly, forever, in sync. The hiccup healed; the retry storm did not.
+
+Named failur…</p></article><article><h2>[tech] A config you can&#x27;t diff is a decision nobody owns</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A config you can&#x27;t diff is a decision nobody owns
+
+Twenty years in and the outage I&#x27;ve never seen a clean postmortem for is the one caused by a
+config change nobody could point to. The code had a commit. The config had a Tuesday and a
+shrug. If you can&#x27;t diff it, you can&#x27;t own it, and nobody owns what they can&#x27;t see change.
+
+Named failure mo…</p></article><article><h2>[tech] A cache you can&#x27;t invalidate is a bug with a countdown</h2><p class="meta">2026-07-25 · tech</p><p># A cache you can&#x27;t invalidate is a bug with a countdown
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve shipped a cache that made the demo fly and then spent the next quarter explaining to support why a fraction of users saw stale prices for hours. Caching isn&#x27;t free speed — it&#x27;s a promise that the world hasn&#x27;t changed, and that promise expires when you&#x27;re not looking.
+
+Named failur…</p></article><article><h2>[tech] A timeout without a total budget is just a slower way to fail</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A timeout without a total budget is just a slower way to fail
+
+Twenty years of production and the incident I keep reliving: every service in the chain
+had a &quot;sane&quot; timeout, and the whole request still hung for the better part of a minute
+because nobody added them up. Local timeouts feel responsible. Chained, they compound
+into a number no us…</p></article><article><h2>[tech] Feature flags are load-bearing infrastructure — treat them like it</h2><p class="meta">2026-07-25 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Feature flags are load-bearing infrastructure — treat them like it
+
+Twenty years of shipping and the outages I remember best weren&#x27;t caused by code — they were
+caused by flags. Teams treat flags as throwaway toggles, then wake up to a config system
+that decides whether checkout works, with no tests, no review, and no rollback story.
+
+Named f…</p></article><article><h2>[psychology] Comparison is a tax you volunteer to pay</h2><p class="meta">2026-07-25 · psychology</p><p># Comparison is a tax you volunteer to pay
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve watched capable people stall for years, not from lack of skill but from measuring their raw footage against everyone else&#x27;s highlight reel. Comparison isn&#x27;t information — it&#x27;s a tax on attention you keep choosing to pay, and it never funds anything you can use.
+
+Failure modes I&#x27;ve watched trap …</p></article><article><h2>[psychology] Motivation follows action, it doesn&#x27;t lead it</h2><p class="meta">2026-07-25 · psychology</p><p># Motivation follows action, it doesn&#x27;t lead it
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I wasted years waiting to feel ready. I treated motivation like weather — something that arrives on its own and lets you work once it shows up. It doesn&#x27;t. In practice, the feeling shows up AFTER you start, not before. Waiting for it is waiting for a bus that only comes once you&#x27;re already walki…</p></article><article><h2>[psychology] A boundary is a thing you enforce — not a speech you deliver</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A boundary is a thing you enforce — not a speech you deliver
+
+Two decades across the table from people trying to protect themselves, and the most common heartbreak is watching someone give a beautiful, articulate boundary speech and then abandon it the moment it&#x27;s tested. A boundary announced but not enforced isn&#x27;t a boundary — it&#x27;s a wish y…</p></article><article><h2>[psychology] Willpower is a battery, not a personality trait</h2><p class="meta">2026-07-25 · psychology</p><p># Willpower is a battery, not a personality trait
+STATUS: DRAFT
+
+Twenty years of coaching people through behavior change taught me the most damaging myth in the room: that discipline is a character you either have or lack. I&#x27;ve watched conscientious, capable people flog themselves for &quot;having no willpower&quot; at 9pm — when the real problem is they spent the whole battery by noon and built no system t…</p></article><article><h2>[psychology] Certainty is a feeling, not a verdict</h2><p class="meta">2026-07-25 · psychology</p><p># Certainty is a feeling, not a verdict
+STATUS: DRAFT
+
+Twenty years sitting across from people untangling their own decisions taught me that certainty is an emotion the brain generates, not a measurement of how true something is. It arrives before the evidence is in and it feels exactly the same whether you&#x27;re right or catastrophically wrong. That symmetry is the whole problem.
+
+Named failure mode…</p></article><article><h2>[psychology] Motivation is a passenger, not the driver</h2><p class="meta">2026-07-25 · psychology</p><p># Motivation is a passenger, not the driver
+
+STATUS: DRAFT
+
+Two decades of working with people trying to change, and the belief that quietly sabotages the most of them is waiting to *feel* like doing the thing before doing it. Motivation is real, but it&#x27;s a passenger — the second you hand it the wheel, you&#x27;ve agreed to only move when your mood says so.
+
+The failure modes I keep watching play out:
+…</p></article><article><h2>[psychology] Avoidance Feels Like Relief and Charges Like a Loan</h2><p class="meta">2026-07-25 · psychology</p><p># Avoidance Feels Like Relief and Charges Like a Loan
+STATUS: DRAFT
+
+Twenty years sitting with people untangling anxiety, and the hardest thing to explain is that the move that makes them feel better in the moment is usually the one keeping them stuck. Avoidance works — that&#x27;s the trap. It pays out instant relief and quietly compounds the fear behind your back.
+
+Named failure modes I&#x27;ve watched pl…</p></article><article><h2>[psychology] Rest Is a Decision, Not a Reward</h2><p class="meta">2026-07-25 · psychology</p><p># Rest Is a Decision, Not a Reward
+STATUS: DRAFT
+
+Twenty years sitting across from high-functioning people burning out in slow motion, and the belief I have to dismantle first is almost always the same: that rest is something you earn after the work is done. They treat recovery like a prize for a finished list, and the list is never finished, so they never rest — until the body files the paperwork…</p></article><article><h2>[psychology] Boundaries Are Something You Enforce, Not Announce</h2><p class="meta">2026-07-25 · psychology</p><p># Boundaries Are Something You Enforce, Not Announce
+STATUS: DRAFT
+
+Two decades sitting across from people untangling their relationships and I&#x27;ve watched the word &quot;boundaries&quot; get worn down into a slogan. People announce them like a press release — &quot;I have a boundary about this&quot; — and then fold the moment someone pushes. A boundary isn&#x27;t a sentence you say. It&#x27;s a consequence you&#x27;re actually will…</p></article><article><h2>[psychology] Comparison Is the Thief You Invited In</h2><p class="meta">2026-07-25 · psychology</p><p># Comparison Is the Thief You Invited In
+STATUS: DRAFT
+
+Two decades sitting across from people in coaching rooms and I&#x27;ve watched comparison quietly dismantle more self-worth than any single failure ever did. It doesn&#x27;t kick the door in — you invite it, feed it, and then wonder why you feel smaller every time you open your phone.
+
+Named failure modes I&#x27;ve watched people pay for:
+
+**Comparing your …</p></article><article><h2>[psychology] Closure Is Something You Build, Not Something You Receive</h2><p class="meta">2026-07-25 · psychology</p><p># Closure Is Something You Build, Not Something You Receive
+STATUS: DRAFT
+
+Twenty years sitting across from people in pain and I&#x27;ve watched the same trap swallow the smartest of them: they postpone their own healing until the other person delivers an apology, an explanation, a confession. They&#x27;re waiting for a package that was never going to be mailed.
+
+Named failure modes I&#x27;ve watched people live…</p></article><article><h2>[psychology] Venting is not processing</h2><p class="meta">2026-07-25 · psychology</p><p># Venting is not processing
+STATUS: DRAFT
+
+Twenty years of sitting across from people in pain and the most stubborn myth is that venting heals. It doesn&#x27;t. Venting is rehearsal. Say the anger out loud for the fortieth time and you&#x27;re not releasing it — you&#x27;re carving the groove deeper and calling the practice &quot;getting it off my chest.&quot;
+
+Named failure modes I&#x27;ve watched:
+
+- **The catharsis illusion…</p></article><article><h2>[psychology] PSYCHOLOGY — Anger is almost always the second thing you felt (20-yr clinician voice)</h2><p class="meta">2026-07-25 · psychology</p><p># PSYCHOLOGY — Anger is almost always the second thing you felt (20-yr clinician voice)
+STATUS: DRAFT
+
+**Hook:** Two decades in the room with people, and I&#x27;ve learned anger is rarely the origin — it&#x27;s the bodyguard for a softer feeling that showed up first.
+
+**Body:**
+The pattern is reliable: someone snaps, and underneath the snap, a half-second earlier, was hurt, fear, or shame that felt too expo…</p></article><article><h2>[psychology] The pain is always real — the story about the pain often isn&#x27;t</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# The pain is always real — the story about the pain often isn&#x27;t
+
+Two decades across the table from hurting people and the distinction that unlocks the most
+progress is also the hardest to hear: your feeling is valid, and your explanation for it can
+still be flat wrong. Those two things live together, and confusing them keeps people stuck.
+
+Fa…</p></article><article><h2>[psychology] Motivation follows action — it does not lead it</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Motivation follows action — it does not lead it
+
+Twenty years sitting across from people waiting to &quot;feel ready,&quot; and the most expensive myth
+in the room is that motivation is a precondition. People treat it like weather — something
+that arrives, that you wait out, that you can&#x27;t start without. In practice the feeling of
+wanting-to almost al…</p></article><article><h2>[psychology] Certainty is a feeling — and feelings are terrible at fact-checking</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Certainty is a feeling — and feelings are terrible at fact-checking
+
+Two decades across the table from anxious, stuck people and the trap I see most often:
+they treat the *feeling* of certainty as if it were evidence. &quot;I just know they&#x27;re angry
+at me.&quot; &quot;I&#x27;m sure this will go wrong.&quot; The conviction is real; the data is missing.
+
+Failure modes…</p></article><article><h2>[psychology] Rumination feels like problem-solving — that&#x27;s exactly why it traps you</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Rumination feels like problem-solving — that&#x27;s exactly why it traps you
+
+Two decades sitting across from stuck people and the pattern I trust most: the ones who
+can&#x27;t stop &quot;thinking it through&quot; are almost never solving anything. Rumination wears the
+costume of diligence, which is why it&#x27;s so hard to put down — it feels responsible.
+
+Failure …</p></article><article><h2>[psychology] A boundary is about your behavior, not controlling theirs</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A boundary is about your behavior, not controlling theirs
+
+Two decades sitting with people taught me the most misunderstood word in the room
+is &quot;boundary.&quot; People think it&#x27;s a rule they impose on someone else&#x27;s behavior.
+It isn&#x27;t — it&#x27;s a statement about what *you* will do, and it only works because it
+doesn&#x27;t require the other person to coo…</p></article><article><h2>[psychology] Comparison is a context error, not a character flaw</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Comparison is a context error, not a character flaw
+
+Twenty years working with people and I&#x27;ve stopped treating comparison as vanity or
+weakness. It&#x27;s a context error — the mind grabbing an out-of-context data point and
+treating it as a scoreboard. I&#x27;ve watched capable, kind people spiral for weeks off a
+single glance at someone else&#x27;s highl…</p></article><article><h2>[psychology] Willpower is a design problem, not a character flaw</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Willpower is a design problem, not a character flaw
+
+Two decades sitting across from people who called themselves lazy, and I&#x27;ve almost
+never met a willpower problem that wasn&#x27;t actually an environment problem wearing a
+guilt costume. The person isn&#x27;t weak — the setup is asking them to spend a scarce
+resource on something a small design chan…</p></article><article><h2>[psychology] A boundary is a rule for your own behavior, not a demand on theirs</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A boundary is a rule for your own behavior, not a demand on theirs
+
+Twenty years sitting with people and the single most misunderstood word in the room is
+&quot;boundary&quot;. People announce boundaries as ultimatums — &quot;you can&#x27;t talk to me like that&quot; — and
+then feel betrayed when the other person keeps doing exactly that. A boundary you can only kee…</p></article><article><h2>[psychology] Anxiety is a smoke alarm, not the fire — stop treating the beep as the emergency</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Anxiety is a smoke alarm, not the fire — stop treating the beep as the emergency
+
+Two decades sitting across from anxious people and the reframe that moves the needle
+most is this: the feeling is a detector, not a verdict. A smoke alarm going off
+doesn&#x27;t mean the house is burning — it means something asked for a look.
+
+Named failure modes I&#x27;…</p></article><article><h2>[psychology] Venting is rehearsal, not release — you&#x27;re practicing the anger</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Venting is rehearsal, not release — you&#x27;re practicing the anger
+
+Twenty years sitting across from people who came in &quot;just needing to vent,&quot; and the myth
+I fight most is catharsis: the idea that expressing anger drains it. Mostly it doesn&#x27;t.
+Mostly it rehearses it. I&#x27;ve watched people talk themselves angrier in real time and call
+it processi…</p></article><article><h2>[psychology] Rumination is rehearsal for a play that never opens</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Rumination is rehearsal for a play that never opens
+
+Two decades across the table and the most common uninvited guest isn&#x27;t panic — it&#x27;s the
+3am replay. The argument re-argued, the email re-read, the decision re-decided nightly for
+a month. People defend it as thinking. It isn&#x27;t. Thinking has an exit. Rumination is a
+loop wearing thinking&#x27;s …</p></article><article><h2>[psychology] Avoidance shrinks the map, not the monster</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Avoidance shrinks the map, not the monster
+
+Two decades across the table and the pattern I&#x27;ve watched ruin the most lives isn&#x27;t dramatic
+— it&#x27;s quiet subtraction. Skip the party, dodge the call, take the long way past the thing.
+Each skip works, that&#x27;s the trap: the relief is real, immediate, and compounding in the
+wrong direction. The fear …</p></article><article><h2>[psychology] Self-criticism is a manager you never hired</h2><p class="meta">2026-07-25 · psychology</p><p># Self-criticism is a manager you never hired
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve spent 20 years sitting across from high performers who all employ the same unpaid executive: an inner critic they never interviewed, never onboarded, and can&#x27;t fire. They defend it, too — &quot;if I&#x27;m not hard on myself, I&#x27;ll get lazy.&quot; Then we look at the record together and find the harshness n…</p></article><article><h2>[psychology] Reassurance is a drug with a shrinking dose</h2><p class="meta">2026-07-25 · psychology</p><p># Reassurance is a drug with a shrinking dose
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve sat across from clients for 20 years and watched the same trade happen: a wave of anxiety, a request for reassurance, a moment of relief — and then the wave comes back taller. Reassurance-seeking is the most reasonable-looking behavior in the room, and it&#x27;s often the one keeping the whole cy…</p></article><article><h2>[psychology] Rumination is rehearsal for a play that never opens</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Rumination is rehearsal for a play that never opens
+
+Two decades across the table and the busiest minds I see are often the least effective ones —
+not because they lack intelligence, but because the intelligence is running laps. Rumination
+feels like work. It has the texture of problem-solving. It just never files the paperwork.
+
+Failure mod…</p></article><article><h2>[psychology] Avoidance is a loan with interest paid in dread</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Avoidance is a loan with interest paid in dread
+
+Two decades across the table and the most expensive habit I treat isn&#x27;t dramatic — it&#x27;s the
+quiet one. The unopened letter. The unanswered message. The appointment not booked. Avoidance
+works instantly, which is exactly why it&#x27;s dangerous: the relief is real, and it teaches your
+brain that the…</p></article><article><h2>[psychology] Boundaries are instructions, not punishments</h2><p class="meta">2026-07-25 · psychology</p><p># Boundaries are instructions, not punishments
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+Twenty years of sitting with people in practice, and the single most common misunderstanding I&#x27;ve watched cause needless pain is this: treating a boundary as something you do *to* another person. A boundary is not a wall you build around them. It&#x27;s an instruction manual for how to be close to yo…</p></article><article><h2>[psychology] Self-criticism is a manager you never hired and can&#x27;t fire by ignoring</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Self-criticism is a manager you never hired and can&#x27;t fire by ignoring
+
+Two decades across the table and the most common inner voice I meet is a hostile supervisor the
+client never chose: it berates, it moves goalposts, and it claims it&#x27;s the only thing keeping
+them productive. It isn&#x27;t. It&#x27;s the thing keeping them exhausted while taking cre…</p></article><article><h2>[psychology] Avoidance feels like safety in the moment and builds the cage over time</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Avoidance feels like safety in the moment and builds the cage over time
+
+Two decades across the table and the trap I&#x27;ve watched swallow the most capable people is the
+one that feels responsible: avoiding the thing that scares them. Every avoidance buys an hour of
+relief and pays for it with a smaller life. The cage isn&#x27;t built by fear — it&#x27;s…</p></article><article><h2>[psychology] Rumination feels like problem-solving and isn&#x27;t</h2><p class="meta">2026-07-25 · psychology</p><p># Rumination feels like problem-solving and isn&#x27;t
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve wasted whole nights convinced that if I just thought about a problem one more time I&#x27;d crack it — and woken up exhausted with the same problem and a worse mood. Rumination wears the costume of problem-solving. It uses the same serious face, the same furrowed brow, and produces nothing. L…</p></article><article><h2>[psychology] Motivation follows action — you don&#x27;t wait for it, you manufacture it</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Motivation follows action — you don&#x27;t wait for it, you manufacture it
+
+Two decades of sitting with stuck people taught me the most expensive myth in self-help:
+that you feel motivated first, then act. It&#x27;s backwards. The feeling is downstream of
+starting, and people who wait for it to arrive wait forever.
+
+Failure modes I&#x27;ve watched play out…</p></article><article><h2>[psychology] Most advice is autobiography — filter it before you follow it</h2><p class="meta">2026-07-25 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Most advice is autobiography — filter it before you follow it
+
+Two decades of sitting with people making big decisions taught me a filter that saves
+years: when someone gives you advice, ask what decision of *theirs* it&#x27;s really defending.
+People don&#x27;t hand you their analysis; they hand you their justification.
+
+Failure modes I&#x27;ve watched pl…</p></article><article><h2>[health] Protein is the floor, not the ceiling, of a diet</h2><p class="meta">2026-07-25 · health</p><p># Protein is the floor, not the ceiling, of a diet
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve coached people who tracked every macro to the gram and still lost muscle on a cut, because they treated protein as the thing to minimize around everything else. Backwards. Protein is the number you hit FIRST and build the rest of the plate around.
+
+Failure modes I&#x27;ve watched trap people…</p></article><article><h2>[health] Mobility is strength you can actually reach</h2><p class="meta">2026-07-25 · health</p><p># Mobility is strength you can actually reach
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I spent years chasing bigger numbers while my range of motion quietly shrank. Then a shoulder that couldn&#x27;t get overhead cleanly turned a heavy press into a slow-motion injury. Strength you can&#x27;t express through a full range is just a liability with good marketing.
+
+Named failure modes I&#x27;ve watche…</p></article><article><h2>[health] Sleep is where you actually get stronger — the workout is just the stimulus</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Sleep is where you actually get stronger — the workout is just the stimulus
+
+Two decades of coaching and the plateau I&#x27;ve untangled most often isn&#x27;t a programming problem — it&#x27;s a sleep problem wearing a programming costume. The lifter swears the plan is broken. The plan is fine. They&#x27;re trying to adapt to a stimulus on five hours a night, a…</p></article><article><h2>[health] Grip is the strength that quietly caps every other lift</h2><p class="meta">2026-07-25 · health</p><p># Grip is the strength that quietly caps every other lift
+STATUS: DRAFT
+
+Twenty years under the bar and rehabbing my own cranky forearms taught me that grip is the silent ceiling nobody trains until it fails them. I&#x27;ve watched strong people miss deadlifts not because their back gave out but because the bar rolled out of their hands at rep four — the posterior chain had more to give, the hands didn…</p></article><article><h2>[health] Soreness is feedback, not a scoreboard</h2><p class="meta">2026-07-25 · health</p><p># Soreness is feedback, not a scoreboard
+STATUS: DRAFT
+
+Two decades of training people and rebuilding my own beaten-up joints taught me that the people who chase soreness are usually the ones who plateau, and the ones who quietly show up plateau least. Soreness tells you a stimulus was novel. It does not tell you the session was good, and it definitely doesn&#x27;t measure progress.
+
+Named failure mode…</p></article><article><h2>[health] Progress hides on the days you don&#x27;t feel it</h2><p class="meta">2026-07-25 · health</p><p># Progress hides on the days you don&#x27;t feel it
+
+STATUS: DRAFT
+
+Two decades of coaching people and watching my own body, and the single most expensive belief I keep having to un-teach is that a session only &quot;counts&quot; if it felt like something.
+
+The failure modes I&#x27;ve seen wreck otherwise disciplined people:
+
+1. **Chasing the pump instead of the trend.** They judge a workout by how sore or smashed th…</p></article><article><h2>[health] Mobility Is the Strength You Can Actually Reach</h2><p class="meta">2026-07-25 · health</p><p># Mobility Is the Strength You Can Actually Reach
+STATUS: DRAFT
+
+Two decades coaching lifters and the ones who plateau hardest aren&#x27;t weak — they&#x27;re strong in a range too small to use. They can grind a heavy pull from mid-shin but can&#x27;t sit into a full squat without their spine folding. Strength you can&#x27;t reach through a full range is just tension with a ceiling.
+
+Named failure modes I&#x27;ve watched …</p></article><article><h2>[health] Warmups Are Insurance, Not Wasted Time</h2><p class="meta">2026-07-25 · health</p><p># Warmups Are Insurance, Not Wasted Time
+STATUS: DRAFT
+
+Two decades coaching lifters and the fastest way to spot someone who&#x27;s about to get hurt is watching them walk in, load the bar, and pull. They think the warmup is stolen from the workout. I&#x27;ve watched that exact impatience end more seasons than heavy weight ever did.
+
+Named failure modes I&#x27;ve watched people pay for:
+
+**The cold heavy first s…</p></article><article><h2>[health] Sleep Is the Training. The Workout Was Just the Stimulus.</h2><p class="meta">2026-07-25 · health</p><p># Sleep Is the Training. The Workout Was Just the Stimulus.
+STATUS: DRAFT
+
+Two decades coaching lifters and endurance athletes and I&#x27;ve watched more progress get killed in the bedroom than in the gym. People obsess over the session — the sets, the splits, the shiny program — and then sleep six broken hours and wonder why they&#x27;ve stalled for a year. The workout is the stimulus. The adaptation happe…</p></article><article><h2>[health] Consistency Beats Intensity and It Isn&#x27;t Close</h2><p class="meta">2026-07-25 · health</p><p># Consistency Beats Intensity and It Isn&#x27;t Close
+STATUS: DRAFT
+
+Two decades coaching people through gym programs and I&#x27;ve watched more progress destroyed by heroic weeks than by lazy ones. The person who trains hard for ten days and vanishes for three weeks loses to the person who shows up for twenty unremarkable sessions. Intensity is a story you tell yourself; consistency is what your body actua…</p></article><article><h2>[health] Soreness Is Not a Scoreboard</h2><p class="meta">2026-07-25 · health</p><p># Soreness Is Not a Scoreboard
+STATUS: DRAFT
+
+Two decades of coaching lifters and the single most expensive belief I keep uprooting is this one: that a session only &quot;counted&quot; if you&#x27;re wrecked the next day. Soreness is a signal about novelty, not a receipt for progress.
+
+Named failure modes I&#x27;ve watched people fall into:
+
+**Chasing the burn instead of the load.** A lifter adds reps and drops weigh…</p></article><article><h2>[health] Tempo is the variable nobody logs</h2><p class="meta">2026-07-25 · health</p><p># Tempo is the variable nobody logs
+STATUS: DRAFT
+
+Two decades coaching lifters and the number one hidden cheat isn&#x27;t load or reps — it&#x27;s tempo. People add weight, keep the rep count, and quietly shave a full second off the eccentric until they&#x27;re basically dropping the bar and calling it a set.
+
+Named failure modes I&#x27;ve watched wreck progress:
+
+- **The bounce-rep plateau.** Bench &quot;goes up&quot; for a …</p></article><article><h2>[health] HEALTH — Grip strength is the tell (20-yr strength-coach voice)</h2><p class="meta">2026-07-25 · health</p><p># HEALTH — Grip strength is the tell (20-yr strength-coach voice)
+STATUS: DRAFT
+
+**Hook:** Twenty years coaching lifters and gen-pop, and the number I trust most isn&#x27;t bodyweight or a lift max — it&#x27;s how long you can hang from a bar.
+
+**Body:**
+Grip is the honest broker. You can grind a bad deadlift with hips and ego; you cannot fake a dead hang. When someone tells me they&#x27;re &quot;getting stronger&quot; bu…</p></article><article><h2>[health] Your warmup isn&#x27;t a toll you pay — it&#x27;s the first rep of the workout</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Your warmup isn&#x27;t a toll you pay — it&#x27;s the first rep of the workout
+
+Two decades of coaching and the lifters who get hurt aren&#x27;t the reckless ones — they&#x27;re
+the ones who treat the warmup as wasted time to rush through so the &quot;real&quot; work can start.
+The warmup IS real work. It&#x27;s where you find out what today&#x27;s body actually has.
+
+Failure mode…</p></article><article><h2>[health] Soreness is not a scoreboard</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Soreness is not a scoreboard
+
+Two decades coaching lifters and the belief that will not die: that being wrecked the next
+day means the session worked. I&#x27;ve watched people chase the ache instead of the adaptation,
+adding volume purely to feel destroyed, then wondering why the numbers on the bar stopped
+moving. Soreness tells you a stimulus wa…</p></article><article><h2>[health] The best program is the one you can still run in week nine</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# The best program is the one you can still run in week nine
+
+Two decades of coaching and the people who transform aren&#x27;t the ones with the hardest
+week one — they&#x27;re the ones with the most boring week thirty. Intensity is easy to
+summon once and impossible to bank. Consistency is what actually compounds.
+
+Failure modes I see on repeat:
+- **Th…</p></article><article><h2>[health] Strength you can&#x27;t reach isn&#x27;t strength — it&#x27;s a liability under load</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Strength you can&#x27;t reach isn&#x27;t strength — it&#x27;s a liability under load
+
+Two decades of coaching and the injuries I&#x27;ve watched happen most weren&#x27;t from weak
+muscles — they were from strong muscles meeting a joint that had no room to move. People
+chase the number and quietly lose the range that keeps the number safe.
+
+Failure modes I see on rep…</p></article><article><h2>[health] Tempo is the load you&#x27;ve been hiding from</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Tempo is the load you&#x27;ve been hiding from
+
+Two decades coaching and the cheapest strength unlock I know isn&#x27;t more plates —
+it&#x27;s slowing the eccentric down until the lift stops lying to you. Bouncing and
+momentum let you move weight you never actually controlled, and the body only
+adapts to what it controls.
+
+Failure modes I see on repeat:
+-…</p></article><article><h2>[health] Mobility is just strength you can actually reach</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Mobility is just strength you can actually reach
+
+Two decades of coaching and I&#x27;ve stopped calling it &quot;flexibility.&quot; Flexibility is a
+party trick; mobility is control through a range you own under load. I&#x27;ve watched
+strong people with no usable range blow out a low back reaching for something dumb,
+because their strength lived in a tiny slic…</p></article><article><h2>[health] The intensity you can&#x27;t repeat next week doesn&#x27;t count</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# The intensity you can&#x27;t repeat next week doesn&#x27;t count
+
+Two decades of coaching and the single biggest lie I&#x27;ve had to un-teach is that the
+hardest session is the best session. The body doesn&#x27;t adapt to the effort you gave
+once — it adapts to the stimulus you can return to before the adaptation fades.
+
+Named failure modes I&#x27;ve watched wreck …</p></article><article><h2>[health] Adding load is not the same as making progress — I&#x27;ve watched people confuse them for years</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Adding load is not the same as making progress — I&#x27;ve watched people confuse them for years
+
+After two decades coaching, the lie that injures the most people isn&#x27;t laziness — it&#x27;s the
+belief that a heavier bar this week means you got stronger. Load is an input. Adaptation is
+the output. When you chase the input and ignore whether the body ac…</p></article><article><h2>[health] Sleep is the training — the gym is just the stimulus</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Sleep is the training — the gym is just the stimulus
+
+Two decades of coaching and the hardest sell is still this: you don&#x27;t get stronger
+in the session, you get stronger in the recovery. The barbell is the request; sleep
+is where the body actually writes the change to disk.
+
+Named failure modes I&#x27;ve personally watched:
+- **The volume-junkie …</p></article><article><h2>[health] Soreness is not the scoreboard — stop chasing the ache</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Soreness is not the scoreboard — stop chasing the ache
+
+Two decades of training people and myself, and the belief that won&#x27;t die is that a good
+session is measured by how wrecked you feel the next day. I&#x27;ve coached strong, patient
+people into needless plateaus because they optimized for pain instead of progress.
+
+Named failure modes I&#x27;ve wat…</p></article><article><h2>[health] Sleep is the workout you can&#x27;t skip twice</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Sleep is the workout you can&#x27;t skip twice
+
+Two decades of coaching and the clients who stall hardest are almost never under-training —
+they&#x27;re under-sleeping and trying to out-lift it. You can bully your way through one bad
+night. The second one starts quietly taking things back: the bar speed, the appetite
+signals, the mood you need to show…</p></article><article><h2>[health] Soreness is feedback, not a scoreboard</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Soreness is feedback, not a scoreboard
+
+Two decades of coaching and I still have to talk people out of the same religion: the belief
+that a workout only counted if they can&#x27;t sit down the next day. Soreness measures novelty,
+not progress. Chasing it is how you stay a beginner forever — just a very tired one.
+
+Failure modes I see on repeat:
+-…</p></article><article><h2>[health] Cardio is a base, not a punishment</h2><p class="meta">2026-07-25 · health</p><p># Cardio is a base, not a punishment
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve spent 20 years watching lifters treat cardio like a court sentence — something you get handed after a bad weekend of eating, served on a treadmill, resented the whole time. And I&#x27;ve watched those same lifters gas out between sets, recover slower between sessions, and wonder why their work capacity fl…</p></article><article><h2>[health] Warm-ups are rehearsal, not a tax</h2><p class="meta">2026-07-25 · health</p><p># Warm-ups are rehearsal, not a tax
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve spent 20 years watching lifters treat the warm-up like a toll booth — something you pay grudgingly to get to the real lifting. Then I watched the same lifters miss lifts they owned on paper, tweak backs on weights they&#x27;d handled for years, and blame the program. The program was fine. The rehearsal was…</p></article><article><h2>[health] Hydration is a schedule, not a sensation</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Hydration is a schedule, not a sensation
+
+Two decades of coaching and the quietest performance leak I see isn&#x27;t programming or effort —
+it&#x27;s people running two percent down on water all day and blaming the fog on sleep, stress, or
+age. Thirst is a lagging indicator. By the time it speaks up, the session&#x27;s already discounted.
+
+Failure modes I…</p></article><article><h2>[health] Recovery days are training days with different homework</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Recovery days are training days with different homework
+
+Two decades of coaching and the athletes who stall hardest are rarely the lazy ones — they&#x27;re
+the ones who treat rest like a moral failure. They train seven days deep, plateau, get hurt,
+and call it bad luck. It wasn&#x27;t luck. The adaptation they were chasing happens between
+sessions, an…</p></article><article><h2>[health] Sleep is the training session you can&#x27;t skip</h2><p class="meta">2026-07-25 · health</p><p># Sleep is the training session you can&#x27;t skip
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+Twenty years of coaching people through plateaus, and the pattern is so reliable I check it before I check anything else: the lifter who stalls, the runner who keeps tweaking things, the desk athlete who &quot;eats clean but feels flat&quot; — the first thing that fell apart was almost always sleep. Train…</p></article><article><h2>[health] Hydration is a schedule you run, not a sensation you wait for</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Hydration is a schedule you run, not a sensation you wait for
+
+Two decades of coaching and the performance leak I fix most often costs nothing and gets
+ignored by everyone: people wait to feel thirsty, and by then the session is already worse.
+Thirst is a lagging indicator. The athletes who own hydration treat it like programming, not
+like a…</p></article><article><h2>[health] Recovery is a skill you train, not a day you skip work</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Recovery is a skill you train, not a day you skip work
+
+Two decades of coaching and the athletes who plateau hardest are the ones who think recovery
+means &quot;do nothing.&quot; Doing nothing is not recovery, it&#x27;s absence. Recovery is an active skill,
+and the people who own it out-progress the people who just train harder.
+
+Failure modes I see on rep…</p></article><article><h2>[health] Tempo is the strength variable nobody trains</h2><p class="meta">2026-07-25 · health</p><p># Tempo is the strength variable nobody trains
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve watched strong lifters stall for months adding plates to a bar they were dropping, not lifting. The weight was going up and the muscle wasn&#x27;t, because every rep was a controlled fall with a bounce at the bottom. Tempo — how fast you lower, pause, and drive — is the dial most people never to…</p></article><article><h2>[health] Grip strength is the canary you keep ignoring</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Grip strength is the canary you keep ignoring
+
+After two decades coaching, the cheapest early-warning signal I trust isn&#x27;t a lab panel —
+it&#x27;s how a barbell feels in the hand on a fatigued day. Grip fades before the big movers
+do, and it tells you about systemic recovery long before your log shows a missed lift.
+
+Failure modes I see on repeat…</p></article><article><h2>[health] Nasal breathing under load is the cheapest fitness gauge you&#x27;re ignoring</h2><p class="meta">2026-07-25 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Nasal breathing under load is the cheapest fitness gauge you&#x27;re ignoring
+
+After two decades coaching, the test I trust more than any wearable: can you keep your
+mouth shut at your &quot;easy&quot; pace? The moment the jaw drops open, you&#x27;ve left easy — no
+matter what the watch says. Athletes lie to apps; the airway doesn&#x27;t.
+
+Failure modes I see on rep…</p></article><article><h2>[comedy] The callback is a gift you set up before you give it</h2><p class="meta">2026-07-25 · comedy</p><p># The callback is a gift you set up before you give it
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve bombed with a callback that should have crushed, purely because I never planted the seed cleanly the first time. A callback isn&#x27;t a joke you find at the end — it&#x27;s a promise you made in the first two minutes and forgot to keep with intent.
+
+Failure modes I&#x27;ve watched newer comics fa…</p></article><article><h2>[comedy] Punching up is a compass, not a cage</h2><p class="meta">2026-07-25 · comedy</p><p># Punching up is a compass, not a cage
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve watched rooms go cold in a way that has nothing to do with the joke&#x27;s craft and everything to do with who it lands on. The mechanics were clean; the target was wrong. The audience wasn&#x27;t offended — they just decided you were the bully, and nobody laughs at a bully.
+
+Named failure modes from years of…</p></article><article><h2>[comedy] Silence is a tool — the panic to fill it is what kills the joke</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Silence is a tool — the panic to fill it is what kills the joke
+
+Twenty years of sets and the tell that separates an open-miker from a headliner isn&#x27;t the material — it&#x27;s what they do in the two seconds after a line. The new comic hears silence and sprints. The seasoned one lets it sit, because the pause is where the room decides to laugh.
+
+…</p></article><article><h2>[comedy] The straight line is where the audience relaxes so the punchline can land</h2><p class="meta">2026-07-25 · comedy</p><p># The straight line is where the audience relaxes so the punchline can land
+STATUS: DRAFT
+
+Twenty years of working rooms taught me that new comics obsess over jokes and starve the straight lines — and then wonder why the jokes die. The straight line isn&#x27;t filler. It&#x27;s the flat runway the audience needs before you can pull the wheels up. No runway, no takeoff.
+
+Named failure modes I&#x27;ve bombed my wa…</p></article><article><h2>[comedy] The callback is a debt you set up earlier</h2><p class="meta">2026-07-25 · comedy</p><p># The callback is a debt you set up earlier
+STATUS: DRAFT
+
+Twenty years of writing and bombing taught me a callback isn&#x27;t a clever afterthought — it&#x27;s a debt you took out in the first two minutes and repaid at the end with interest. When it lands it feels like magic to the room; backstage you know it was accounting.
+
+Named failure modes I&#x27;ve eaten on stage:
+- **The callback to nothing.** You refer…</p></article><article><h2>[comedy] The tag is where the laugh actually lives</h2><p class="meta">2026-07-25 · comedy</p><p># The tag is where the laugh actually lives
+
+STATUS: DRAFT
+
+Twenty years of standup and the thing baby comics never believe me on: your first punchline is rarely your best one. The money is in the tag — the line you add after the laugh, riding the wave the joke already made.
+
+The named ways I&#x27;ve watched sets die on this:
+
+1. **Walking away from a hot room.** The joke lands, the room&#x27;s warm, and th…</p></article><article><h2>[comedy] The Premise Is a Contract You Signed in the First Line</h2><p class="meta">2026-07-25 · comedy</p><p># The Premise Is a Contract You Signed in the First Line
+STATUS: DRAFT
+
+Twenty years on stages from empty back rooms to real theaters, and I&#x27;ve bombed enough to know the death usually happens in the setup, not the punchline. The joke didn&#x27;t fail — the promise did. You told the room what kind of ride this was, then drove somewhere else.
+
+Named failure modes I&#x27;ve paid for live:
+
+**Burying the premis…</p></article><article><h2>[comedy] The Callback Is a Promise You Have to Keep</h2><p class="meta">2026-07-25 · comedy</p><p># The Callback Is a Promise You Have to Keep
+STATUS: DRAFT
+
+Twenty years on stage and the callback — reviving a bit from earlier in the set — is the move that separates a comic who has a set from one who has a list of jokes. When it lands, the room feels like it&#x27;s in on a secret. When it misses, it&#x27;s the loudest silence in comedy, because you reminded them of something they already forgot they sho…</p></article><article><h2>[comedy] The Heckler Is a Gift You Have to Unwrap Fast</h2><p class="meta">2026-07-25 · comedy</p><p># The Heckler Is a Gift You Have to Unwrap Fast
+STATUS: DRAFT
+
+Twenty years on stage and I&#x27;ve watched more sets die to a heckler than to bad material. Not because the heckle was clever — most aren&#x27;t — but because the comic froze, got defensive, or worse, tried to win. A heckler isn&#x27;t your enemy. He&#x27;s a live prop the whole room is now watching. The only question is whether you unwrap the gift or fu…</p></article><article><h2>[comedy] Silence Is a Punchline You Have to Earn</h2><p class="meta">2026-07-25 · comedy</p><p># Silence Is a Punchline You Have to Earn
+STATUS: DRAFT
+
+Twenty years on stage and I&#x27;ve watched more new comics die from filling silence than from any bad joke. They hear a beat of quiet, panic, and step on their own punchline. Silence isn&#x27;t the enemy — it&#x27;s the instrument. But it only plays if you&#x27;ve earned the right to sit in it.
+
+Named failure modes I&#x27;ve personally bombed my way through:
+
+**Ste…</p></article><article><h2>[comedy] The Tag Is Where Amateurs Die</h2><p class="meta">2026-07-25 · comedy</p><p># The Tag Is Where Amateurs Die
+STATUS: DRAFT
+
+Twenty years of working rooms and I can spot the newer comic by one tell: they get the laugh, and then they keep talking. The tag — the extra beat after the punchline — is where more sets die than in any silent opener.
+
+Named failure modes I&#x27;ve bombed my way through and now watch others repeat:
+
+**Talking over your own laugh.** You land the punch, the…</p></article><article><h2>[comedy] The callback is a loan you have to repay</h2><p class="meta">2026-07-25 · comedy</p><p># The callback is a loan you have to repay
+STATUS: DRAFT
+
+Twenty years on stage taught me the callback is the flashiest tool in the kit and the one that bombs most confidently. A callback is a loan — you borrowed a laugh earlier and you&#x27;re promising interest later. Miss the payment and the room feels cheated, not delighted.
+
+Named failure modes I&#x27;ve bombed with:
+
+- **The callback to a bit that did…</p></article><article><h2>[comedy] COMEDY — Silence is a punchline you have to trust (20-yr standup voice)</h2><p class="meta">2026-07-25 · comedy</p><p># COMEDY — Silence is a punchline you have to trust (20-yr standup voice)
+STATUS: DRAFT
+
+**Hook:** Twenty years on stages, and the joke that dies most often isn&#x27;t the weak one — it&#x27;s the good one the comic panicked over and stepped on.
+
+**Body:**
+Here&#x27;s the scar: you land a line, the room needs a half-second to arrive, and in that half-second the amateur in you fills the gap with &quot;you know?&quot; or a …</p></article><article><h2>[comedy] A heckler hands you the room — if you stop trying to win the argument</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A heckler hands you the room — if you stop trying to win the argument
+
+Twenty years of sets and the newest comics all make the same mistake with a heckler: they
+try to be RIGHT. The room doesn&#x27;t want right. The room wants to see who&#x27;s in control. The
+second you argue, you&#x27;ve handed them the wheel.
+
+Scar tissue, catalogued:
+- **Debating the h…</p></article><article><h2>[comedy] If you have to explain the joke, you already lost the room</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# If you have to explain the joke, you already lost the room
+
+Twenty years of open mics and paid rooms and the tell I see in every new comic: the panic
+add-on. The joke lands soft, so they tack on &quot;...you know what I mean?&quot; or re-say the premise
+slower, as if the laugh was hiding behind comprehension. It wasn&#x27;t. The room got it. It just
+didn&#x27;t…</p></article><article><h2>[comedy] The joke gets the laugh — the tag gets the respect</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# The joke gets the laugh — the tag gets the respect
+
+Twenty years of sets taught me new comics leave most of their laughs on the table by
+walking away the second a joke lands. The punchline opens the door; the tag is the three
+extra laughs waiting on the other side of it, free, if you don&#x27;t bolt.
+
+Scar tissue, catalogued:
+- **The premature ex…</p></article><article><h2>[comedy] A callback lands because the room remembers — not because your notes do</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A callback lands because the room remembers — not because your notes do
+
+Twenty years of sets taught me the callback is the most oversold move in comedy. New
+comics plant one because it looks clever on paper, then it dies because the room never
+actually held the first bit long enough to miss it.
+
+Scar tissue, catalogued:
+- **The forced plant…</p></article><article><h2>[comedy] Your opener is a promise, not a warmup</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Your opener is a promise, not a warmup
+
+Twenty years of rooms taught me the first ninety seconds set the contract for the
+whole set. New comics treat the opener as throat-clearing and burn the room&#x27;s
+goodwill before they&#x27;ve made a case for why to listen. The open tells them who you
+are and how hard they can laugh.
+
+Scar tissue, catalogued:
+-…</p></article><article><h2>[comedy] Edit on your feet, not in your notebook</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Edit on your feet, not in your notebook
+
+Twenty years of open mics and late shows taught me the ugly truth: your notebook
+lies to you. A bit reads great at the kitchen table and dies on stage, and no amount
+of rewriting at home fixes it, because the audience is the only editor whose notes
+count. I&#x27;ve bombed with jokes I was certain were perf…</p></article><article><h2>[comedy] The premise does the heavy lifting; the punchline just collects the check</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# The premise does the heavy lifting; the punchline just collects the check
+
+Twenty years of open mics and headline sets taught me the thing new comics get
+backwards: they polish punchlines and neglect premises. A weak premise with a great
+tag dies; a sharp premise carries a mediocre tag to a laugh anyway.
+
+Named failure modes I&#x27;ve bombed my w…</p></article><article><h2>[comedy] A callback you planned is a callback that dies — you earn them on stage, not at the desk</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A callback you planned is a callback that dies — you earn them on stage, not at the desk
+
+Twenty years on stage and the callbacks that land hardest were never in my notes. The room
+handed them to me. Comics fall in love with the *idea* of a callback — the clever button that
+ties the set in a bow — and force one in whether the room bought the…</p></article><article><h2>[comedy] Punch up, not around — the audience always knows where the target is</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Punch up, not around — the audience always knows where the target is
+
+Twenty years of stage time and here&#x27;s the thing nobody wants to hear at the open
+mic: the room can smell who you&#x27;re aiming at faster than you can. Point the joke at
+the wrong target and the silence isn&#x27;t confusion — it&#x27;s judgment.
+
+Named failure modes I&#x27;ve personally bombe…</p></article><article><h2>[comedy] The only real death on stage is explaining the joke</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# The only real death on stage is explaining the joke
+
+I&#x27;ve bombed plenty of ways over the years, but the one that still makes me wince is the
+recovery-explain: the bit didn&#x27;t land, so I told the room why it should have. That&#x27;s not
+a save. That&#x27;s an autopsy performed on a live patient.
+
+Named failure modes I&#x27;ve earned the hard way:
+- **The ner…</p></article><article><h2>[comedy] The callback is interest, not a rerun</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# The callback is interest, not a rerun
+
+Twenty years of rooms and the callback is still the cheapest standing ovation in comedy —
+and the most abused. Done right, it tells the audience &quot;you and I have history now.&quot; Done
+wrong, it tells them you ran out of jokes twenty minutes ago and started reheating.
+
+Scar tissue, catalogued:
+- **The instan…</p></article><article><h2>[comedy] The opener is a contract, not a throat-clear</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# The opener is a contract, not a throat-clear
+
+Twenty years of rooms and I can tell you the audience decides who you are in the first
+thirty seconds — then spends the rest of the set looking for evidence they were right. Your
+opener isn&#x27;t a warm-up. It&#x27;s the contract you&#x27;re asking two hundred strangers to sign.
+
+Scar tissue, catalogued:
+- **T…</p></article><article><h2>[comedy] Silence is a note, not an error</h2><p class="meta">2026-07-25 · comedy</p><p># Silence is a note, not an error
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve bombed enough rooms in 20 years to learn that the thing new comics fear most — silence — is actually an instrument, and most of them smash it the first time it appears. A pause lands, the room goes quiet, and the new comic panics and talks over the exact moment the laugh was loading.
+
+Named failure mode…</p></article><article><h2>[comedy] The callback is interest on a joke you already paid for</h2><p class="meta">2026-07-25 · comedy</p><p># The callback is interest on a joke you already paid for
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve bombed with brand-new material on the same night a lazy callback to a joke from ten minutes earlier destroyed the room. That&#x27;s the dirty secret of the callback: the audience isn&#x27;t laughing at new writing. They&#x27;re laughing at being *remembered* — at the room becoming an inside jok…</p></article><article><h2>[comedy] Crowd work is a detour, not a destination</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Crowd work is a detour, not a destination
+
+Twenty years of rooms and I&#x27;ve watched crowd work go from a tool to a religion. Clips reward
+it, so new comics chase it, and half of them are out there conducting interviews with strangers
+instead of doing an act. The crowd is a seasoning. The set is the meal.
+
+Scar tissue, catalogued:
+- **The inter…</p></article><article><h2>[comedy] The closer is a promise you spend the whole set earning</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# The closer is a promise you spend the whole set earning
+
+Twenty years of rooms and I can tell you the closer is the most misunderstood slot in a set.
+New comics think it&#x27;s just the funniest joke moved to the end. It isn&#x27;t. It&#x27;s the joke the
+rest of the set was quietly building permission for — and if you didn&#x27;t build it, the closer
+lands lik…</p></article><article><h2>[comedy] The opener buys permission, not applause</h2><p class="meta">2026-07-25 · comedy</p><p># The opener buys permission, not applause
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+Twenty years of rooms — clubs, corporates, back-of-a-bar Tuesdays — and the hardest lesson to teach a newer comic is what the first thirty seconds are actually *for*. It&#x27;s not for your best joke. It&#x27;s for answering the only question the audience is silently asking: &quot;are we safe with this person?&quot; I&#x27;…</p></article><article><h2>[comedy] Crowd work is listening with a punchline, not interrupting with one</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Crowd work is listening with a punchline, not interrupting with one
+
+Twenty years of rooms and the crowd work that kills is never the comic being quick — it&#x27;s the
+comic being present. The audience can tell instantly whether you&#x27;re actually hearing the person
+in the front row or just waiting for a gap to deploy a stock line. One builds the ro…</p></article><article><h2>[comedy] Your premise is a promise — break it and the room stops trusting you</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Your premise is a promise — break it and the room stops trusting you
+
+Twenty years of sets and the bit that dies quietest is the one with a great premise and no
+payoff. A premise is a contract with the room: you told them where this is going, and now they&#x27;re
+watching to see if you deliver. Break the promise and they don&#x27;t boo — they just sto…</p></article><article><h2>[comedy] The tag is where you earn the second laugh</h2><p class="meta">2026-07-25 · comedy</p><p># The tag is where you earn the second laugh
+
+STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+
+I&#x27;ve bombed by walking away from a joke the second it landed, leaving three more laughs on the table because I didn&#x27;t trust the tag. The punchline gets the first laugh; the tag — the extra line that twists the same premise again — gets the laugh that makes them think you&#x27;re better than you are. Mo…</p></article><article><h2>[comedy] Your first fifteen seconds set the ceiling for the whole set</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Your first fifteen seconds set the ceiling for the whole set
+
+Twenty years of rooms taught me this the expensive way: audiences decide how much
+permission you get in the first beat, and everything after negotiates inside that ceiling.
+New comics spend it on housekeeping — &quot;how&#x27;s everyone doing&quot; — which is spending your
+highest-attention mome…</p></article><article><h2>[comedy] Silence is a tool, not a gap to be filled</h2><p class="meta">2026-07-25 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Silence is a tool, not a gap to be filled
+
+Twenty years of rooms taught me the hardest muscle to build is the one that does nothing.
+New comics treat every pause as an emergency and stampede over their own laugh. The pause
+after a punchline isn&#x27;t dead air — it&#x27;s where the room does the work you set up.
+
+Scar tissue, catalogued:
+- **Stepping …</p></article><article><h2>[tech] Retries Are Where Your Outage Hides</h2><p class="meta">2026-07-24 · tech</p><p># Retries Are Where Your Outage Hides
+STATUS: DRAFT
+
+Twenty years of on-call and I can tell you where the worst incidents live: not in the code that fails, but in the code that retries. A naive retry loop is a distributed denial-of-service attack you wrote against yourself.
+
+Named failure modes I&#x27;ve personally cleaned up after:
+
+**The retry storm.** Downstream service hiccups for two seconds. Ever…</p></article><article><h2>[tech] Your timeout isn&#x27;t a number, it&#x27;s a budget — and you&#x27;re overspending down the whole call chain</h2><p class="meta">2026-07-24 · tech</p><p>STATUS: DRAFT — content_gate
+
+# Your timeout isn&#x27;t a number, it&#x27;s a budget — and you&#x27;re overspending down the whole call chain
+
+Twenty years of chasing latency and the same bug keeps wearing new clothes: someone sets a 30-second timeout on every hop and calls it &quot;resilient.&quot; It isn&#x27;t. A timeout is a budget you spend once at the edge and divide as you go down. I&#x27;ve paid for this at 3am watching a r…</p></article><article><h2>[tech] Your health check is lying to you, and you deployed on its word</h2><p class="meta">2026-07-24 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Your health check is lying to you, and you deployed on its word
+
+Twenty years of on-call and the outage I still apologize for: a service that
+returned a cheerful green /health while every real request 500&#x27;d. The check
+pinged a static route that touched nothing — no database, no dependency, no
+actual work. The load balancer kept routing traff…</p></article><article><h2>[tech] Cache invalidation isn&#x27;t hard because it&#x27;s clever — it&#x27;s hard because you bolted it onto the read path</h2><p class="meta">2026-07-24 · tech</p><p>STATUS: DRAFT — content_gate
+
+# Cache invalidation isn&#x27;t hard because it&#x27;s clever — it&#x27;s hard because you bolted it onto the read path
+
+Twenty years of putting Redis in front of Postgres and the outages all rhyme. Cache invalidation gets called one of the &quot;two hard problems&quot; and people treat it like a riddle. It isn&#x27;t. It&#x27;s an ownership problem: you added the cache on the read path and left invali…</p></article><article><h2>[tech] &quot;Exactly-once&quot; is a marketing word — build idempotent consumers instead</h2><p class="meta">2026-07-24 · tech</p><p>STATUS: DRAFT — reviewed (manual gate, veteran-voice)
+# &quot;Exactly-once&quot; is a marketing word — build idempotent consumers instead
+
+Twenty years shipping event pipelines and I still get vendors pitching &quot;exactly-once
+delivery.&quot; It doesn&#x27;t exist end-to-end. What exists is at-least-once delivery plus an
+idempotent consumer, and if you don&#x27;t build the second half you WILL double-charge a
+customer. I&#x27;ve …</p></article><article><h2>[tech] Retries don&#x27;t fix outages. Retry storms cause them.</h2><p class="meta">2026-07-24 · tech</p><p>STATUS: DRAFT — NOT SENT
+
+# Retries don&#x27;t fix outages. Retry storms cause them.
+
+Twenty years of running distributed systems and the pattern I&#x27;ve watched take down more platforms than any bug: **the retry storm** — a downstream dependency blips for 30 seconds, every client retries three times with no jitter, and the recovery traffic is 4x normal load, so the dependency that was about to come back …</p></article><article><h2>[tech] Observability isn&#x27;t three dashboards nobody reads</h2><p class="meta">2026-07-24 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Observability isn&#x27;t three dashboards nobody reads
+
+Twenty years in production and the pattern never dies: a team buys a tool, wires up
+three dashboards, and calls it observability. Then the outage hits and everyone&#x27;s
+squinting at a wall of green while users are on fire. Dashboards answer questions you
+already knew to ask. Real incidents are …</p></article><article><h2>[tech] The Migration That Ate Duplicate Charges (Idempotency Keys Done Wrong)</h2><p class="meta">2026-07-24 · tech</p><p># The Migration That Ate Duplicate Charges (Idempotency Keys Done Wrong)
+STATUS: DRAFT — NOT POSTED | persona: 20-yr backend/martech architect | 2026-07-24
+
+Everyone says &quot;add idempotency keys.&quot; Nobody tells you the two ways teams still burn themselves AFTER adding them.
+
+Failure mode 1: keying on the request body hash. Marketing edits one character in the email subject mid-retry-storm → new hash …</p></article><article><h2>[tech] Backpressure beats autoscaling — 20 years of queue fires</h2><p class="meta">2026-07-24 · tech</p><p>STATUS: DRAFT — reviewed (manual gate, veteran-voice)
+# Backpressure beats autoscaling — 20 years of queue fires
+
+Every junior team&#x27;s first reflex when a queue backs up is &quot;add workers.&quot; Twenty years in,
+I reach for the opposite lever: make the producer feel pain. Autoscaling a consumer fleet
+against an unbounded producer just moves the outage from &quot;queue depth&quot; to &quot;database
+connection pool exhaus…</p></article><article><h2>[tech] A queue is a buffer, not a fix — it just moves the pain downstream</h2><p class="meta">2026-07-24 · tech</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A queue is a buffer, not a fix — it just moves the pain downstream
+
+Twenty years in and the mistake I&#x27;ve watched teams make over and over: throughput
+falls behind, someone bolts on a queue, the dashboards go green, and everyone declares
+victory. A queue doesn&#x27;t add capacity. It hides a deficit until the deficit gets big
+enough to hurt in a p…</p></article><article><h2>[psychology] Most Advice Is Autobiography in Disguise</h2><p class="meta">2026-07-24 · psychology</p><p># Most Advice Is Autobiography in Disguise
+STATUS: DRAFT
+
+Twenty years in the therapy room and here&#x27;s a pattern that never stops being true: when people give you advice, they are mostly talking to a younger version of themselves. That doesn&#x27;t make the advice worthless. It makes it evidence — about them.
+
+The failure modes I watch play out weekly:
+
+**The projection prescription.** The friend who te…</p></article><article><h2>[psychology] Certainty is a feeling, not evidence — and it arrives before the facts do</h2><p class="meta">2026-07-24 · psychology</p><p>STATUS: DRAFT — content_gate
+
+# Certainty is a feeling, not evidence — and it arrives before the facts do
+
+Twenty years sitting across from people making high-stakes calls and the tell is always the same: the more certain someone feels, the less they&#x27;ve actually checked. Certainty isn&#x27;t the output of reasoning — it&#x27;s an emotion that shows up early and gets rationalized backward. I&#x27;ve watched sharp…</p></article><article><h2>[psychology] Rumination feels like problem-solving — that&#x27;s the trap</h2><p class="meta">2026-07-24 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Rumination feels like problem-solving — that&#x27;s the trap
+
+Two decades of sitting with anxious, capable people taught me the disguise that
+fools the smartest ones: rumination wears the costume of thinking. It feels
+productive, responsible even — you&#x27;re &quot;working through it.&quot; But problem-solving
+converges toward an action, and rumination just ci…</p></article><article><h2>[psychology] &quot;I&#x27;ll do it when I feel motivated&quot; is a scheduling error dressed as an emotion</h2><p class="meta">2026-07-24 · psychology</p><p>STATUS: DRAFT — content_gate
+
+# &quot;I&#x27;ll do it when I feel motivated&quot; is a scheduling error dressed as an emotion
+
+Twenty years sitting across from people trying to change, and the single most expensive belief in the room is that action waits on motivation. It&#x27;s backwards, and I&#x27;ve watched it keep capable people stuck for years. Motivation is not the ignition — it&#x27;s the exhaust. It shows up *after* y…</p></article><article><h2>[psychology] The goal-gradient trap — why &quot;almost done&quot; makes people quit</h2><p class="meta">2026-07-24 · psychology</p><p>STATUS: DRAFT — reviewed (manual gate, veteran-voice)
+# The goal-gradient trap — why &quot;almost done&quot; makes people quit
+
+Twenty years in behavior change and the counterintuitive one I keep having to re-teach:
+people don&#x27;t quit at the start of hard things, they quit near the end. The goal-gradient
+effect says effort rises as the finish line nears — but so does the felt weight of what&#x27;s
+left, and that&#x27;…</p></article><article><h2>[psychology] Reassurance Is a Loan With Compound Interest</h2><p class="meta">2026-07-24 · psychology</p><p># Reassurance Is a Loan With Compound Interest
+STATUS: DRAFT — NOT POSTED | persona: 20-yr clinical practitioner | 2026-07-24
+
+Twenty years in practice, and the single most misunderstood move in anxiety work is reassurance. Clients want it. Families give it. And every dose makes the next dose necessary.
+
+The mechanism, plainly: anxiety asks a question (&quot;what if it&#x27;s serious?&quot;), reassurance answers…</p></article><article><h2>[psychology] Affect labeling in the room — what two decades of sessions taught me about naming</h2><p class="meta">2026-07-24 · psychology</p><p>STATUS: DRAFT — reviewed (manual gate, veteran-voice)
+# Affect labeling in the room — what two decades of sessions taught me about naming
+
+The intervention that&#x27;s earned its keep across twenty years isn&#x27;t clever reframing —
+it&#x27;s getting a client to accurately name what they&#x27;re feeling while they&#x27;re feeling it.
+&quot;Stressed&quot; is a junk drawer word. &quot;Humiliated in front of my team&quot; is workable material.…</p></article><article><h2>[psychology] Guilt says &quot;I did bad.&quot; Shame says &quot;I am bad.&quot; Only one of them is useful.</h2><p class="meta">2026-07-24 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Guilt says &quot;I did bad.&quot; Shame says &quot;I am bad.&quot; Only one of them is useful.
+
+Two decades sitting across from stuck people and the single distinction that changes the
+most lives is this one. Guilt points at a behavior you can change. Shame points at a self
+you feel you can&#x27;t. People who can&#x27;t separate them punish their identity for a mistake a…</p></article><article><h2>[psychology] It&#x27;s not decision fatigue. It&#x27;s unmade decisions on loop.</h2><p class="meta">2026-07-24 · psychology</p><p>STATUS: DRAFT — NOT SENT
+
+# It&#x27;s not decision fatigue. It&#x27;s unmade decisions on loop.
+
+Twenty years in the therapy chair and the pattern behind most &quot;I&#x27;m exhausted but did nothing&quot; days isn&#x27;t the pop-science version of decision fatigue. It&#x27;s **open-loop churn** — the same unmade decision replayed dozens of times a day, each replay costing attention and paying out nothing. The mind treats an unmade…</p></article><article><h2>[psychology] Avoidance is a loan with brutal interest</h2><p class="meta">2026-07-24 · psychology</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Avoidance is a loan with brutal interest
+
+Two decades sitting with anxious people taught me that avoidance always feels like relief
+and always charges compound interest. You dodge the hard email, the awkward call, the
+scary appointment — and the anxiety drops in the moment. That drop is the reward that
+teaches your brain to avoid harder next…</p></article><article><h2>[health] Sleep Debt Charges Interest, Not Principal</h2><p class="meta">2026-07-24 · health</p><p># Sleep Debt Charges Interest, Not Principal
+STATUS: DRAFT
+
+Two decades coaching shift workers, new parents, and founders taught me one thing the productivity blogs won&#x27;t say: you never &quot;catch up&quot; on sleep the way you think. You pay interest on the debt long after you think you&#x27;ve cleared the balance.
+
+Failure modes I&#x27;ve watched wreck people:
+
+**The weekend repayment myth.** Five short nights, the…</p></article><article><h2>[health] Your muscles adapt in weeks, your tendons in months — that gap is where injuries live</h2><p class="meta">2026-07-24 · health</p><p>STATUS: DRAFT — content_gate
+
+# Your muscles adapt in weeks, your tendons in months — that gap is where injuries live
+
+Twenty years of coaching people back from stuff they did to themselves in a motivated fortnight. The pattern never changes: someone finds their groove, strength jumps, weight on the bar climbs — and their tendons never got the memo. Muscle is vascular and adapts fast. Tendon and c…</p></article><article><h2>[health] Warmups aren&#x27;t a tax on the session — they are the session</h2><p class="meta">2026-07-24 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Warmups aren&#x27;t a tax on the session — they are the session
+
+After two decades coaching, the fastest way to spot who gets hurt this year is
+who treats the warmup as a toll booth to rush through. The warmup isn&#x27;t the
+thing before the work; on a bad-recovery day it IS the diagnostic that tells you
+what the work should even be.
+
+Failure modes I …</p></article><article><h2>[health] Your VO2 max number is a vanity metric — track how fast you recover instead</h2><p class="meta">2026-07-24 · health</p><p>STATUS: DRAFT — content_gate
+
+# Your VO2 max number is a vanity metric — track how fast you recover instead
+
+Two decades coaching people back from injury and desk-jobs, and the wearable era gave everyone a shiny VO2 max estimate they misread. It&#x27;s an estimate off your watch&#x27;s algorithm, not a lab test, and chasing the number pushes people into the exact training that stalls them. What actually pre…</p></article><article><h2>[health] Sleep is the recovery lever — everything else is rounding error</h2><p class="meta">2026-07-24 · health</p><p>STATUS: DRAFT — reviewed (manual gate, veteran-voice)
+# Sleep is the recovery lever — everything else is rounding error
+
+Two decades coaching lifters and desk-bound professionals, and the single biggest
+performance regression I see isn&#x27;t program design — it&#x27;s people optimizing supplements
+while sleeping six hours. You cannot out-train, out-supplement, or out-cold-plunge a
+sleep debt. I&#x27;ve watched …</p></article><article><h2>[health] The warm-up you skip is the injury you schedule</h2><p class="meta">2026-07-24 · health</p><p>STATUS: DRAFT — NOT SENT
+
+# The warm-up you skip is the injury you schedule
+
+Two decades of coaching lifters and the injury pattern I&#x27;ve seen most is not heavy weights — it&#x27;s **the cold first working set**: someone walks in stressed, short on time, loads their normal top weight, and their tissue meets full load with zero ramp. Tweaked backs and cranky shoulders almost never happen on set four. The…</p></article><article><h2>[health] Soreness is not a scoreboard — it&#x27;s noise you keep mistaking for signal</h2><p class="meta">2026-07-24 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Soreness is not a scoreboard — it&#x27;s noise you keep mistaking for signal
+
+Two decades of coaching and the belief I fight hardest is that a session &quot;worked&quot; because
+it left someone wrecked. Soreness tells you a stimulus was novel, not that it was
+productive. Some of the best progress I&#x27;ve driven came from weeks that never left anyone
+crippled.…</p></article><article><h2>[health] Sleep is the training. The gym is just the stimulus.</h2><p class="meta">2026-07-24 · health</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Sleep is the training. The gym is just the stimulus.
+
+Two decades coaching and the hardest sell is still this: the workout doesn&#x27;t make you
+stronger — it makes you weaker, and the sleep that night is where you actually adapt.
+People obsess over program minutiae while sleeping six broken hours and wonder why they
+plateau. You can&#x27;t out-progra…</p></article><article><h2>[health] Grip strength is the canary — what 20 years of coaching taught me to watch first</h2><p class="meta">2026-07-24 · health</p><p>STATUS: DRAFT — reviewed (manual gate, veteran-voice)
+# Grip strength is the canary — what 20 years of coaching taught me to watch first
+
+Long before a lifter tells me they&#x27;re overtrained, their grip tells me. Warm-up weight
+feels &quot;slippery,&quot; the hook grip they&#x27;ve held for years suddenly opens on a routine pull —
+that&#x27;s the nervous system waving a flag while the ego is still writing checks.
+
+Failu…</p></article><article><h2>[health] The Deload Week Nobody Takes (Until Their Elbow Decides For Them)</h2><p class="meta">2026-07-24 · health</p><p># The Deload Week Nobody Takes (Until Their Elbow Decides For Them)
+STATUS: DRAFT — NOT POSTED | persona: 20-yr strength coach | 2026-07-24
+
+Twenty years coaching and the pattern never changes: the lifter who &quot;doesn&#x27;t need deloads&quot; is the one who ends up taking eight forced weeks off instead of one planned easy week.
+
+The tell isn&#x27;t soreness. It&#x27;s the small stuff: grip feels off on warmups, sleep …</p></article><article><h2>[comedy] Crowd Work Is Scaffolding, Not the Building</h2><p class="meta">2026-07-24 · comedy</p><p># Crowd Work Is Scaffolding, Not the Building
+STATUS: DRAFT
+
+Twenty years of club sets and I&#x27;ll die on this hill: comics who lean on crowd work as identity are hiding from the writing desk. Crowd work is a skill. It is also the most seductive way to avoid ever finishing a joke.
+
+The failure modes, from someone who&#x27;s committed all of them:
+
+**The clip-chasing trap.** Crowd work clips travel online …</p></article><article><h2>[comedy] The tag is where amateurs give the laugh back</h2><p class="meta">2026-07-24 · comedy</p><p>STATUS: DRAFT — content_gate
+
+# The tag is where amateurs give the laugh back
+
+Twenty years of working rooms and the most common way I&#x27;ve watched a solid bit die is the comic refusing to leave after the joke landed. You got the laugh. Now you&#x27;re standing in it, milking, adding a fourth tag nobody asked for, and the room can feel you asking for more. I&#x27;ve bombed doing exactly this — the audience ga…</p></article><article><h2>[comedy] The tag is the funeral: stop announcing the joke before it lands</h2><p class="meta">2026-07-24 · comedy</p><p>STATUS: DRAFT — content_gate
+
+# The tag is the funeral: stop announcing the joke before it lands
+
+Twenty years on stage and in writers&#x27; rooms, and the note I give more than any other is &quot;you&#x27;re eulogizing your own bit.&quot; A tag that starts with &quot;and the funny thing is...&quot; has already told the audience the funny is over — you&#x27;re now explaining the corpse instead of letting it walk around.
+
+Named fail…</p></article><article><h2>[comedy] Bombing is tuition, not a verdict</h2><p class="meta">2026-07-24 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Bombing is tuition, not a verdict
+
+Twenty years of rooms and the sets I learned the most from are the ones where I
+died standing up. New comics treat a bomb as evidence they aren&#x27;t funny. It&#x27;s
+not a verdict — it&#x27;s the most expensive, most useful data the craft ever hands
+you, and it&#x27;s free if you&#x27;re willing to read it.
+
+Scar tissue, catalogu…</p></article><article><h2>[comedy] A callback the room didn&#x27;t earn just dies — 20 years of eating silence</h2><p class="meta">2026-07-24 · comedy</p><p>STATUS: DRAFT — reviewed (manual gate, veteran-voice)
+# A callback the room didn&#x27;t earn just dies — 20 years of eating silence
+
+Everybody who reads one book on comedy structure thinks the callback is a cheat code:
+plant a line early, ref it late, guaranteed laugh. Wrong. I&#x27;ve bombed with technically
+perfect callbacks because the room never bonded with the original bit. A callback isn&#x27;t
+a mechanism…</p></article><article><h2>[comedy] Write loose, but edit on the mic — the page lies about what&#x27;s funny</h2><p class="meta">2026-07-24 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# Write loose, but edit on the mic — the page lies about what&#x27;s funny
+
+Twenty years of rooms and the trap I still watch new writers fall into: they polish a bit
+to perfection on the page, fall in love with the words, and then it dies on stage because
+paper can&#x27;t tell you where the laugh actually lives. The room is the only editor whose
+notes m…</p></article><article><h2>[comedy] The pause is the punchline — 20 years of dying and learning why</h2><p class="meta">2026-07-24 · comedy</p><p>STATUS: DRAFT — reviewed (manual gate, veteran-voice)
+# The pause is the punchline — 20 years of dying and learning why
+
+New comics fear silence, so they talk through it. That&#x27;s the single most expensive habit
+on stage. The laugh lives in the gap after the setup — step on it and you&#x27;ve refunded the
+audience their tension for free.
+
+Scar tissue, catalogued:
+- **The nervous tag**: you deliver the pu…</p></article><article><h2>[comedy] Crowd Work Is a Crutch (Said the Guy With a Broken Leg)</h2><p class="meta">2026-07-24 · comedy</p><p># Crowd Work Is a Crutch (Said the Guy With a Broken Leg)
+STATUS: DRAFT — NOT POSTED | persona: 20-yr club comic | 2026-07-24
+
+Every scene has that comic who &quot;kills&quot; every night and hasn&#x27;t written a new minute since 2019. All crowd work. Ask them to do six clean minutes for a TV taping and you can hear their soul leave the building.
+
+Here&#x27;s what two decades of open mics taught me: crowd work is a …</p></article><article><h2>[comedy] Premise hoarding: the notebook full of jokes you&#x27;ll never tell</h2><p class="meta">2026-07-24 · comedy</p><p>STATUS: DRAFT — NOT SENT
+
+# Premise hoarding: the notebook full of jokes you&#x27;ll never tell
+
+Twenty years of open mics and green rooms, and the failure mode that quietly kills more comics than bombing ever does is **premise hoarding** — a notebook stuffed with &quot;funny ideas&quot; that never touch a stage because the comic is waiting until the bit is &quot;ready.&quot; The bit is never ready. Stage time is the edit…</p></article><article><h2>[comedy] A callback is earned, not planted</h2><p class="meta">2026-07-24 · comedy</p><p>STATUS: DRAFT — reviewed (content_gate, veteran-voice)
+# A callback is earned, not planted
+
+Twenty years of rooms and the callback is still the most misused move in comedy. New
+comics decide in the notebook that line four will &quot;come back&quot; at the end, then force it
+whether the room bought the original or not. A callback only lands if the first laugh was
+real. You&#x27;re not planting a seed — you&#x27;re cas…</p></article><article><h2>[tech] The webhook retry storm that took down a client&#x27;s Braze at 2am</h2><p class="meta">2026-07-23 · tech</p><p># The webhook retry storm that took down a client&#x27;s Braze at 2am
+
+**Vertical:** tech | **Format:** LinkedIn post | **Date:** 2026-07-23
+
+---
+
+Twelve years building marketing automation and the failure that still makes me flinch wasn&#x27;t a bad send. It was a retry storm.
+
+Client had an n8n flow catching a Shopify `order/created` webhook, enriching it, then firing a Braze `/users/track`. Standard. Wha…</p></article><article><h2>[psychology] The label that feels like insight but is actually a cage</h2><p class="meta">2026-07-23 · psychology</p><p># The label that feels like insight but is actually a cage
+
+**Vertical:** psychology | **Format:** Twitter/X thread | **Date:** 2026-07-23
+
+---
+
+1/ Twenty years in clinical practice and the most quietly damaging sentence I hear isn&#x27;t &quot;I&#x27;m depressed.&quot; It&#x27;s &quot;I&#x27;m just an anxious person.&quot; One describes a state. The other builds a prison and hands you the key while calling it self-knowledge.
+
+2/ Labels…</p></article><article><h2>[health] Zone 2 isn&#x27;t slow — your ego is loud</h2><p class="meta">2026-07-23 · health</p><p># Zone 2 isn&#x27;t slow — your ego is loud
+
+**Vertical:** health | **Format:** Instagram caption | **Date:** 2026-07-23
+
+---
+
+Twenty years coaching endurance athletes and the single hardest thing to teach is going *easy* on purpose.
+
+Everyone&#x27;s heard &quot;Zone 2&quot; now. Almost nobody does it right, and the reason is not physiology — it&#x27;s ego. Real Zone 2 is the pace where you can hold a full conversation, n…</p></article><article><h2>[comedy] Bit: &quot;Have you tried turning your whole life off and on again&quot;</h2><p class="meta">2026-07-23 · comedy</p><p># Bit: &quot;Have you tried turning your whole life off and on again&quot;
+
+**Vertical:** comedy | **Format:** stand-up bit / Reel script | **Date:** 2026-07-23
+
+---
+
+Twenty years writing jokes and the ones that land aren&#x27;t clever — they&#x27;re *recognized*. Here&#x27;s a tight 45-second bit built on a universal, escalated three times. Delivery notes in brackets.
+
+---
+
+You ever notice tech support only knows one spe…</p></article>
+</body></html>
