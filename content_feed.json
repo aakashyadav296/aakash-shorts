@@ -4,6 +4,16 @@
  "description": "Reviewed drafts across tech/health/comedy/psychology",
  "items": [
   {
+   "id": "tech/2026-07-26d-a-dashboard-nobody-alerts-on-is-wallpaper.md",
+   "title": "[tech] A dashboard nobody alerts on is wallpaper",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# A dashboard nobody alerts on is wallpaper\n\nTwenty years of production systems and I've stopped being impressed by dashboards.\nI've watched teams build forty-panel Grafana walls that nobody looked at during the\none incident that mattered. If a graph can go red without paging a human, it's not\nobservability — it's interior decorating.\n\nNamed failure modes I've paid for:\n- **The vanity wall**: a giant TV of green panels in the office, and the outage was\n  discovered by a customer tweet. The wall was for visitors, not operators. Fix: every\n  panel must answer \"what action do I take when this moves?\" — if there's no answer,\n  delete the panel.\n- **The threshold set once, in 2019**: an alert tuned for last year's traffic that now\n  fires nightly, so everyone muted it. The week we needed it, it was in a silenced\n  channel. Fix: alert review is a quarterly calendar event with an owner, same as\n  dependency upgrades.\n- **The average that hides the fire**: mean latency looked flat while p99 was on fire\n  for the one enterprise customer paying the bills. I've sat in that postmortem. Fix:\n  percentiles per customer tier, not fleet-wide means.\n\nThe rule: dashboards are for diagnosis, alerts are for detection. If detection\ndepends on a human staring at a screen, you don't have monitoring — you have a\nscented candle.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "tech",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "tech/2026-07-26c-a-rollback-youve-never-run-is-a-prayer.md",
    "title": "[tech] A rollback you've never run is a prayer",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# A rollback you've never run is a prayer\n\nTwenty years of deploys and the most dangerous sentence I still hear in change reviews\nis \"we can always roll back.\" Can you? Have you? Because I've watched teams discover at\nthe worst moment that their rollback plan was a comfort blanket, not a capability.\n\nNamed failure modes I've paid for:\n- **The one-way migration**: the deploy shipped a schema change, the rollback redeploys\n  old code against a new schema, and now you're down harder than the bug you were\n  fleeing. I've signed the incident review for that one. Fix: every migration ships with\n  a tested down-path, or it's declared irreversible in the change ticket — in writing.\n- **The rollback that needs the broken thing**: your deploy tool runs on the cluster\n  that's on fire. I've watched a team unable to roll back because rollback required the\n  CI system that the bad deploy had just wedged. Fix: the rollback path must not depend\n  on any component the deploy can break. Rehearse it from a laptop.\n- **The version nobody kept**: \"just redeploy the previous artifact\" — which the\n  retention policy deleted three days ago. Fix: pin and retain the last known-good\n  artifact for as long as the change is considered risky, and verify it exists before\n  the deploy starts, not after it fails.\n\nThe rule: a rollback is a deploy. It needs the same testing, the same rehearsal, and\nthe same paranoia. If you've never run it, you don't have a rollback — you have a\nprayer with a runbook number.\n",
@@ -520,6 +530,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "tech",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "psychology/2026-07-26d-comparison-steals-with-a-cropped-photo.md",
+   "title": "[psychology] Comparison steals with a cropped photo",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Comparison steals with a cropped photo\n\nTwo decades across the table and comparison is the quietest thief I've watched work.\nIt never announces itself — it just borrows your attention for a scroll, a colleague's\npromotion, a cousin's house, and returns it with the joy skimmed off the top.\n\nFailure modes I've watched play out:\n- **The highlight-versus-backstage swap**: comparing your unedited daily life against\n  someone's curated output. I've sat with people devastated by a feed they knew was\n  staged — knowing it's cropped doesn't stop the sting. Fix: name the crop out loud\n  every time — \"I am comparing my rehearsal to their premiere\" — the sentence sounds\n  absurd because the habit is.\n- **The moving-podium problem**: hitting the goal, then instantly re-ranking against a\n  new, richer reference group. The finish line moves the moment you cross it. I've\n  watched people out-earn every dream they had at 25 and feel behind at 40. Fix: keep a\n  written record of what \"enough\" meant three years ago and read it when the podium\n  moves.\n- **The single-axis trap**: measuring your whole life against someone else's one strong\n  suit — their salary, their body, their marriage — never the full ledger. Fix: nobody\n  trades lives one column at a time. The deal is always the whole package; ask if you'd\n  take *all* of it.\n\nDo this: comparison is attention spent at a rigged counter. Track your own trailing\ntwelve months instead — the only reference body that shares your starting line.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "psychology",
     "veteran-voice"
    ]
   },
@@ -1044,6 +1064,16 @@
    ]
   },
   {
+   "id": "health/2026-07-26d-warmups-are-rehearsal-not-a-toll.md",
+   "title": "[health] Warm-ups are rehearsal, not a toll",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Warm-ups are rehearsal, not a toll\n\nTwo decades on gym floors and the lifters who stall hardest treat the warm-up like a\ntax — something to pay quickly so the real training can start. I've watched the same\npeople wonder why their first working set feels like a stranger's body.\n\nFailure modes I see every week:\n- **The empty-bar sprint**: three rushed sets with no intent, then a jump straight to\n  working weight. The first heavy set becomes the actual warm-up, and it's the ugliest\n  rep of the day. Fix: warm-up sets rehearse the exact bar path and bracing of the top\n  set — same setup ritual, same cues, lighter load.\n- **The cardio confusion**: ten minutes on a bike and calling it done. Being warm and\n  being prepared are different states. I've watched sweaty people pull a hamstring on\n  their opener. Fix: general heat first, then movement-specific ramping — the lift you're\n  about to do, in ascending doses.\n- **The mobility rabbit hole**: twenty-five minutes of bands and foam before touching a\n  bar, arriving at the working sets already drained. Fix: mobility work earns its place\n  only if it targets a limitation that shows up in *today's* lifts — two drills, tops.\n\nDo this: script your warm-up like sets and reps, because it is sets and reps. The top\nset is a performance; everything before it is the dress rehearsal it deserves.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "health",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "health/2026-07-26c-zone-2-is-boring-on-purpose.md",
    "title": "[health] Zone 2 is boring on purpose",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Zone 2 is boring on purpose\n\nTwenty years of coaching and the hardest thing I sell isn't the brutal session — it's\nthe easy one. Everybody wants to leave the gym wrecked. Almost nobody wants to do the\nunglamorous aerobic work that makes every hard session recoverable. I've watched more\nprogress die from \"every run was a race\" than from any injury.\n\nNamed failure modes I've paid for:\n- **The gray-zone treadmill**: too hard to build the aerobic base, too easy to be a real\n  stimulus. I've coached runners who trained six days a week for years in that zone and\n  plateaued the entire time. Fix: polarize — genuinely easy most days, genuinely hard on\n  the scheduled days, nothing in between by accident.\n- **The ego pace**: easy pace creeps up because a training partner showed up or a\n  stranger passed you. I've done it myself and paid with a flat race three weeks later.\n  Fix: easy means conversational — full sentences, nasal breathing if you want a\n  built-in governor. If you can't talk, it isn't easy.\n- **The boredom bailout**: people quit zone 2 not because it's hard but because it's\n  dull. Fix: attach it to something — podcasts, calls with your mother, an audiobook you\n  only allow yourself on easy days. Bribe the discipline into existence.\n\nThe rule: the easy work is the tank, the hard work is the engine. Build the tank first\nor the engine runs dry every single time.\n",
@@ -1560,6 +1590,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "health",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "comedy/2026-07-26d-the-callback-is-a-trust-receipt.md",
+   "title": "[comedy] The callback is a trust receipt",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# The callback is a trust receipt\n\nTwenty years of sets and the cheapest big laugh in comedy is still the callback — and\nI've watched more comics fumble it than any other tool. A callback isn't a repeat; it's\na receipt. It tells the room \"you were paying attention, and it paid off.\"\n\nScar tissue, catalogued:\n- **The premature callback**: calling back a joke that only half-hit the first time.\n  You're asking the audience to reinvest in a stock they already passed on. I've bombed\n  doing exactly this. Fix: only call back the bits that got the *whole* room — a callback\n  amplifies whatever reaction the original earned, including silence.\n- **The label-and-ruin**: saying \"remember earlier when I said...\" — the comedy\n  equivalent of explaining a magic trick mid-trick. The joy of a callback is the audience\n  doing the connecting. Fix: drop the reference cold and trust them; the half-second of\n  recognition IS the laugh.\n- **The callback pile-up**: closing on five stacked callbacks because one worked once.\n  By the fourth, the room feels the formula and the receipts bounce. Fix: two, maybe\n  three per set, spent like rent money — deliberately.\n\nThe rule: a callback rewards attention. Rewarded audiences lean in harder for the rest\nof the night. That's not a joke technique — that's compounding trust.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "comedy",
     "veteran-voice"
    ]
   },
