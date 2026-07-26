@@ -1,5 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sun, 26 Jul 2026 03:35:26 +0000</lastBuildDate>
+<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sun, 26 Jul 2026 04:36:58 +0000</lastBuildDate>
+<item><title>Your on-call alert volume is a design review you keep skipping</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26k-your-oncall-alert-volume-is-a-design-review.md</link><guid isPermaLink="false">2026-07-26k-your-oncall-alert-volume-is-a-design-review.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of pagers and I&#x27;ve learned the alert queue is the most honest
+architecture document a team owns. Nobody lies in it. Every noisy page is a
+design decision confessing itself at 3 a.m.
+
+Named failure modes I&#x27;ve personally paid for:
+- **The threshold graveyard**: alerts tuned once in 2021, never revisited.
+  Traffic tripled, the threshold didn&#x27;t, and now the page fires nightly and
+  everyone sleeps through it. I&#x27;ve watched a real outage get acked-and-ignored
+  because it looked like the usual Tuesday noise. Fix: every alert gets an
+  owner and a review date, or it gets deleted. An alert without an owner is
+  spam with a severity label.
+- **The symptom-blindness split**: fifty alerts on CPU and disk, zero on
+  &quot;users can&#x27;t check out.&quot; The dashboards were green while revenue was zero —
+  I&#x27;ve sat in that postmortem. Fix: alert on user-facing symptoms first;
+  resource metrics are for diagnosis, not for waking humans.
+- **The heroism dependency**: the one engineer who &quot;just knows&quot; what each page
+  means, so nothing gets documented and nothing gets fixed. When they left,
+  the team rediscovered every failure from scratch. Fix: every page that fires
+  produces either a runbook </description></item>
+<item><title>The light is your friend, not your enemy</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/comedy/2026-07-26k-the-light-is-your-friend-not-your-enemy.md</link><guid isPermaLink="false">2026-07-26k-the-light-is-your-friend-not-your-enemy.md</guid><category>comedy</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years in rooms and I can tell you the fastest way to never get booked
+again isn&#x27;t bombing — every booker forgives a bomb. It&#x27;s blowing the light.
+Run long once and you&#x27;re &quot;the comic who runs long&quot; for five years.
+
+Scar tissue, catalogued:
+- **The one-more-bit gambler**: gets the light, decides the crowd deserves one
+  more chunk, and steals stage time from the closer. I&#x27;ve watched a comic
+  murder for twelve bonus minutes and never play that club again. The set was
+  great; the invoice was his career there. Fix: the light means wrap the
+  thought you&#x27;re in, not start a new one. Practice ending from anywhere.
+- **The no-clock amateur hour**: no watch, no set-list timing, just vibes. Then
+  they&#x27;re shocked the light came &quot;early.&quot; I&#x27;ve timed my chunks to the
+  half-minute since my third year — that&#x27;s not obsessive, that&#x27;s the job. Fix:
+  run your set against a timer at home until your 10 is actually a 10.
+- **The closer-first structure**: best bit buried at the end, so when time
+  compresses they either blow the light to reach it or end on filler. Fix:
+  build sets so any of your last three bits can close. Modular beats optimal
+  when the clock is real.
+
+The rule: the room forg</description></item>
+<item><title>Soreness is not a scoreboard</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26k-soreness-is-not-a-scoreboard.md</link><guid isPermaLink="false">2026-07-26k-soreness-is-not-a-scoreboard.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades coaching and the most stubborn myth in every gym I&#x27;ve worked is
+that the workout only counted if you can&#x27;t sit on a toilet for three days.
+Soreness is a novelty signal, not a progress signal — and chasing it has
+wrecked more training years than injuries have.
+
+Failure modes I watch on repeat:
+- **The DOMS-chasing program hopper**: constantly rotating exercises to stay
+  sore, which guarantees they&#x27;re always in the adaptation-to-novelty phase and
+  never in the getting-stronger phase. I&#x27;ve watched someone train hard for two
+  years with beginner numbers to show for it. Fix: keep the core lifts stable
+  for months; let the boring repetition do its compounding work.
+- **The soreness-equals-permission trap**: not sore today, so they &quot;make up
+  for it&quot; with a punishment session, dig a recovery hole, and stall for weeks.
+  Fix: judge sessions by the logbook — load, reps, quality — never by how
+  wrecked you feel the morning after.
+- **The sore-so-skip spiral**: mild soreness read as damage, session skipped,
+  consistency dies. The irony is that light movement clears soreness faster
+  than the couch does. Fix: show up, warm up thoroughly, downgrade the day if
+  needed — the ha</description></item>
+<item><title>Avoidance doesn&#x27;t shrink the fear — it shrinks the map</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/psychology/2026-07-26k-avoidance-shrinks-the-map.md</link><guid isPermaLink="false">2026-07-26k-avoidance-shrinks-the-map.md</guid><category>psychology</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades across the table and the pattern I&#x27;ve watched consume the most
+lives isn&#x27;t panic — it&#x27;s the quiet real-estate deal where fear takes a little
+more territory each year and calls it &quot;just knowing what I like.&quot;
+
+Failure modes I&#x27;ve watched play out:
+- **The comfort-zone creep**: skip one party, then all parties, then the
+  highway, then the mall. Each skip feels like relief; the sum is a life lived
+  in two rooms. I&#x27;ve watched someone&#x27;s world contract for a decade before
+  anyone — including them — named it avoidance. Fix: keep a written map of
+  what&#x27;s been quietly surrendered; you can&#x27;t fight a retreat you won&#x27;t chart.
+- **The safety-behavior smuggling**: technically going, but only with a
+  phone-clutch, an exit seat, a trusted person, a rehearsed excuse. The brain
+  credits the crutch, not the person, so the fear never updates. Fix: drop the
+  crutches one at a time, deliberately, and let the situation prove itself.
+- **The someday-when-calmer deferral**: waiting to feel ready before facing
+  the thing, when readiness only arrives *after* the facing. I&#x27;ve watched
+  people wait years for a feeling that was never scheduled. Fix: action first,
+  courage second — that&#x27;s the </description></item>
 <item><title>Your staging environment is a comfort blanket, not a safety net</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26j-your-staging-env-is-a-comfort-blanket.md</link><guid isPermaLink="false">2026-07-26j-your-staging-env-is-a-comfort-blanket.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of shipping and I&#x27;ve watched more prod incidents get born in a
 &quot;green&quot; staging run than anywhere else. Staging passes, prod burns, and the
 postmortem always finds the same thing: staging wasn&#x27;t prod, it was a diorama
