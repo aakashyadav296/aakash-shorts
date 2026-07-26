@@ -4,6 +4,16 @@
  "description": "Reviewed drafts across tech/health/comedy/psychology",
  "items": [
   {
+   "id": "tech/2026-07-26l-feature-flags-are-loans-not-gifts.md",
+   "title": "[tech] Feature Flags Are Loans, Not Gifts",
+   "content_text": "# Feature Flags Are Loans, Not Gifts\nSTATUS: DRAFT\n\nEveryone sells feature flags as free safety. Nobody mentions the interest rate. After two decades of shipping behind flags, I can tell you the flag itself is never the problem — the flag you forgot is.\n\nFailure modes **I've watched** eat entire quarters:\n\n- **The immortal flag.** Shipped, ramped to everyone, never removed. Eighteen months later a new hire flips it off \"to test something\" and takes down checkout. The dead branch was still load-bearing.\n- **Flag-on-flag combinatorics.** Five flags means dozens of possible states, and QA tested exactly one. The bug only appears when flag A is on and flag C is off, which is precisely the state of your biggest customer.\n- **The config-as-code lie.** Flags flipped in a dashboard leave no diff, no review, no rollback history. An incident retro that ends with \"someone changed a flag\" and no name attached is a process hole, not a mystery.\n- **Ramp-and-forget.** The team celebrates the launch at partial rollout and moves on. The remaining users live on the old path for a year, and every bugfix now needs to land twice.\n- **Flags as permission system.** Somebody starts using the flag service for entitlements. Now your experimentation tool is in the auth path and can never be cleaned up.\n\nWhat actually works: every flag gets an owner and an expiry date at creation, and an alarm fires when it outlives the date. Flag flips go through the same review as code. Old paths get deleted the sprint after full ramp — deletion is part of the launch, not a someday chore.\n\n**Bottom line:** a flag is borrowed complexity with compounding interest. The rule: no flag without an owner, an expiry, and a scheduled deletion — treat removal as the second half of shipping.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "tech",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "tech/2026-07-26k-your-oncall-alert-volume-is-a-design-review.md",
    "title": "[tech] Your on-call alert volume is a design review you keep skipping",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Your on-call alert volume is a design review you keep skipping\n\nTwenty years of pagers and I've learned the alert queue is the most honest\narchitecture document a team owns. Nobody lies in it. Every noisy page is a\ndesign decision confessing itself at 3 a.m.\n\nNamed failure modes I've personally paid for:\n- **The threshold graveyard**: alerts tuned once in 2021, never revisited.\n  Traffic tripled, the threshold didn't, and now the page fires nightly and\n  everyone sleeps through it. I've watched a real outage get acked-and-ignored\n  because it looked like the usual Tuesday noise. Fix: every alert gets an\n  owner and a review date, or it gets deleted. An alert without an owner is\n  spam with a severity label.\n- **The symptom-blindness split**: fifty alerts on CPU and disk, zero on\n  \"users can't check out.\" The dashboards were green while revenue was zero —\n  I've sat in that postmortem. Fix: alert on user-facing symptoms first;\n  resource metrics are for diagnosis, not for waking humans.\n- **The heroism dependency**: the one engineer who \"just knows\" what each page\n  means, so nothing gets documented and nothing gets fixed. When they left,\n  the team rediscovered every failure from scratch. Fix: every page that fires\n  produces either a runbook line or a deleted alert. No third option.\n\nThe rule: count your pages per week per human. If it's above a handful, you\ndon't have an alerting problem — you have a design backlog wearing a pager.\n",
@@ -600,6 +610,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "tech",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "psychology/2026-07-26l-sunk-cost-wears-a-suit-called-loyalty.md",
+   "title": "[psychology] Sunk Cost Wears a Suit Called Loyalty",
+   "content_text": "# Sunk Cost Wears a Suit Called Loyalty\nSTATUS: DRAFT\n\nTwo decades sitting with people mid-decision — careers, marriages, businesses — and I can tell you almost nobody recognizes sunk cost in the moment. It never announces itself as a fallacy. It dresses up as virtue: loyalty, grit, \"seeing things through\".\n\nFailure modes **I've watched** hold intelligent people hostage:\n\n- **The tenure defense.** \"I've been here eleven years\" offered as the reason to stay, when it's actually just the reason it hurts to leave. Time invested is a receipt, not a forecast.\n- **The almost-there illusion.** The project that's been six months from done for three years. Each new push is justified by the last one, and the finish line moves in lockstep.\n- **Identity fusion.** When quitting the thing feels like erasing the self who chose it. People will protect a decision long after they've stopped believing in it, because the decision has their name on it.\n- **Audience-of-the-past reasoning.** Staying because of what the people who watched you start would think. You're performing consistency for a crowd that mostly isn't watching.\n- **Doubling down as pain relief.** Recommitting produces a hit of certainty that feels better than ambivalence. It's anesthetic, not strategy.\n\nThe unlock I've used with clients for years is the fresh-eyes question: if you woke up tomorrow already out — no history, no explaining to anyone — would you choose your way back in? If the honest answer is no, the only thing keeping you is the cost of admitting it.\n\n**Bottom line:** the past paid for the lesson, not the obligation. The rule: decide from where you're standing, not from what you've spent — and ask the fresh-eyes question before every recommitment.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "psychology",
     "veteran-voice"
    ]
   },
@@ -1204,6 +1224,16 @@
    ]
   },
   {
+   "id": "health/2026-07-26l-sleep-debt-compounds-quietly.md",
+   "title": "[health] Sleep Debt Compounds Quietly, Then All at Once",
+   "content_text": "# Sleep Debt Compounds Quietly, Then All at Once\nSTATUS: DRAFT\n\nTwenty years of coaching working adults and the single change that fixed more plateaus than any program tweak was boring: they started sleeping like it mattered. Nobody wants that answer, everybody wants a new supplement.\n\nFailure modes **I've watched** wreck otherwise disciplined people:\n\n- **The weekend repayment myth.** Sleeping in on Saturday after five short nights feels like settling the tab. It isn't — the fatigue is masked, not repaid, and the Monday session proves it.\n- **Training through the wall.** Chronic short sleepers keep pushing intensity because motivation is the last thing to go. Coordination goes first. That is when the tweaks and strains show up.\n- **The revenge-scrolling trap.** People with no evening to themselves steal one from their sleep. The cost lands on tomorrow's willpower, which is exactly what the diet needed.\n- **Caffeine laundering.** Fatigue papered over with an afternoon coffee that then delays the next night's sleep. The loop tightens week by week and looks like \"just being busy\".\n- **Treating sleep as an output, not an input.** Trying to force sleep with willpower at midnight instead of protecting the ninety minutes before it.\n\nWhat works is embarrassingly plain: a fixed wake time seven days a week, screens parked before the last hour, the bedroom cold and dark, and hard training scheduled on the nights you know you can sleep after.\n\n**Bottom line:** you don't feel sleep debt accumulating — you feel it defaulting. The rule: fix the wake time first, protect the last hour of the day, and stop trying to out-train a short night.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "health",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "health/2026-07-26k-soreness-is-not-a-scoreboard.md",
    "title": "[health] Soreness is not a scoreboard",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Soreness is not a scoreboard\n\nTwo decades coaching and the most stubborn myth in every gym I've worked is\nthat the workout only counted if you can't sit on a toilet for three days.\nSoreness is a novelty signal, not a progress signal — and chasing it has\nwrecked more training years than injuries have.\n\nFailure modes I watch on repeat:\n- **The DOMS-chasing program hopper**: constantly rotating exercises to stay\n  sore, which guarantees they're always in the adaptation-to-novelty phase and\n  never in the getting-stronger phase. I've watched someone train hard for two\n  years with beginner numbers to show for it. Fix: keep the core lifts stable\n  for months; let the boring repetition do its compounding work.\n- **The soreness-equals-permission trap**: not sore today, so they \"make up\n  for it\" with a punishment session, dig a recovery hole, and stall for weeks.\n  Fix: judge sessions by the logbook — load, reps, quality — never by how\n  wrecked you feel the morning after.\n- **The sore-so-skip spiral**: mild soreness read as damage, session skipped,\n  consistency dies. The irony is that light movement clears soreness faster\n  than the couch does. Fix: show up, warm up thoroughly, downgrade the day if\n  needed — the habit survives, and the habit is the program.\n\nDo this: track one thing — did you beat the logbook on something, anything,\nthis week? That's the scoreboard. Soreness is just weather.\n",
@@ -1800,6 +1830,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "health",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "comedy/2026-07-26l-crowd-work-is-a-scalpel-not-a-crutch.md",
+   "title": "[comedy] Crowd Work Is a Scalpel, Not a Crutch",
+   "content_text": "# Crowd Work Is a Scalpel, Not a Crutch\nSTATUS: DRAFT\n\nTwenty years of rooms — basements, clubs, corporate ballrooms where laughter goes to die — and the biggest lie young comics believe is that crowd work is the shortcut to looking like a natural. It's the opposite: it's the most punishing skill on the menu, and it punishes you in public.\n\nFailure modes **I've watched** (and a few **I've bombed** into personally):\n\n- **Opening with crowd work before you've earned the room.** They don't know you yet. A stranger interrogating the front row reads as a threat, not play. Earn two laughs on material first — now you're a comic talking to friends.\n- **Interviewing instead of riffing.** \"Where are you from? What do you do?\" with no punchline attached is a job interview with a two-drink minimum. Every question needs a destination.\n- **Picking the drunkest person because they're loudest.** You've just handed the show to someone who wants it more than you. Pick the shy accountant; the drunk gets one line and a hard pivot.\n- **Winning the exchange, losing the room.** You torched the heckler, the crowd went quiet. They weren't cheering for cruelty — they were waiting to see if the night was still safe.\n- **Using crowd work to hide thin material.** The audience can't articulate it, but they feel the difference between a comic who chooses to riff and one who has nowhere else to go.\n\nThe craft is having exits: a tag that returns to your act, a callback that stitches the stranger into your closer. That's when crowd work stops being a gamble and becomes architecture.\n\n**Bottom line:** crowd work amplifies whoever you already are on stage — prepared or desperate. The rule: earn the room first, ask questions with destinations, and always carry an exit back into your material.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "comedy",
     "veteran-voice"
    ]
   },
