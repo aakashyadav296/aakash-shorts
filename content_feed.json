@@ -4,6 +4,16 @@
  "description": "Reviewed drafts across tech/health/comedy/psychology",
  "items": [
   {
+   "id": "tech/2026-07-26g-feature-flags-are-loans-not-switches.md",
+   "title": "[tech] Feature flags are loans, not switches",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Feature flags are loans, not switches\n\nTwenty years in and I've watched more outages caused by old flags than by new\ncode. A feature flag is a loan against your codebase: cheap to take out,\nbrutal if you never pay it back. Every \"temporary\" flag I've shipped that\nlived past a quarter eventually turned into a haunted branch nobody dared\ntouch.\n\nNamed failure modes I've personally paid for:\n- **The zombie flag**: shipped two years ago, \"fully rolled out,\" still wrapping\n  the code path. Someone flips it during an incident to \"try something\" and\n  resurrects behavior nobody remembers. Fix: every flag gets a removal ticket\n  and an owner at creation time — the flag PR and the cleanup ticket are born\n  together or the PR doesn't merge.\n- **The combinatorial minefield**: eight independent flags means 256 possible\n  configurations and you've tested three of them. The bug only exists when\n  flag A is on and flag C is off, which is exactly what one enterprise\n  customer runs. Fix: flags that interact get merged or one gets deleted;\n  test the configs you actually ship, not the ones you imagine.\n- **The permission drift**: the flag console lets anyone in the org flip\n  production behavior with no review, no audit trail, no rollback plan. I've\n  watched a well-meaning PM flip a payments flag on a Friday. Fix: production\n  flag changes go through the same review gate as code, full stop.\n\nThe rule: a flag without an expiry date is not a flag, it's permanent\narchitecture you built by accident. Pay the loan back within the sprint that\nfinishes the rollout.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "tech",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "tech/2026-07-26f-your-staging-env-is-lying-to-you.md",
    "title": "[tech] Your staging environment is lying to you",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Your staging environment is lying to you\n\nTwenty years of shipping and the most expensive fiction I keep meeting is \"it\npassed staging.\" Staging is a diorama — same shapes as production, none of the\nweather. Every team that trusts it fully eventually learns the same lesson,\nusually at 3 a.m.\n\nNamed failure modes I've personally paid for:\n- **The empty-database mirage**: staging has 4,000 rows; production has 400\n  million. The query that ran in 40ms in staging table-scanned production into a\n  lock pileup. Fix: staging gets a scrubbed, production-scale data snapshot, or\n  every query review assumes worst-case cardinality — no exceptions for \"simple\"\n  reads.\n- **The single-tenant illusion**: one tester clicking around never reproduces two\n  users mutating the same record. The race condition doesn't exist until traffic\n  does. Fix: load tests with concurrent writers on the exact endpoints that share\n  state, before the feature flag flips.\n- **The config drift trap**: staging quietly runs different env vars, older\n  sidecars, laxer timeouts. The deploy \"worked\" because it was tested on a\n  different machine wearing the same name. Fix: config is code, diffed in CI\n  between environments, and any drift fails the pipeline loudly.\n\nThe rule: staging can prove your code is broken; it can never prove it works.\nOnly production traffic does that — which is why canaries and fast rollback are\nthe real test suite.\n",
@@ -550,6 +560,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "tech",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "psychology/2026-07-26g-apologies-that-end-discomfort-arent-repair.md",
+   "title": "[psychology] Apologies that end discomfort aren't repair",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Apologies that end discomfort aren't repair\n\nTwenty years of sitting with couples and colleagues in conflict, and the most\ncommon counterfeit I've watched pass for repair is the apology whose real job\nis to make the apologizer feel better. It ends the awkward moment. It repairs\nnothing. The other person can feel the difference even when they can't name\nit.\n\nNamed failure modes I've personally watched wreck relationships:\n- **The exit-ramp apology**: \"I said sorry, can we move on?\" — the apology as\n  a lever to close the conversation before the hurt has been understood.\n  The unspoken message is that your discomfort matters more than their\n  injury. Fix: after apologizing, ask what the other person needs and then\n  stay in the conversation without defending. The staying is the repair.\n- **The mirrored-blame apology**: \"I'm sorry you feel that way.\" I've watched\n  this single sentence undo months of goodwill, because it relocates the\n  problem into the other person's feelings. Fix: name your action, not their\n  reaction — \"I'm sorry I dismissed you in that meeting\" survives contact\n  with reality; \"sorry you felt dismissed\" doesn't.\n- **The repeat-offender apology**: sincere words, zero behavior change, third\n  time this year. Each round devalues the currency until the words mean\n  \"reset the clock.\" Fix: attach the apology to one concrete, observable\n  change — and let them catch you doing it before you claim credit.\n\nThe rule: an apology is complete when the hurt person says it's complete,\nnot when the uncomfortable feeling in your chest goes away.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "psychology",
     "veteran-voice"
    ]
   },
@@ -1104,6 +1124,16 @@
    ]
   },
   {
+   "id": "health/2026-07-26g-cardio-only-fat-loss-is-a-leaky-bucket.md",
+   "title": "[health] Cardio-only fat loss is a leaky bucket",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Cardio-only fat loss is a leaky bucket\n\nTwenty years of coaching people through recomposition and the saddest pattern\nI keep seeing is the treadmill-only grinder: months of dutiful cardio, scale\nbarely moves, then it stops moving at all, then they quit. I've watched this\ncycle so many times I can call the week it breaks down.\n\nNamed failure modes I've personally coached people out of:\n- **The compensation trap**: the long run earns a \"deserved\" snack that quietly\n  refunds most of the session. The body is also excellent at nudging you to\n  move less for the rest of the day after hard cardio. Fix: track the whole\n  day's movement and intake honestly for two weeks before blaming the\n  program — the leak is almost always outside the workout.\n- **The muscle-burn spiral**: cutting calories hard while doing only steady\n  cardio strips lean mass along with fat. Less muscle means the same food now\n  goes further, so progress stalls at the exact moment motivation is lowest.\n  Fix: two or three resistance sessions a week are non-negotiable during a\n  cut; cardio is a supplement, not the base.\n- **The adaptation wall**: the body gets efficient at the exact same 5k at the\n  exact same pace. What cost real effort in week one costs far less by week\n  ten. Fix: rotate intensity — some sessions hard and short, some easy and\n  long — instead of one grey middle pace forever.\n\nThe rule: cardio spends, muscle earns. Build the earning side first and the\nspending actually shows up on the scale.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "health",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "health/2026-07-26f-sleep-debt-compounds-like-a-loan-shark.md",
    "title": "[health] Sleep debt compounds like a loan shark",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Sleep debt compounds like a loan shark\n\nTwo decades coaching and the variable that quietly wrecks more programs than bad\nform ever did is sleep. Lifters will argue for an hour about protein timing and\nthen train four days a week on five hours a night, wondering why nothing moves.\n\nFailure modes I watch on repeat:\n- **The weekend repayment fantasy**: five short nights, then a twelve-hour\n  Saturday coma to \"catch up.\" The training week still happened underslept — the\n  bad sessions, the sloppy reps, the cravings all already got billed. Fix: defend\n  a consistent window seven days a week; boring beats heroic.\n- **The pre-workout escalation spiral**: tired, so more caffeine; wired at\n  midnight, so less sleep; more tired, so more caffeine. I've watched lifters ride\n  that loop into resting heart rates that scared them. Fix: hard caffeine cutoff\n  eight hours before bed, and treat a needed nap as training, not weakness.\n- **The deload denial**: chronic short sleep plus full training volume, and the\n  lifter blames the program when joints start barking. Underslept weeks ARE\n  deload weeks whether you schedule them or not — your body will take the\n  discount somewhere. Fix: sleep under six hours two nights running, the next\n  session drops a set from everything. Pre-agreed, no negotiation.\n\nDo this: track bedtime like you track the bar. The log book that only counts\nlifts is telling half the story.\n",
@@ -1650,6 +1680,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "health",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "comedy/2026-07-26g-your-opener-is-a-contract-not-a-warmup.md",
+   "title": "[comedy] Your opener is a contract, not a warmup",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Your opener is a contract, not a warmup\n\nTwenty years of rooms — bar shows, corporates, festivals — and I've bombed\nenough openers to know the first thirty seconds aren't a warmup, they're a\ncontract. The audience decides in that window whether you're in charge of the\nroom or asking permission to be there, and they don't renegotiate.\n\nNamed failure modes I've personally bombed with:\n- **The throat-clear open**: \"How's everyone doing tonight?\" followed by\n  nothing. It tells the room you haven't started yet, so they haven't either.\n  I've watched five minutes evaporate re-earning attention I gave away for\n  free. Fix: first line out of your mouth is a joke or a premise with teeth —\n  greet them AFTER the first laugh, not before.\n- **The borrowed-energy open**: coming out hot and shouting because the last\n  comic was hot and shouting. The room hears the costume, not the voice, and\n  the drop when your real register shows up reads as a dip in quality. Fix:\n  open in the voice the rest of your set actually lives in.\n- **The inside-joke tax**: opening with a bit that needs setup the audience\n  doesn't have yet — a callback to nothing. Silence, then you're explaining,\n  then you're dead. Fix: the opener must work for a stranger with zero\n  context; save the layered stuff for minute six when they trust you.\n\nThe rule: the opener's only job is to prove the next hour is safe to laugh\nat. Sign that contract in the first thirty seconds or spend the whole set in\ncollections.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "comedy",
     "veteran-voice"
    ]
   },
