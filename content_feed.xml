@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sat, 25 Jul 2026 23:35:12 +0000</lastBuildDate>
+<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sun, 26 Jul 2026 00:35:06 +0000</lastBuildDate>
+<item><title>Your opener is a contract, not a warmup</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/comedy/2026-07-26g-your-opener-is-a-contract-not-a-warmup.md</link><guid isPermaLink="false">2026-07-26g-your-opener-is-a-contract-not-a-warmup.md</guid><category>comedy</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of rooms — bar shows, corporates, festivals — and I&#x27;ve bombed
+enough openers to know the first thirty seconds aren&#x27;t a warmup, they&#x27;re a
+contract. The audience decides in that window whether you&#x27;re in charge of the
+room or asking permission to be there, and they don&#x27;t renegotiate.
+
+Named failure modes I&#x27;ve personally bombed with:
+- **The throat-clear open**: &quot;How&#x27;s everyone doing tonight?&quot; followed by
+  nothing. It tells the room you haven&#x27;t started yet, so they haven&#x27;t either.
+  I&#x27;ve watched five minutes evaporate re-earning attention I gave away for
+  free. Fix: first line out of your mouth is a joke or a premise with teeth —
+  greet them AFTER the first laugh, not before.
+- **The borrowed-energy open**: coming out hot and shouting because the last
+  comic was hot and shouting. The room hears the costume, not the voice, and
+  the drop when your real register shows up reads as a dip in quality. Fix:
+  open in the voice the rest of your set actually lives in.
+- **The inside-joke tax**: opening with a bit that needs setup the audience
+  doesn&#x27;t have yet — a callback to nothing. Silence, then you&#x27;re explaining,
+  then you&#x27;re dead. Fix: the opener must work for a stranger</description></item>
+<item><title>Feature flags are loans, not switches</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26g-feature-flags-are-loans-not-switches.md</link><guid isPermaLink="false">2026-07-26g-feature-flags-are-loans-not-switches.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years in and I&#x27;ve watched more outages caused by old flags than by new
+code. A feature flag is a loan against your codebase: cheap to take out,
+brutal if you never pay it back. Every &quot;temporary&quot; flag I&#x27;ve shipped that
+lived past a quarter eventually turned into a haunted branch nobody dared
+touch.
+
+Named failure modes I&#x27;ve personally paid for:
+- **The zombie flag**: shipped two years ago, &quot;fully rolled out,&quot; still wrapping
+  the code path. Someone flips it during an incident to &quot;try something&quot; and
+  resurrects behavior nobody remembers. Fix: every flag gets a removal ticket
+  and an owner at creation time — the flag PR and the cleanup ticket are born
+  together or the PR doesn&#x27;t merge.
+- **The combinatorial minefield**: eight independent flags means 256 possible
+  configurations and you&#x27;ve tested three of them. The bug only exists when
+  flag A is on and flag C is off, which is exactly what one enterprise
+  customer runs. Fix: flags that interact get merged or one gets deleted;
+  test the configs you actually ship, not the ones you imagine.
+- **The permission drift**: the flag console lets anyone in the org flip
+  production behavior with no review, no audit trail, no rollba</description></item>
+<item><title>Cardio-only fat loss is a leaky bucket</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26g-cardio-only-fat-loss-is-a-leaky-bucket.md</link><guid isPermaLink="false">2026-07-26g-cardio-only-fat-loss-is-a-leaky-bucket.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of coaching people through recomposition and the saddest pattern
+I keep seeing is the treadmill-only grinder: months of dutiful cardio, scale
+barely moves, then it stops moving at all, then they quit. I&#x27;ve watched this
+cycle so many times I can call the week it breaks down.
+
+Named failure modes I&#x27;ve personally coached people out of:
+- **The compensation trap**: the long run earns a &quot;deserved&quot; snack that quietly
+  refunds most of the session. The body is also excellent at nudging you to
+  move less for the rest of the day after hard cardio. Fix: track the whole
+  day&#x27;s movement and intake honestly for two weeks before blaming the
+  program — the leak is almost always outside the workout.
+- **The muscle-burn spiral**: cutting calories hard while doing only steady
+  cardio strips lean mass along with fat. Less muscle means the same food now
+  goes further, so progress stalls at the exact moment motivation is lowest.
+  Fix: two or three resistance sessions a week are non-negotiable during a
+  cut; cardio is a supplement, not the base.
+- **The adaptation wall**: the body gets efficient at the exact same 5k at the
+  exact same pace. What cost real effort in week one costs fa</description></item>
+<item><title>Apologies that end discomfort aren&#x27;t repair</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/psychology/2026-07-26g-apologies-that-end-discomfort-arent-repair.md</link><guid isPermaLink="false">2026-07-26g-apologies-that-end-discomfort-arent-repair.md</guid><category>psychology</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of sitting with couples and colleagues in conflict, and the most
+common counterfeit I&#x27;ve watched pass for repair is the apology whose real job
+is to make the apologizer feel better. It ends the awkward moment. It repairs
+nothing. The other person can feel the difference even when they can&#x27;t name
+it.
+
+Named failure modes I&#x27;ve personally watched wreck relationships:
+- **The exit-ramp apology**: &quot;I said sorry, can we move on?&quot; — the apology as
+  a lever to close the conversation before the hurt has been understood.
+  The unspoken message is that your discomfort matters more than their
+  injury. Fix: after apologizing, ask what the other person needs and then
+  stay in the conversation without defending. The staying is the repair.
+- **The mirrored-blame apology**: &quot;I&#x27;m sorry you feel that way.&quot; I&#x27;ve watched
+  this single sentence undo months of goodwill, because it relocates the
+  problem into the other person&#x27;s feelings. Fix: name your action, not their
+  reaction — &quot;I&#x27;m sorry I dismissed you in that meeting&quot; survives contact
+  with reality; &quot;sorry you felt dismissed&quot; doesn&#x27;t.
+- **The repeat-offender apology**: sincere words, zero behavior change, third
+  time this year. </description></item>
 <item><title>Your staging environment is lying to you</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26f-your-staging-env-is-lying-to-you.md</link><guid isPermaLink="false">2026-07-26f-your-staging-env-is-lying-to-you.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of shipping and the most expensive fiction I keep meeting is &quot;it
 passed staging.&quot; Staging is a diorama — same shapes as production, none of the
 weather. Every team that trusts it fully eventually learns the same lesson,
