@@ -4,6 +4,16 @@
  "description": "Reviewed drafts across tech/health/comedy/psychology",
  "items": [
   {
+   "id": "tech/2026-07-26k-your-oncall-alert-volume-is-a-design-review.md",
+   "title": "[tech] Your on-call alert volume is a design review you keep skipping",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Your on-call alert volume is a design review you keep skipping\n\nTwenty years of pagers and I've learned the alert queue is the most honest\narchitecture document a team owns. Nobody lies in it. Every noisy page is a\ndesign decision confessing itself at 3 a.m.\n\nNamed failure modes I've personally paid for:\n- **The threshold graveyard**: alerts tuned once in 2021, never revisited.\n  Traffic tripled, the threshold didn't, and now the page fires nightly and\n  everyone sleeps through it. I've watched a real outage get acked-and-ignored\n  because it looked like the usual Tuesday noise. Fix: every alert gets an\n  owner and a review date, or it gets deleted. An alert without an owner is\n  spam with a severity label.\n- **The symptom-blindness split**: fifty alerts on CPU and disk, zero on\n  \"users can't check out.\" The dashboards were green while revenue was zero —\n  I've sat in that postmortem. Fix: alert on user-facing symptoms first;\n  resource metrics are for diagnosis, not for waking humans.\n- **The heroism dependency**: the one engineer who \"just knows\" what each page\n  means, so nothing gets documented and nothing gets fixed. When they left,\n  the team rediscovered every failure from scratch. Fix: every page that fires\n  produces either a runbook line or a deleted alert. No third option.\n\nThe rule: count your pages per week per human. If it's above a handful, you\ndon't have an alerting problem — you have a design backlog wearing a pager.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "tech",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "tech/2026-07-26j-your-staging-env-is-a-comfort-blanket.md",
    "title": "[tech] Your staging environment is a comfort blanket, not a safety net",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Your staging environment is a comfort blanket, not a safety net\n\nTwenty years of shipping and I've watched more prod incidents get born in a\n\"green\" staging run than anywhere else. Staging passes, prod burns, and the\npostmortem always finds the same thing: staging wasn't prod, it was a diorama\nof prod built by whoever last had time to care.\n\nNamed failure modes I've personally paid for:\n- **The config drift trap**: staging runs one replica, prod runs forty. The\n  race condition that needs two writers never fires in staging, then fires in\n  prod on Black Friday. Fix: parity on topology, not just code — same replica\n  counts, same load balancer behavior, or admit you're not testing that class\n  of bug.\n- **The sanitized-data mirage**: staging has ten thousand clean synthetic rows;\n  prod has a customer name with an emoji, a null where the schema says NOT\n  NULL from a 2019 migration, and a 40MB JSON blob someone pasted into a text\n  field. I've watched a \"fully tested\" release die on the first real row it\n  touched. Fix: scrubbed prod snapshots, refreshed on a schedule someone owns.\n- **The shared-staging pileup**: six teams deploy to one staging box, so it's\n  perpetually broken and everyone learns to ignore red. When staging is always\n  red, it tests nothing. Fix: ephemeral per-branch environments, or ruthless\n  ownership of the shared one.\n\nThe rule: staging earns trust only to the degree it's boringly identical to\nprod. Every deliberate difference is a bug class you've chosen not to test —\nwrite those differences down, or stop calling it a safety net.\n",
@@ -590,6 +600,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "tech",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "psychology/2026-07-26k-avoidance-shrinks-the-map.md",
+   "title": "[psychology] Avoidance doesn't shrink the fear — it shrinks the map",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Avoidance doesn't shrink the fear — it shrinks the map\n\nTwo decades across the table and the pattern I've watched consume the most\nlives isn't panic — it's the quiet real-estate deal where fear takes a little\nmore territory each year and calls it \"just knowing what I like.\"\n\nFailure modes I've watched play out:\n- **The comfort-zone creep**: skip one party, then all parties, then the\n  highway, then the mall. Each skip feels like relief; the sum is a life lived\n  in two rooms. I've watched someone's world contract for a decade before\n  anyone — including them — named it avoidance. Fix: keep a written map of\n  what's been quietly surrendered; you can't fight a retreat you won't chart.\n- **The safety-behavior smuggling**: technically going, but only with a\n  phone-clutch, an exit seat, a trusted person, a rehearsed excuse. The brain\n  credits the crutch, not the person, so the fear never updates. Fix: drop the\n  crutches one at a time, deliberately, and let the situation prove itself.\n- **The someday-when-calmer deferral**: waiting to feel ready before facing\n  the thing, when readiness only arrives *after* the facing. I've watched\n  people wait years for a feeling that was never scheduled. Fix: action first,\n  courage second — that's the only order it has ever come in.\n\nDo this: reclaim one surrendered square of the map this week — the small one.\nMomentum in this fight compounds faster than dread does.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "psychology",
     "veteran-voice"
    ]
   },
@@ -1184,6 +1204,16 @@
    ]
   },
   {
+   "id": "health/2026-07-26k-soreness-is-not-a-scoreboard.md",
+   "title": "[health] Soreness is not a scoreboard",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Soreness is not a scoreboard\n\nTwo decades coaching and the most stubborn myth in every gym I've worked is\nthat the workout only counted if you can't sit on a toilet for three days.\nSoreness is a novelty signal, not a progress signal — and chasing it has\nwrecked more training years than injuries have.\n\nFailure modes I watch on repeat:\n- **The DOMS-chasing program hopper**: constantly rotating exercises to stay\n  sore, which guarantees they're always in the adaptation-to-novelty phase and\n  never in the getting-stronger phase. I've watched someone train hard for two\n  years with beginner numbers to show for it. Fix: keep the core lifts stable\n  for months; let the boring repetition do its compounding work.\n- **The soreness-equals-permission trap**: not sore today, so they \"make up\n  for it\" with a punishment session, dig a recovery hole, and stall for weeks.\n  Fix: judge sessions by the logbook — load, reps, quality — never by how\n  wrecked you feel the morning after.\n- **The sore-so-skip spiral**: mild soreness read as damage, session skipped,\n  consistency dies. The irony is that light movement clears soreness faster\n  than the couch does. Fix: show up, warm up thoroughly, downgrade the day if\n  needed — the habit survives, and the habit is the program.\n\nDo this: track one thing — did you beat the logbook on something, anything,\nthis week? That's the scoreboard. Soreness is just weather.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "health",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "health/2026-07-26j-protein-timing-is-a-rounding-error.md",
    "title": "[health] Protein timing is a rounding error; your weekly total is the invoice",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Protein timing is a rounding error; your weekly total is the invoice\n\nTwenty years coaching lifters and I've watched grown adults sprint to a shaker\nbottle like the anabolic window was a closing bank vault — then log a weekend\nof protein intake that wouldn't sustain a housecat. The order of operations is\nbackwards, and it costs people years of progress.\n\nNamed failure modes I've personally paid for:\n- **The shaker-sprint delusion**: obsessing over the 30 minutes post-workout\n  while breakfast is coffee and vibes. The body doesn't bill by the minute; it\n  bills by the day and the week. Fix: hit your daily target first, spread over\n  3–4 real feedings, and let timing be the garnish it is.\n- **The weekend amnesia cycle**: dialed Monday–Friday, then two days of\n  grazing that erase the deficit of discipline. I've watched clients stall for\n  months and swear the program was broken. Fix: log the weekend before you\n  blame the training.\n- **The powder-first pantry**: supplements before groceries. When the shake is\n  the plan instead of the patch, chewing becomes optional and satiety\n  collapses — then hunger wins at 11 p.m. Fix: food first, powder for the gaps\n  you can name.\n\nThe rule: consistency at the weekly scale beats precision at the hourly scale.\nGet the boring total right for twelve straight weeks and the \"window\" debate\nbecomes something you laugh at from further along.\n",
@@ -1770,6 +1800,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "health",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "comedy/2026-07-26k-the-light-is-your-friend-not-your-enemy.md",
+   "title": "[comedy] The light is your friend, not your enemy",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# The light is your friend, not your enemy\n\nTwenty years in rooms and I can tell you the fastest way to never get booked\nagain isn't bombing — every booker forgives a bomb. It's blowing the light.\nRun long once and you're \"the comic who runs long\" for five years.\n\nScar tissue, catalogued:\n- **The one-more-bit gambler**: gets the light, decides the crowd deserves one\n  more chunk, and steals stage time from the closer. I've watched a comic\n  murder for twelve bonus minutes and never play that club again. The set was\n  great; the invoice was his career there. Fix: the light means wrap the\n  thought you're in, not start a new one. Practice ending from anywhere.\n- **The no-clock amateur hour**: no watch, no set-list timing, just vibes. Then\n  they're shocked the light came \"early.\" I've timed my chunks to the\n  half-minute since my third year — that's not obsessive, that's the job. Fix:\n  run your set against a timer at home until your 10 is actually a 10.\n- **The closer-first structure**: best bit buried at the end, so when time\n  compresses they either blow the light to reach it or end on filler. Fix:\n  build sets so any of your last three bits can close. Modular beats optimal\n  when the clock is real.\n\nThe rule: the room forgets your punchlines and remembers your professionalism.\nHit your time like it's part of the act — because to the booker, it is.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "comedy",
     "veteran-voice"
    ]
   },
