@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sun, 26 Jul 2026 07:35:02 +0000</lastBuildDate>
+<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sun, 26 Jul 2026 08:39:44 +0000</lastBuildDate>
+<item><title>Your On-Call Rotation Is a Design Review You Keep Ignoring</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26o-your-oncall-rotation-is-a-design-review.md</link><guid isPermaLink="false">2026-07-26o-your-oncall-rotation-is-a-design-review.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years carrying a pager taught me one thing textbooks never do: the pager is the most honest architecture reviewer you will ever hire. It doesn&#x27;t care about your diagram. It pages when the design lies.
+
+Failure modes I&#x27;ve watched teams pay for, quarter after quarter:
+
+- **The alert graveyard.** Hundreds of alerts nobody acts on, so the one real page drowns. If an alert doesn&#x27;t map to a runbook action, it&#x27;s noise wearing a uniform.
+- **The hero rotation.** One senior who &quot;just knows&quot; the system fields every escalation. That&#x27;s not resilience, that&#x27;s a single point of failure with a salary.
+- **The 3 a.m. deploy scar.** Teams that page constantly stop shipping on Fridays, then stop shipping Thursdays, then wonder why velocity died. Fear is a hidden tax on your roadmap.
+- **The postmortem theater.** Action items filed, never funded. Six months later the same class of outage returns with a new ticket number.
+- **The dashboard mirage.** Green dashboards while customers scream, because you measure what&#x27;s easy (CPU) instead of what&#x27;s true (checkout completion).
+
+What I do now: every quarter, sort pages by root-cause class, not by incident. The top class gets an engineering sprint — n</description></item>
+<item><title>The Encore Nobody Asked For</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/comedy/2026-07-26o-the-encore-nobody-asked-for.md</link><guid isPermaLink="false">2026-07-26o-the-encore-nobody-asked-for.md</guid><category>comedy</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years on stage and the hardest skill I ever learned wasn&#x27;t writing a closer. It was leaving after it. I&#x27;ve watched more good sets die in the two minutes after the big laugh than in any heckle.
+
+Failure modes I&#x27;ve bombed into personally, so you don&#x27;t have to:
+
+- **The victory lap bit.** You crush the closer, the room&#x27;s hot, and your ego whispers &quot;one more.&quot; That one more is always the B-material you cut for a reason. Now the room&#x27;s last memory is the shrug, not the roar.
+- **The explained punchline.** A joke half-lands and you go back in to renovate it live. I&#x27;ve watched comics perform autopsies on jokes that were still breathing. Once you explain it, it&#x27;s a lecture with a body count.
+- **The borrowed encore.** Doing the crowd-work bit that killed last night with a totally different room. Rooms don&#x27;t share memory. Tuesday&#x27;s magic is Wednesday&#x27;s silence.
+- **The apology opener 2.0.** Coming back after the closer to thank everyone for four straight minutes. Gratitude is lovely; momentum is lovelier. The light means leave.
+
+What I do now: my set ends one beat before I want it to. Every time. When I signed the mental contract to always leave them slightly hungry, my bookings got </description></item>
+<item><title>Soreness Is Not a Scoreboard</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26o-soreness-is-not-a-scoreboard.md</link><guid isPermaLink="false">2026-07-26o-soreness-is-not-a-scoreboard.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years coaching people in gyms and I still hear it weekly: &quot;Great session — I can barely walk.&quot; I&#x27;ve watched that belief wreck more training careers than any injury. Soreness is a side effect, not a receipt.
+
+Failure modes I&#x27;ve watched play out on the gym floor:
+
+- **The soreness chase.** Lifters rotate exercises constantly to stay sore, which means they never accumulate enough practice on any lift to actually get strong at it. Novelty feels like progress; it&#x27;s mostly just damage.
+- **The wrecked-legs skip week.** Crush yourself Monday, limp until Thursday, skip Friday. The muscle you were &quot;building&quot; gets fewer total quality sessions per month than a boring, repeatable plan.
+- **The pain-blind spot.** People trained to celebrate soreness stop distinguishing muscle ache from joint pain. I&#x27;ve watched tendon problems get pushed through for months because &quot;sore means it&#x27;s working.&quot;
+- **The beginner burnout.** New clients who leave session one destroyed don&#x27;t come back for session three. The best program is the one that survives contact with your actual life.
+
+What actually tracks progress: the logbook. Load, reps, rest, week over week. If the numbers climb and you feel mostly rec</description></item>
+<item><title>Motivation Is a Lagging Indicator</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/psychology/2026-07-26o-motivation-is-a-lagging-indicator.md</link><guid isPermaLink="false">2026-07-26o-motivation-is-a-lagging-indicator.md</guid><category>psychology</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of coaching clients through stuck seasons and I keep undoing the same myth: that motivation comes first and action follows. In every real change I&#x27;ve watched happen, it ran the other way. People act, tiny and unglamorous, and motivation shows up late — like applause after the song.
+
+Failure modes I&#x27;ve watched keep smart people frozen for years:
+
+- **The readiness wait.** &quot;I&#x27;ll start when I feel ready.&quot; Readiness is a feeling generated by evidence, and you have no evidence yet, so the wait is structurally infinite.
+- **The mood audit.** Checking how you feel about the task before starting it. Feelings polled before action almost always vote no; feelings polled ten minutes into action often flip.
+- **The identity ransom.** &quot;I&#x27;m just not a disciplined person.&quot; I&#x27;ve watched people hold their own behavior hostage to a self-description written by their worst semester.
+- **The all-or-nothing ledger.** If the workout isn&#x27;t an hour, it&#x27;s worthless; if the writing isn&#x27;t brilliant, delete it. This scoring system guarantees a losing record, and losing records kill motivation — completing the loop.
+
+What works in practice: shrink the entry fee until refusal feels absurd. Two minute</description></item>
 <item><title>Your Warm-Up Is Not Optional Admin</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26n-your-warmup-is-not-optional-admin.md</link><guid isPermaLink="false">2026-07-26n-your-warmup-is-not-optional-admin.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades coaching people through training injuries taught me one boring truth: almost nobody gets hurt by the heavy set. They get hurt by the first heavy set they did cold, in a hurry, after sitting in a chair for nine hours.
 
 Failure modes **I&#x27;ve watched** put lifters on the shelf:
