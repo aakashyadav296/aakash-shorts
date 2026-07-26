@@ -1,5 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sun, 26 Jul 2026 00:35:06 +0000</lastBuildDate>
+<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sun, 26 Jul 2026 01:35:48 +0000</lastBuildDate>
+<item><title>Your backup is Schrödinger&#x27;s until you restore it</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26h-your-backup-is-schrodingers-until-you-restore-it.md</link><guid isPermaLink="false">2026-07-26h-your-backup-is-schrodingers-until-you-restore-it.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of on-call and I&#x27;ve never once been paged for &quot;backup failed.&quot;
+I&#x27;ve been paged plenty for &quot;restore failed&quot; — which is the same event,
+discovered at the worst possible moment. A backup you&#x27;ve never restored is a
+superstition with a cron schedule.
+
+Named failure modes I&#x27;ve personally paid for:
+- **The green-checkmark theater**: the job exits 0 every night for a year —
+  because it&#x27;s been snapshotting an empty volume since a mount path changed.
+  Nobody reads success logs. Fix: the monitoring asserts on restored-data
+  properties (row counts, checksums, newest-record age), never on job exit
+  codes.
+- **The restore-time surprise**: the backup is fine; it just takes 26 hours to
+  restore and your SLA promised four. I&#x27;ve watched a team discover their RTO
+  was fiction while the CEO watched. Fix: quarterly timed restore drills into a
+  scratch environment, with the wall-clock number written where leadership can
+  see it.
+- **The credentials coffin**: encrypted backups, key stored in the KMS of the
+  same account that just got compromised or deleted. The data survived; access
+  to it didn&#x27;t. Fix: escrow the decryption path in a separate trust domain, and
+  test the break-glas</description></item>
+<item><title>Venting rehearses anger — it doesn&#x27;t release it</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/psychology/2026-07-26h-venting-rehearses-anger-it-doesnt-release-it.md</link><guid isPermaLink="false">2026-07-26h-venting-rehearses-anger-it-doesnt-release-it.md</guid><category>psychology</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades sitting with people in conflict and the most stubborn folk theory
+I still meet weekly is the pressure-cooker model: anger builds up, so you have
+to &quot;let it out&quot; or you&#x27;ll explode. What I&#x27;ve actually watched, year after
+year, is the opposite — every retelling is a rehearsal, and rehearsal makes
+the performance stronger.
+
+Failure modes I&#x27;ve watched wreck relationships:
+- **The grievance rehearsal loop**: the same story told to five friends,
+  polished a little more each time — villain sharper, self more innocent. By
+  Friday the person isn&#x27;t less angry; they&#x27;re better at being angry, with a
+  tighter script. Fix: after telling the story once, the next repetition must
+  add something new — a fact you&#x27;re unsure of, a thing you contributed, a
+  question. If it adds nothing, it&#x27;s rehearsal, not processing.
+- **The validation trap**: recruiting a chorus who only says &quot;you&#x27;re so right&quot;
+  feels like support but functions as escalation — I&#x27;ve watched mild
+  irritation get coached into a resignation letter by a well-meaning group
+  chat. Fix: pick one listener who&#x27;s allowed to push back, and tell them
+  that&#x27;s their job before you start.
+- **The catharsis hangover**: the explosive</description></item>
+<item><title>The mobility work you skip is the injury you scheduled</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26h-mobility-you-skip-is-the-injury-you-scheduled.md</link><guid isPermaLink="false">2026-07-26h-mobility-you-skip-is-the-injury-you-scheduled.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades on gym floors and I can tell you the pattern by heart: the lifter
+who &quot;doesn&#x27;t have time&quot; for ten minutes of prep work always finds six weeks
+for a rehab block. The joint doesn&#x27;t send an invoice up front — it bills you
+later, with interest.
+
+Failure modes I&#x27;ve watched on repeat:
+- **The warm-up amputation**: program says 45 minutes, life gives you 35, so
+  the warm-up dies first — never the top set. Then the top set moves through
+  cold hips and something in the low back files a complaint. Fix: the warm-up
+  scales down before it disappears; three minutes of targeted prep beats zero,
+  and the top set shrinks before the prep does.
+- **The stretching-as-penance trap**: lifter tweaks a shoulder, then spends a
+  month aggressively yanking it into end ranges it never owned, calling it
+  mobility. I&#x27;ve watched that turn a tweak into a tear. Fix: earn range with
+  load and control — slow tempo work in the range you have, expanding it
+  gradually, not wrenching into the range you want.
+- **The pain-silencing loop**: pre-workout, wraps, belt, and a playlist loud
+  enough to drown out the knee that&#x27;s been whispering for a month. The whisper
+  becomes a conversation, then a shout</description></item>
+<item><title>If you didn&#x27;t record the set, it didn&#x27;t happen</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/comedy/2026-07-26h-if-you-didnt-record-the-set-it-didnt-happen.md</link><guid isPermaLink="false">2026-07-26h-if-you-didnt-record-the-set-it-didnt-happen.md</guid><category>comedy</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of open mics and club spots taught me one unglamorous truth: your
+memory of a set is a press release, not a transcript. Every comic walks off
+stage with a version of what happened that flatters the ego and buries the
+evidence.
+
+Failure modes I&#x27;ve personally bombed my way through:
+- **The phantom laugh**: you remember the bit &quot;killing&quot; because two friends up
+  front cackled. The recording reveals a polite room and your friends. I&#x27;ve
+  kept dead bits alive for months on phantom laughs. Fix: record every set on
+  your phone, listen within 24 hours, and mark the actual laugh points with
+  timestamps — laughs you can&#x27;t timestamp don&#x27;t count.
+- **The mumble tax**: on tape you discover the punchline you &quot;nailed&quot; was
+  half-swallowed, delivered while turning toward the stool. The room didn&#x27;t
+  reject the joke — they never received it. Fix: the recording review checks
+  delivery mechanics first (audibility, face to the crowd, pause discipline)
+  before you rewrite a single word.
+- **The premise drift**: without tape, the bit mutates nightly — a word here,
+  a beat there — until the version that worked is gone and you can&#x27;t say when
+  you lost it. I&#x27;ve watched comics try to reve</description></item>
 <item><title>Your opener is a contract, not a warmup</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/comedy/2026-07-26g-your-opener-is-a-contract-not-a-warmup.md</link><guid isPermaLink="false">2026-07-26g-your-opener-is-a-contract-not-a-warmup.md</guid><category>comedy</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of rooms — bar shows, corporates, festivals — and I&#x27;ve bombed
 enough openers to know the first thirty seconds aren&#x27;t a warmup, they&#x27;re a
 contract. The audience decides in that window whether you&#x27;re in charge of the
