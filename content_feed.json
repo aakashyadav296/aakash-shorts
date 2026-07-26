@@ -4,6 +4,16 @@
  "description": "Reviewed drafts across tech/health/comedy/psychology",
  "items": [
   {
+   "id": "tech/2026-07-26m-retries-are-an-outage-amplifier.md",
+   "title": "[tech] Retries are an outage amplifier with a kind face",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Retries are an outage amplifier with a kind face\n\nTwenty years of distributed systems and the single mechanism I've watched turn\na blip into a catastrophe most often isn't a bug — it's the retry loop everyone\nadded \"for resilience.\" A struggling service doesn't need more traffic. Retries\nare more traffic, delivered precisely when the patient is already coding.\n\nNamed failure modes I've personally paid for:\n- **The retry storm pyramid**: client retries 3x, the gateway retries 3x, the\n  service retries its downstream 3x. One user click becomes 27 requests. I've\n  watched a database brownout become a full outage in ninety seconds because\n  every layer was \"being resilient\" simultaneously. Fix: retries live at ONE\n  layer, agreed in writing. Everyone else fails fast and surfaces the error.\n- **The immediate-retry hammer**: no backoff, no jitter, so every failed call\n  from every client re-fires in the same synchronized wave. The service comes\n  up, gets flattened by the thundering herd, goes back down. I've sat through\n  three of those recovery-collapse cycles in one incident. Fix: exponential\n  backoff with jitter is table stakes; a retry budget that stops retrying when\n  the error rate is systemic is the actual fix.\n- **The non-idempotent replay**: retrying a payment call that timed out but\n  actually succeeded. Customer charged twice, trust charged forever. I've\n  signed the apology email. Fix: idempotency keys on every mutating call\n  before you're allowed to configure a single retry.\n\nThe rule: a retry is a bet that the failure was transient. If you can't say\nwhy it's transient, you're not retrying — you're DDoSing yourself politely.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "tech",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "tech/2026-07-26l-feature-flags-are-loans-not-gifts.md",
    "title": "[tech] Feature Flags Are Loans, Not Gifts",
    "content_text": "# Feature Flags Are Loans, Not Gifts\nSTATUS: DRAFT\n\nEveryone sells feature flags as free safety. Nobody mentions the interest rate. After two decades of shipping behind flags, I can tell you the flag itself is never the problem — the flag you forgot is.\n\nFailure modes **I've watched** eat entire quarters:\n\n- **The immortal flag.** Shipped, ramped to everyone, never removed. Eighteen months later a new hire flips it off \"to test something\" and takes down checkout. The dead branch was still load-bearing.\n- **Flag-on-flag combinatorics.** Five flags means dozens of possible states, and QA tested exactly one. The bug only appears when flag A is on and flag C is off, which is precisely the state of your biggest customer.\n- **The config-as-code lie.** Flags flipped in a dashboard leave no diff, no review, no rollback history. An incident retro that ends with \"someone changed a flag\" and no name attached is a process hole, not a mystery.\n- **Ramp-and-forget.** The team celebrates the launch at partial rollout and moves on. The remaining users live on the old path for a year, and every bugfix now needs to land twice.\n- **Flags as permission system.** Somebody starts using the flag service for entitlements. Now your experimentation tool is in the auth path and can never be cleaned up.\n\nWhat actually works: every flag gets an owner and an expiry date at creation, and an alarm fires when it outlives the date. Flag flips go through the same review as code. Old paths get deleted the sprint after full ramp — deletion is part of the launch, not a someday chore.\n\n**Bottom line:** a flag is borrowed complexity with compounding interest. The rule: no flag without an owner, an expiry, and a scheduled deletion — treat removal as the second half of shipping.\n",
@@ -610,6 +620,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "tech",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "psychology/2026-07-26m-rumination-is-fake-problem-solving.md",
+   "title": "[psychology] Rumination is problem-solving cosplay",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Rumination is problem-solving cosplay\n\nTwo decades across the table and the most convincing disguise suffering wears\nis productivity. Rumination feels like work — you're \"thinking it through,\"\n\"processing,\" \"trying to understand.\" But I've watched people think a problem\nthrough nightly for six years without once touching a decision.\n\nFailure modes I've watched play out:\n- **The replay-for-answers loop**: rerunning the argument, the breakup, the\n  meeting, hunting for the frame that finally makes it hurt correctly. The\n  hunt never ends because the pain isn't a puzzle with a missing piece. Fix:\n  the test question — \"is this thought producing a next action?\" If the answer\n  has been no for twenty minutes, it's not analysis, it's a wound being licked.\n- **The worry-as-insurance superstition**: the quiet belief that keeping the\n  fear active somehow prevents the feared thing, so relaxing feels reckless.\n  I've watched people defend their 3 a.m. dread like it was a smoke alarm\n  instead of a fire they were setting themselves. Fix: schedule the worry —\n  fifteen minutes, on paper, with a pen. Outside the window, postpone it.\n  What's postponable was never surveillance; it was habit.\n- **The insight-hoarding stall**: years of understanding *why* they are the\n  way they are, zero behavioral experiments. Insight without action is just a\n  better-narrated cage. Fix: one small behavioral test per week beats one\n  more elegant explanation per night.\n\nDo this: when the loop starts, write one sentence — the smallest next action\nor the admission there isn't one. Both endings beat the loop. The loop has\nno ending; that's its whole design.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "psychology",
     "veteran-voice"
    ]
   },
@@ -1224,6 +1244,16 @@
    ]
   },
   {
+   "id": "health/2026-07-26m-the-warmup-is-the-workout-insurance.md",
+   "title": "[health] The warm-up you skip is the injury you schedule",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# The warm-up you skip is the injury you schedule\n\nTwo decades on gym floors and I can tell you the most expensive minutes in\ntraining are the ten you saved by walking straight to the working weight.\nNobody logs the warm-up, so everybody treats it as optional. Their tendons\nkeep a different logbook.\n\nFailure modes I watch on repeat:\n- **The cold-PR gambler**: walks in stiff from a desk chair, loads the bar to\n  yesterday's top set, and wonders why the hip or the elbow \"suddenly\" went. It\n  wasn't sudden — I've watched the same person skip ramp-up sets for months\n  before the bill arrived. Fix: ramp to the working weight in jumps; the last\n  warm-up set should feel like a rehearsal, not a surprise.\n- **The 20-minute stretch-a-thon**: the opposite crime — long static holds on\n  cold muscle, draining the session before it starts and blunting output. I've\n  coached people who spent more time on the foam roller than under the bar and\n  called it discipline. Fix: warm-ups raise temperature and rehearse the\n  movement pattern. Five to eight focused minutes. Then lift.\n- **The cardio-only alibi**: five minutes on a bike, zero rehearsal of the\n  actual movement, then heavy squats. The heart was warm; the pattern wasn't.\n  Fix: the last stage of every warm-up is the exercise itself, lighter.\n\nDo this: treat the warm-up as the first working set with a different goal.\nThe logbook rewards the sets it can see; your joints reward the ones it can't.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "health",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "health/2026-07-26l-sleep-debt-compounds-quietly.md",
    "title": "[health] Sleep Debt Compounds Quietly, Then All at Once",
    "content_text": "# Sleep Debt Compounds Quietly, Then All at Once\nSTATUS: DRAFT\n\nTwenty years of coaching working adults and the single change that fixed more plateaus than any program tweak was boring: they started sleeping like it mattered. Nobody wants that answer, everybody wants a new supplement.\n\nFailure modes **I've watched** wreck otherwise disciplined people:\n\n- **The weekend repayment myth.** Sleeping in on Saturday after five short nights feels like settling the tab. It isn't — the fatigue is masked, not repaid, and the Monday session proves it.\n- **Training through the wall.** Chronic short sleepers keep pushing intensity because motivation is the last thing to go. Coordination goes first. That is when the tweaks and strains show up.\n- **The revenge-scrolling trap.** People with no evening to themselves steal one from their sleep. The cost lands on tomorrow's willpower, which is exactly what the diet needed.\n- **Caffeine laundering.** Fatigue papered over with an afternoon coffee that then delays the next night's sleep. The loop tightens week by week and looks like \"just being busy\".\n- **Treating sleep as an output, not an input.** Trying to force sleep with willpower at midnight instead of protecting the ninety minutes before it.\n\nWhat works is embarrassingly plain: a fixed wake time seven days a week, screens parked before the last hour, the bedroom cold and dark, and hard training scheduled on the nights you know you can sleep after.\n\n**Bottom line:** you don't feel sleep debt accumulating — you feel it defaulting. The rule: fix the wake time first, protect the last hour of the day, and stop trying to out-train a short night.\n",
@@ -1830,6 +1860,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "health",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "comedy/2026-07-26m-the-cold-room-is-a-skills-exam.md",
+   "title": "[comedy] The cold room is a skills exam, not an insult",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# The cold room is a skills exam, not an insult\n\nTwenty years of rooms and the shows that built me weren't the hot Saturday\nlate shows — they were the 7pm Tuesday crowds of eleven people who came in\nout of the rain. Anyone can surf a hot room. The cold room tells you what\nyou actually own.\n\nScar tissue, catalogued:\n- **The blame-the-room monologue**: comic eats it for ten minutes, walks off\n  muttering about the crowd. I've done it; every comic has. But I've also\n  watched the next comic destroy with the same eleven people, which is the\n  most educational humiliation in the business. Fix: the room is a constant.\n  You're the variable. Adjust pace, drop the act-outs, get conversational.\n- **The volume-equals-energy mistake**: room is quiet so the comic gets\n  LOUDER, which reads as panic and makes eleven strangers feel screamed at.\n  Fix: cold rooms need intimacy, not projection. Lower the register, shorten\n  the bits, talk to them like a table you just sat down at.\n- **The setlist death-march**: plowing through the planned order while the\n  room visibly isn't buying the premise-heavy stuff. I've watched comics\n  refuse to call an audible for fifteen minutes out of pure stubbornness.\n  Fix: know which three bits work everywhere. Cold room? Lead with one,\n  earn trust, then spend it on the weirder material.\n\nThe rule: hot rooms teach you nothing except that you like applause. Book the\nTuesday. The Tuesday is the gym.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "comedy",
     "veteran-voice"
    ]
   },
