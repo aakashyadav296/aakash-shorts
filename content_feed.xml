@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sun, 26 Jul 2026 01:35:48 +0000</lastBuildDate>
+<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sun, 26 Jul 2026 02:36:10 +0000</lastBuildDate>
+<item><title>Your retry logic is a DDoS cannon pointed at yourself</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26i-your-retry-logic-is-a-ddos-cannon.md</link><guid isPermaLink="false">2026-07-26i-your-retry-logic-is-a-ddos-cannon.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of incident bridges and the most common way I&#x27;ve watched a
+five-minute blip become a five-hour outage is well-intentioned retries. The
+dependency hiccups, every client retries at once, and now the recovering
+service gets hit with 10x its normal load the moment it stands up.
+
+Named failure modes I&#x27;ve personally paid for:
+- **The synchronized stampede**: fixed retry intervals mean every caller comes
+  back on the same beat. The service recovers, absorbs the wave, dies again — a
+  metronome of self-inflicted outages. Fix: exponential backoff WITH jitter.
+  The jitter is not optional; it&#x27;s the entire point.
+- **The retry amplification pyramid**: service A retries 3x, calls B which
+  retries 3x, which calls C which retries 3x. One user click becomes 27 requests
+  at the bottom of the stack. I&#x27;ve watched a team hunt a &quot;traffic spike&quot; for a
+  day before finding it was their own middleware. Fix: retries live at ONE
+  layer, usually the edge; everything below fails fast.
+- **The non-idempotent replay**: the charge went through, the response timed
+  out, the client retried. Customer billed twice, trust billed forever. Fix:
+  idempotency keys on every mutating call before a singl</description></item>
+<item><title>The hosting gig is the real masterclass everyone dodges</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/comedy/2026-07-26i-the-hosting-gig-is-the-real-masterclass.md</link><guid isPermaLink="false">2026-07-26i-the-hosting-gig-is-the-real-masterclass.md</guid><category>comedy</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years in rooms and the job young comics avoid hardest is the one that
+built every reliable pro I know: hosting. Everybody wants the closer spot.
+Nobody wants to walk into a cold room, warm up 80 strangers, do the birthday
+shout-outs, and hand the crowd over better than they found it.
+
+Scar tissue, catalogued:
+- **The set-list rigidity**: a host who can only do their act in order dies the
+  moment the room needs something else. I&#x27;ve watched comics bomb the check
+  drop because they couldn&#x27;t leave the script while servers clattered plates.
+  Fix: hosting forces modular material — chunks you can enter and exit
+  anywhere. That skill is the whole career.
+- **The energy-vampire open**: host comes out low-status and apologetic, and
+  the whole show inherits that ceiling. Every comic after spends five minutes
+  digging out of the hole the host dug. Fix: the host&#x27;s first 90 seconds sets
+  the room&#x27;s permission level — walk out like the show is already good.
+- **The announcement contempt**: mocking the venue&#x27;s promos, rushing the
+  raffle, sneering at the crowd work obligations. Bookers watch that. The
+  comics got paid because that venue survives on those announcements. Fix:
+  treat</description></item>
+<item><title>Reassurance-seeking is a slot machine that pays in anxiety</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/psychology/2026-07-26i-reassurance-seeking-is-a-slot-machine.md</link><guid isPermaLink="false">2026-07-26i-reassurance-seeking-is-a-slot-machine.md</guid><category>psychology</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades across the table and one loop shows up in anxious minds more than
+any other: ask for reassurance, feel better for an hour, feel worse by night,
+ask again. It looks like comfort. It works like a slot machine — intermittent
+relief that trains the very doubt it soothes.
+
+Failure modes I&#x27;ve watched play out:
+- **The certainty treadmill**: &quot;are you mad at me?&quot; answered honestly, believed
+  for 40 minutes, then the doubt regenerates and needs a fresh dose. I&#x27;ve
+  watched relationships buckle not under conflict but under the fifth daily
+  check-in. Fix: name the pattern together — the partner answers ONCE per
+  topic per day, warmly, and both treat the second ask as the anxiety talking.
+- **The symptom-google spiral**: every search that ends in &quot;it&#x27;s probably
+  nothing&quot; teaches the brain that dread gets resolved by searching — so dread
+  returns with a search craving attached. Fix: a 24-hour rule; the worry gets
+  written down and earns a search only if it survives a full day.
+- **The outsourced judgment atrophy**: years of &quot;should I send this email?&quot;
+  asked to three friends, and the person&#x27;s own decision muscle has quietly
+  wasted away. The anxiety was never about the email</description></item>
+<item><title>Cardio is not the enemy of your lifts — being gassed is</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26i-cardio-is-not-the-enemy-of-your-lifts.md</link><guid isPermaLink="false">2026-07-26i-cardio-is-not-the-enemy-of-your-lifts.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades coaching and I still meet lifters who avoid all conditioning like
+it&#x27;s a curse on their squat. Then they hit a hard set of eight and need five
+minutes draped over the rack, heart pounding, and the rest of the session is
+garbage. That&#x27;s not a strength problem. That&#x27;s an engine problem.
+
+Failure modes I watch on repeat:
+- **The interference-effect overreaction**: someone read that cardio kills
+  gains and deleted every step of walking. The research nuance was about
+  high-volume concurrent endurance training — not two easy Zone 2 sessions.
+  I&#x27;ve watched lifters get weaker from the resulting work-capacity collapse.
+  Fix: 2x30 minutes easy — conversational pace — protects the lifting, not
+  threatens it.
+- **The HIIT-only trap**: all conditioning done as gasping intervals, which is
+  just more recovery debt stacked on lifting stress. Joints bark, sleep tanks,
+  progress stalls, and cardio takes the blame. Fix: the hard-easy rule — if you
+  lift heavy, most cardio stays boring and easy on purpose.
+- **The rest-timer denial**: between-set recovery is an aerobic event. The
+  lifter with no base needs four minutes where a conditioned one needs 90
+  seconds — that&#x27;s a shorter,</description></item>
 <item><title>Your backup is Schrödinger&#x27;s until you restore it</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26h-your-backup-is-schrodingers-until-you-restore-it.md</link><guid isPermaLink="false">2026-07-26h-your-backup-is-schrodingers-until-you-restore-it.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of on-call and I&#x27;ve never once been paged for &quot;backup failed.&quot;
 I&#x27;ve been paged plenty for &quot;restore failed&quot; — which is the same event,
 discovered at the worst possible moment. A backup you&#x27;ve never restored is a
