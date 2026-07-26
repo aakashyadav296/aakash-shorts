@@ -4,6 +4,16 @@
  "description": "Reviewed drafts across tech/health/comedy/psychology",
  "items": [
   {
+   "id": "tech/2026-07-26n-staging-is-a-lie-you-tell-yourself.md",
+   "title": "[tech] Staging Is a Lie You Tell Yourself",
+   "content_text": "# Staging Is a Lie You Tell Yourself\nSTATUS: DRAFT\n\nTwenty years of shipping backend systems and I still watch teams treat staging like a crystal ball. It is not. It is a diorama — a miniature you built from memory of what production looked like the last time someone cared to sync it.\n\nFailure modes **I've watched** burn releases over and over:\n\n- **The drifted config.** Staging runs one replica, prod runs forty. Your connection pool math is fiction the moment you promote.\n- **The sanitized data.** Staging has clean, tiny, well-formed rows. Prod has the customer who put an emoji in a currency field in a decade-old record. Staging cannot surprise you, and surprise is the entire point of testing.\n- **The missing neighbors.** In prod your service shares a node with a batch job that eats the disk at 2 a.m. Staging is a quiet suburb; prod is a shared apartment.\n- **The stale dependency graph.** Downstream teams update their staging endpoints months late, so your \"integration test\" integrates with a ghost.\n- **The green-light ritual.** Once staging passes, everyone stops thinking. The checkmark becomes a permission slip to skip production verification.\n\nWhat actually works: shrink the gap instead of trusting the model. Shadow traffic, canary releases to a sliver of real users, feature flags with instant kill switches, and production probes that assert business behavior — not just liveness. Treat staging as a lint pass, not a verdict.\n\n**Bottom line:** staging can only prove your code is broken, never that it works. The rule: promote behind a canary and verify in production with real traffic before you call anything shipped.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "tech",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "tech/2026-07-26m-retries-are-an-outage-amplifier.md",
    "title": "[tech] Retries are an outage amplifier with a kind face",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Retries are an outage amplifier with a kind face\n\nTwenty years of distributed systems and the single mechanism I've watched turn\na blip into a catastrophe most often isn't a bug — it's the retry loop everyone\nadded \"for resilience.\" A struggling service doesn't need more traffic. Retries\nare more traffic, delivered precisely when the patient is already coding.\n\nNamed failure modes I've personally paid for:\n- **The retry storm pyramid**: client retries 3x, the gateway retries 3x, the\n  service retries its downstream 3x. One user click becomes 27 requests. I've\n  watched a database brownout become a full outage in ninety seconds because\n  every layer was \"being resilient\" simultaneously. Fix: retries live at ONE\n  layer, agreed in writing. Everyone else fails fast and surfaces the error.\n- **The immediate-retry hammer**: no backoff, no jitter, so every failed call\n  from every client re-fires in the same synchronized wave. The service comes\n  up, gets flattened by the thundering herd, goes back down. I've sat through\n  three of those recovery-collapse cycles in one incident. Fix: exponential\n  backoff with jitter is table stakes; a retry budget that stops retrying when\n  the error rate is systemic is the actual fix.\n- **The non-idempotent replay**: retrying a payment call that timed out but\n  actually succeeded. Customer charged twice, trust charged forever. I've\n  signed the apology email. Fix: idempotency keys on every mutating call\n  before you're allowed to configure a single retry.\n\nThe rule: a retry is a bet that the failure was transient. If you can't say\nwhy it's transient, you're not retrying — you're DDoSing yourself politely.\n",
@@ -620,6 +630,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "tech",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "psychology/2026-07-26n-advice-is-autobiography-in-disguise.md",
+   "title": "[psychology] Advice Is Autobiography in Disguise",
+   "content_text": "# Advice Is Autobiography in Disguise\nSTATUS: DRAFT\n\nTwenty years sitting with clients taught me to hear advice differently. When someone tells you what you should do, they are usually telling you what they wish they had done. It is autobiography wearing your name tag.\n\nFailure modes **I've watched** people fall into when taking advice at face value:\n\n- **The survivor's sample.** The person advising you succeeded once, under conditions that no longer exist, and has quietly deleted every peer who did the same thing and failed.\n- **The projected regret.** \"Never take that risk\" from someone still grieving the risk they took. \"Take the leap\" from someone still justifying theirs. Neither sentence is about you.\n- **The status transaction.** Some advice is not guidance, it is a dominance move — the advisor gets to feel senior, and the actual content is an afterthought.\n- **The comfort prescription.** Friends often advise whatever keeps you nearby and unchanged, not out of malice but because your change threatens their map.\n- **The outsourced decision.** Collecting opinions until one matches what you already wanted, then calling it due diligence.\n\nWhat works: mine advice for data, not verdicts. Ask what the advisor actually experienced, what it cost them, and what was different about their situation. Take the story, discard the imperative.\n\n**Bottom line:** every \"you should\" is a compressed memoir. The rule: before following advice, ask the person what happened when they faced it — then decide as the only expert on your own constraints.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "psychology",
     "veteran-voice"
    ]
   },
@@ -1244,6 +1264,16 @@
    ]
   },
   {
+   "id": "health/2026-07-26n-your-warmup-is-not-optional-admin.md",
+   "title": "[health] Your Warm-Up Is Not Optional Admin",
+   "content_text": "# Your Warm-Up Is Not Optional Admin\nSTATUS: DRAFT\n\nTwo decades coaching people through training injuries taught me one boring truth: almost nobody gets hurt by the heavy set. They get hurt by the first heavy set they did cold, in a hurry, after sitting in a chair for nine hours.\n\nFailure modes **I've watched** put lifters on the shelf:\n\n- **The parking-lot-to-barbell sprint.** Straight from the car to a working weight. Tissue that has been shortened all day gets loaded at full range with zero preparation.\n- **The cardio-only warm-up.** Five minutes on a bike raises your heart rate and does absolutely nothing for the specific joints and positions your first lift demands.\n- **The stretching detour.** Long static holds before lifting make people feel loose while temporarily dulling the exact stiffness that protects a joint under load.\n- **The ego jump.** Warm-up sets that leap from the empty bar straight to near-max. The nervous system needs graded exposure, not a surprise exam.\n- **The copied routine.** Doing someone else's warm-up for a body that has your injury history, your desk hours, your cranky shoulder.\n\nWhat works is dull: raise temperature, rehearse the exact movement pattern light, add load in modest steps, and give your slowest-warming joint one extra ramp set. Ten minutes, every session, forever.\n\n**Bottom line:** the warm-up is the part of training that buys you the next twenty years of training. The rule: never load a position you have not rehearsed light in the same session.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "health",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "health/2026-07-26m-the-warmup-is-the-workout-insurance.md",
    "title": "[health] The warm-up you skip is the injury you schedule",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# The warm-up you skip is the injury you schedule\n\nTwo decades on gym floors and I can tell you the most expensive minutes in\ntraining are the ten you saved by walking straight to the working weight.\nNobody logs the warm-up, so everybody treats it as optional. Their tendons\nkeep a different logbook.\n\nFailure modes I watch on repeat:\n- **The cold-PR gambler**: walks in stiff from a desk chair, loads the bar to\n  yesterday's top set, and wonders why the hip or the elbow \"suddenly\" went. It\n  wasn't sudden — I've watched the same person skip ramp-up sets for months\n  before the bill arrived. Fix: ramp to the working weight in jumps; the last\n  warm-up set should feel like a rehearsal, not a surprise.\n- **The 20-minute stretch-a-thon**: the opposite crime — long static holds on\n  cold muscle, draining the session before it starts and blunting output. I've\n  coached people who spent more time on the foam roller than under the bar and\n  called it discipline. Fix: warm-ups raise temperature and rehearse the\n  movement pattern. Five to eight focused minutes. Then lift.\n- **The cardio-only alibi**: five minutes on a bike, zero rehearsal of the\n  actual movement, then heavy squats. The heart was warm; the pattern wasn't.\n  Fix: the last stage of every warm-up is the exercise itself, lighter.\n\nDo this: treat the warm-up as the first working set with a different goal.\nThe logbook rewards the sets it can see; your joints reward the ones it can't.\n",
@@ -1860,6 +1890,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "health",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "comedy/2026-07-26n-the-crowd-work-crutch.md",
+   "title": "[comedy] The Crowd Work Crutch",
+   "content_text": "# The Crowd Work Crutch\nSTATUS: DRAFT\n\nTwenty years of open mics, club spots, and dying quietly in function rooms taught me this: crowd work is dessert, not dinner. The comics who lean on it every night are usually hiding the fact that they stopped writing.\n\nFailure modes **I've watched** — and a couple I've bombed into personally:\n\n- **The front-row hostage.** You interrogate the same poor accountant for eight minutes because your new five isn't ready. The room laughs, but nothing you did tonight exists tomorrow.\n- **The fake spontaneity.** Everyone can smell a \"spontaneous\" bit that has been done word-for-word at every show this month. The audience forgives a script; they never forgive being lied to about one.\n- **The energy mismatch.** Killing with crowd work at a rowdy Saturday late show convinces you it works everywhere. Then you try it on a quiet Tuesday and it lands like a subpoena.\n- **The lost thread.** You abandon your set for a tangent, get the cheap pop, and can never find your way back to the material. The closer you spent a year building never gets said.\n- **The tape problem.** Bookers want to see writing. A tape that is all riffing tells them you have charisma and no act.\n\nCrowd work is a skill worth having — as a bridge, a recovery tool, a way to make a room feel seen. It is not a substitute for the notebook.\n\n**Bottom line:** riffing entertains a room once; writing builds a career. The rule: for every minute of crowd work you fall in love with, write and test two minutes of material the same week.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "comedy",
     "veteran-voice"
    ]
   },
