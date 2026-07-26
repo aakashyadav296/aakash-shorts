@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sun, 26 Jul 2026 05:35:32 +0000</lastBuildDate>
+<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sun, 26 Jul 2026 06:37:04 +0000</lastBuildDate>
+<item><title>The warm-up you skip is the injury you schedule</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26m-the-warmup-is-the-workout-insurance.md</link><guid isPermaLink="false">2026-07-26m-the-warmup-is-the-workout-insurance.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades on gym floors and I can tell you the most expensive minutes in
+training are the ten you saved by walking straight to the working weight.
+Nobody logs the warm-up, so everybody treats it as optional. Their tendons
+keep a different logbook.
+
+Failure modes I watch on repeat:
+- **The cold-PR gambler**: walks in stiff from a desk chair, loads the bar to
+  yesterday&#x27;s top set, and wonders why the hip or the elbow &quot;suddenly&quot; went. It
+  wasn&#x27;t sudden — I&#x27;ve watched the same person skip ramp-up sets for months
+  before the bill arrived. Fix: ramp to the working weight in jumps; the last
+  warm-up set should feel like a rehearsal, not a surprise.
+- **The 20-minute stretch-a-thon**: the opposite crime — long static holds on
+  cold muscle, draining the session before it starts and blunting output. I&#x27;ve
+  coached people who spent more time on the foam roller than under the bar and
+  called it discipline. Fix: warm-ups raise temperature and rehearse the
+  movement pattern. Five to eight focused minutes. Then lift.
+- **The cardio-only alibi**: five minutes on a bike, zero rehearsal of the
+  actual movement, then heavy squats. The heart was warm; the pattern wasn&#x27;t.
+  Fix: the last stag</description></item>
+<item><title>The cold room is a skills exam, not an insult</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/comedy/2026-07-26m-the-cold-room-is-a-skills-exam.md</link><guid isPermaLink="false">2026-07-26m-the-cold-room-is-a-skills-exam.md</guid><category>comedy</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of rooms and the shows that built me weren&#x27;t the hot Saturday
+late shows — they were the 7pm Tuesday crowds of eleven people who came in
+out of the rain. Anyone can surf a hot room. The cold room tells you what
+you actually own.
+
+Scar tissue, catalogued:
+- **The blame-the-room monologue**: comic eats it for ten minutes, walks off
+  muttering about the crowd. I&#x27;ve done it; every comic has. But I&#x27;ve also
+  watched the next comic destroy with the same eleven people, which is the
+  most educational humiliation in the business. Fix: the room is a constant.
+  You&#x27;re the variable. Adjust pace, drop the act-outs, get conversational.
+- **The volume-equals-energy mistake**: room is quiet so the comic gets
+  LOUDER, which reads as panic and makes eleven strangers feel screamed at.
+  Fix: cold rooms need intimacy, not projection. Lower the register, shorten
+  the bits, talk to them like a table you just sat down at.
+- **The setlist death-march**: plowing through the planned order while the
+  room visibly isn&#x27;t buying the premise-heavy stuff. I&#x27;ve watched comics
+  refuse to call an audible for fifteen minutes out of pure stubbornness.
+  Fix: know which three bits work everywhere. C</description></item>
+<item><title>Rumination is problem-solving cosplay</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/psychology/2026-07-26m-rumination-is-fake-problem-solving.md</link><guid isPermaLink="false">2026-07-26m-rumination-is-fake-problem-solving.md</guid><category>psychology</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades across the table and the most convincing disguise suffering wears
+is productivity. Rumination feels like work — you&#x27;re &quot;thinking it through,&quot;
+&quot;processing,&quot; &quot;trying to understand.&quot; But I&#x27;ve watched people think a problem
+through nightly for six years without once touching a decision.
+
+Failure modes I&#x27;ve watched play out:
+- **The replay-for-answers loop**: rerunning the argument, the breakup, the
+  meeting, hunting for the frame that finally makes it hurt correctly. The
+  hunt never ends because the pain isn&#x27;t a puzzle with a missing piece. Fix:
+  the test question — &quot;is this thought producing a next action?&quot; If the answer
+  has been no for twenty minutes, it&#x27;s not analysis, it&#x27;s a wound being licked.
+- **The worry-as-insurance superstition**: the quiet belief that keeping the
+  fear active somehow prevents the feared thing, so relaxing feels reckless.
+  I&#x27;ve watched people defend their 3 a.m. dread like it was a smoke alarm
+  instead of a fire they were setting themselves. Fix: schedule the worry —
+  fifteen minutes, on paper, with a pen. Outside the window, postpone it.
+  What&#x27;s postponable was never surveillance; it was habit.
+- **The insight-hoarding stall**: years of</description></item>
+<item><title>Retries are an outage amplifier with a kind face</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26m-retries-are-an-outage-amplifier.md</link><guid isPermaLink="false">2026-07-26m-retries-are-an-outage-amplifier.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of distributed systems and the single mechanism I&#x27;ve watched turn
+a blip into a catastrophe most often isn&#x27;t a bug — it&#x27;s the retry loop everyone
+added &quot;for resilience.&quot; A struggling service doesn&#x27;t need more traffic. Retries
+are more traffic, delivered precisely when the patient is already coding.
+
+Named failure modes I&#x27;ve personally paid for:
+- **The retry storm pyramid**: client retries 3x, the gateway retries 3x, the
+  service retries its downstream 3x. One user click becomes 27 requests. I&#x27;ve
+  watched a database brownout become a full outage in ninety seconds because
+  every layer was &quot;being resilient&quot; simultaneously. Fix: retries live at ONE
+  layer, agreed in writing. Everyone else fails fast and surfaces the error.
+- **The immediate-retry hammer**: no backoff, no jitter, so every failed call
+  from every client re-fires in the same synchronized wave. The service comes
+  up, gets flattened by the thundering herd, goes back down. I&#x27;ve sat through
+  three of those recovery-collapse cycles in one incident. Fix: exponential
+  backoff with jitter is table stakes; a retry budget that stops retrying when
+  the error rate is systemic is the actual fix.
+- **The non-idem</description></item>
 <item><title>Sunk Cost Wears a Suit Called Loyalty</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/psychology/2026-07-26l-sunk-cost-wears-a-suit-called-loyalty.md</link><guid isPermaLink="false">2026-07-26l-sunk-cost-wears-a-suit-called-loyalty.md</guid><category>psychology</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades sitting with people mid-decision — careers, marriages, businesses — and I can tell you almost nobody recognizes sunk cost in the moment. It never announces itself as a fallacy. It dresses up as virtue: loyalty, grit, &quot;seeing things through&quot;.
 
 Failure modes **I&#x27;ve watched** hold intelligent people hostage:
