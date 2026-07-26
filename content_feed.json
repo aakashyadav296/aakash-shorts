@@ -4,6 +4,16 @@
  "description": "Reviewed drafts across tech/health/comedy/psychology",
  "items": [
   {
+   "id": "tech/2026-07-26h-your-backup-is-schrodingers-until-you-restore-it.md",
+   "title": "[tech] Your backup is Schrödinger's until you restore it",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Your backup is Schrödinger's until you restore it\n\nTwenty years of on-call and I've never once been paged for \"backup failed.\"\nI've been paged plenty for \"restore failed\" — which is the same event,\ndiscovered at the worst possible moment. A backup you've never restored is a\nsuperstition with a cron schedule.\n\nNamed failure modes I've personally paid for:\n- **The green-checkmark theater**: the job exits 0 every night for a year —\n  because it's been snapshotting an empty volume since a mount path changed.\n  Nobody reads success logs. Fix: the monitoring asserts on restored-data\n  properties (row counts, checksums, newest-record age), never on job exit\n  codes.\n- **The restore-time surprise**: the backup is fine; it just takes 26 hours to\n  restore and your SLA promised four. I've watched a team discover their RTO\n  was fiction while the CEO watched. Fix: quarterly timed restore drills into a\n  scratch environment, with the wall-clock number written where leadership can\n  see it.\n- **The credentials coffin**: encrypted backups, key stored in the KMS of the\n  same account that just got compromised or deleted. The data survived; access\n  to it didn't. Fix: escrow the decryption path in a separate trust domain, and\n  test the break-glass procedure with a human who didn't set it up.\n\nThe rule: nobody wants backups — everybody wants restores. Schedule the\nrestore drill or admit you're running on hope.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "tech",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "tech/2026-07-26g-feature-flags-are-loans-not-switches.md",
    "title": "[tech] Feature flags are loans, not switches",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Feature flags are loans, not switches\n\nTwenty years in and I've watched more outages caused by old flags than by new\ncode. A feature flag is a loan against your codebase: cheap to take out,\nbrutal if you never pay it back. Every \"temporary\" flag I've shipped that\nlived past a quarter eventually turned into a haunted branch nobody dared\ntouch.\n\nNamed failure modes I've personally paid for:\n- **The zombie flag**: shipped two years ago, \"fully rolled out,\" still wrapping\n  the code path. Someone flips it during an incident to \"try something\" and\n  resurrects behavior nobody remembers. Fix: every flag gets a removal ticket\n  and an owner at creation time — the flag PR and the cleanup ticket are born\n  together or the PR doesn't merge.\n- **The combinatorial minefield**: eight independent flags means 256 possible\n  configurations and you've tested three of them. The bug only exists when\n  flag A is on and flag C is off, which is exactly what one enterprise\n  customer runs. Fix: flags that interact get merged or one gets deleted;\n  test the configs you actually ship, not the ones you imagine.\n- **The permission drift**: the flag console lets anyone in the org flip\n  production behavior with no review, no audit trail, no rollback plan. I've\n  watched a well-meaning PM flip a payments flag on a Friday. Fix: production\n  flag changes go through the same review gate as code, full stop.\n\nThe rule: a flag without an expiry date is not a flag, it's permanent\narchitecture you built by accident. Pay the loan back within the sprint that\nfinishes the rollout.\n",
@@ -560,6 +570,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "tech",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "psychology/2026-07-26h-venting-rehearses-anger-it-doesnt-release-it.md",
+   "title": "[psychology] Venting rehearses anger — it doesn't release it",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Venting rehearses anger — it doesn't release it\n\nTwo decades sitting with people in conflict and the most stubborn folk theory\nI still meet weekly is the pressure-cooker model: anger builds up, so you have\nto \"let it out\" or you'll explode. What I've actually watched, year after\nyear, is the opposite — every retelling is a rehearsal, and rehearsal makes\nthe performance stronger.\n\nFailure modes I've watched wreck relationships:\n- **The grievance rehearsal loop**: the same story told to five friends,\n  polished a little more each time — villain sharper, self more innocent. By\n  Friday the person isn't less angry; they're better at being angry, with a\n  tighter script. Fix: after telling the story once, the next repetition must\n  add something new — a fact you're unsure of, a thing you contributed, a\n  question. If it adds nothing, it's rehearsal, not processing.\n- **The validation trap**: recruiting a chorus who only says \"you're so right\"\n  feels like support but functions as escalation — I've watched mild\n  irritation get coached into a resignation letter by a well-meaning group\n  chat. Fix: pick one listener who's allowed to push back, and tell them\n  that's their job before you start.\n- **The catharsis hangover**: the explosive vent — screaming, punching\n  pillows, the furious unsent-then-sent text — buys ten minutes of relief and\n  leaves the body more activated, not less. I've paid for that lesson\n  personally. Fix: separate discharge from decision. Move the body (walk,\n  lift, breathe long exhales) until the heat drops, and only then decide what\n  the situation actually needs from you.\n\nThe rule: telling the story again isn't letting it go — it's memorizing it.\nDo this: one honest telling, one challenging listener, then a decision or a\ndeliberate drop.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "psychology",
     "veteran-voice"
    ]
   },
@@ -1124,6 +1144,16 @@
    ]
   },
   {
+   "id": "health/2026-07-26h-mobility-you-skip-is-the-injury-you-scheduled.md",
+   "title": "[health] The mobility work you skip is the injury you scheduled",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# The mobility work you skip is the injury you scheduled\n\nTwo decades on gym floors and I can tell you the pattern by heart: the lifter\nwho \"doesn't have time\" for ten minutes of prep work always finds six weeks\nfor a rehab block. The joint doesn't send an invoice up front — it bills you\nlater, with interest.\n\nFailure modes I've watched on repeat:\n- **The warm-up amputation**: program says 45 minutes, life gives you 35, so\n  the warm-up dies first — never the top set. Then the top set moves through\n  cold hips and something in the low back files a complaint. Fix: the warm-up\n  scales down before it disappears; three minutes of targeted prep beats zero,\n  and the top set shrinks before the prep does.\n- **The stretching-as-penance trap**: lifter tweaks a shoulder, then spends a\n  month aggressively yanking it into end ranges it never owned, calling it\n  mobility. I've watched that turn a tweak into a tear. Fix: earn range with\n  load and control — slow tempo work in the range you have, expanding it\n  gradually, not wrenching into the range you want.\n- **The pain-silencing loop**: pre-workout, wraps, belt, and a playlist loud\n  enough to drown out the knee that's been whispering for a month. The whisper\n  becomes a conversation, then a shout. Fix: any ache that survives two\n  sessions gets a programming change that week — swap the movement, cut the\n  range, drop the load. Pain that gets ignored escalates; pain that gets\n  managed resolves.\n\nThe rule: you can pay for tissue prep in minutes now or in months later. Same\nbill, wildly different interest rates.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "health",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "health/2026-07-26g-cardio-only-fat-loss-is-a-leaky-bucket.md",
    "title": "[health] Cardio-only fat loss is a leaky bucket",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Cardio-only fat loss is a leaky bucket\n\nTwenty years of coaching people through recomposition and the saddest pattern\nI keep seeing is the treadmill-only grinder: months of dutiful cardio, scale\nbarely moves, then it stops moving at all, then they quit. I've watched this\ncycle so many times I can call the week it breaks down.\n\nNamed failure modes I've personally coached people out of:\n- **The compensation trap**: the long run earns a \"deserved\" snack that quietly\n  refunds most of the session. The body is also excellent at nudging you to\n  move less for the rest of the day after hard cardio. Fix: track the whole\n  day's movement and intake honestly for two weeks before blaming the\n  program — the leak is almost always outside the workout.\n- **The muscle-burn spiral**: cutting calories hard while doing only steady\n  cardio strips lean mass along with fat. Less muscle means the same food now\n  goes further, so progress stalls at the exact moment motivation is lowest.\n  Fix: two or three resistance sessions a week are non-negotiable during a\n  cut; cardio is a supplement, not the base.\n- **The adaptation wall**: the body gets efficient at the exact same 5k at the\n  exact same pace. What cost real effort in week one costs far less by week\n  ten. Fix: rotate intensity — some sessions hard and short, some easy and\n  long — instead of one grey middle pace forever.\n\nThe rule: cardio spends, muscle earns. Build the earning side first and the\nspending actually shows up on the scale.\n",
@@ -1680,6 +1710,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "health",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "comedy/2026-07-26h-if-you-didnt-record-the-set-it-didnt-happen.md",
+   "title": "[comedy] If you didn't record the set, it didn't happen",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# If you didn't record the set, it didn't happen\n\nTwenty years of open mics and club spots taught me one unglamorous truth: your\nmemory of a set is a press release, not a transcript. Every comic walks off\nstage with a version of what happened that flatters the ego and buries the\nevidence.\n\nFailure modes I've personally bombed my way through:\n- **The phantom laugh**: you remember the bit \"killing\" because two friends up\n  front cackled. The recording reveals a polite room and your friends. I've\n  kept dead bits alive for months on phantom laughs. Fix: record every set on\n  your phone, listen within 24 hours, and mark the actual laugh points with\n  timestamps — laughs you can't timestamp don't count.\n- **The mumble tax**: on tape you discover the punchline you \"nailed\" was\n  half-swallowed, delivered while turning toward the stool. The room didn't\n  reject the joke — they never received it. Fix: the recording review checks\n  delivery mechanics first (audibility, face to the crowd, pause discipline)\n  before you rewrite a single word.\n- **The premise drift**: without tape, the bit mutates nightly — a word here,\n  a beat there — until the version that worked is gone and you can't say when\n  you lost it. I've watched comics try to reverse-engineer a dead bit from\n  memory and fail. Fix: when a version hits, transcribe it verbatim that\n  night. That transcript is the master; deviations are experiments, not\n  upgrades.\n\nThe rule: the tape is the only audience member who doesn't lie to you. Do\nthis: record, timestamp, transcribe the winners. Everything else is folklore.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "comedy",
     "veteran-voice"
    ]
   },
