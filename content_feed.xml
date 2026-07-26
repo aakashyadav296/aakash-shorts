@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sun, 26 Jul 2026 04:36:58 +0000</lastBuildDate>
+<rss version="2.0"><channel><title>Aakash Content Engine</title><link>https://example.local/content</link><description>Veteran-voice drafts: tech/health/comedy/psychology</description><lastBuildDate>Sun, 26 Jul 2026 05:35:32 +0000</lastBuildDate>
+<item><title>Sunk Cost Wears a Suit Called Loyalty</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/psychology/2026-07-26l-sunk-cost-wears-a-suit-called-loyalty.md</link><guid isPermaLink="false">2026-07-26l-sunk-cost-wears-a-suit-called-loyalty.md</guid><category>psychology</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Two decades sitting with people mid-decision — careers, marriages, businesses — and I can tell you almost nobody recognizes sunk cost in the moment. It never announces itself as a fallacy. It dresses up as virtue: loyalty, grit, &quot;seeing things through&quot;.
+
+Failure modes **I&#x27;ve watched** hold intelligent people hostage:
+
+- **The tenure defense.** &quot;I&#x27;ve been here eleven years&quot; offered as the reason to stay, when it&#x27;s actually just the reason it hurts to leave. Time invested is a receipt, not a forecast.
+- **The almost-there illusion.** The project that&#x27;s been six months from done for three years. Each new push is justified by the last one, and the finish line moves in lockstep.
+- **Identity fusion.** When quitting the thing feels like erasing the self who chose it. People will protect a decision long after they&#x27;ve stopped believing in it, because the decision has their name on it.
+- **Audience-of-the-past reasoning.** Staying because of what the people who watched you start would think. You&#x27;re performing consistency for a crowd that mostly isn&#x27;t watching.
+- **Doubling down as pain relief.** Recommitting produces a hit of certainty that feels better than ambivalence. It&#x27;s anesthetic, no</description></item>
+<item><title>Sleep Debt Compounds Quietly, Then All at Once</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/health/2026-07-26l-sleep-debt-compounds-quietly.md</link><guid isPermaLink="false">2026-07-26l-sleep-debt-compounds-quietly.md</guid><category>health</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of coaching working adults and the single change that fixed more plateaus than any program tweak was boring: they started sleeping like it mattered. Nobody wants that answer, everybody wants a new supplement.
+
+Failure modes **I&#x27;ve watched** wreck otherwise disciplined people:
+
+- **The weekend repayment myth.** Sleeping in on Saturday after five short nights feels like settling the tab. It isn&#x27;t — the fatigue is masked, not repaid, and the Monday session proves it.
+- **Training through the wall.** Chronic short sleepers keep pushing intensity because motivation is the last thing to go. Coordination goes first. That is when the tweaks and strains show up.
+- **The revenge-scrolling trap.** People with no evening to themselves steal one from their sleep. The cost lands on tomorrow&#x27;s willpower, which is exactly what the diet needed.
+- **Caffeine laundering.** Fatigue papered over with an afternoon coffee that then delays the next night&#x27;s sleep. The loop tightens week by week and looks like &quot;just being busy&quot;.
+- **Treating sleep as an output, not an input.** Trying to force sleep with willpower at midnight instead of protecting the ninety minutes before it.
+
+What works is emb</description></item>
+<item><title>Feature Flags Are Loans, Not Gifts</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26l-feature-flags-are-loans-not-gifts.md</link><guid isPermaLink="false">2026-07-26l-feature-flags-are-loans-not-gifts.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Everyone sells feature flags as free safety. Nobody mentions the interest rate. After two decades of shipping behind flags, I can tell you the flag itself is never the problem — the flag you forgot is.
+
+Failure modes **I&#x27;ve watched** eat entire quarters:
+
+- **The immortal flag.** Shipped, ramped to everyone, never removed. Eighteen months later a new hire flips it off &quot;to test something&quot; and takes down checkout. The dead branch was still load-bearing.
+- **Flag-on-flag combinatorics.** Five flags means dozens of possible states, and QA tested exactly one. The bug only appears when flag A is on and flag C is off, which is precisely the state of your biggest customer.
+- **The config-as-code lie.** Flags flipped in a dashboard leave no diff, no review, no rollback history. An incident retro that ends with &quot;someone changed a flag&quot; and no name attached is a process hole, not a mystery.
+- **Ramp-and-forget.** The team celebrates the launch at partial rollout and moves on. The remaining users live on the old path for a year, and every bugfix now needs to land twice.
+- **Flags as permission system.** Somebody starts using the flag service for entitlements. Now your experimentation tool is i</description></item>
+<item><title>Crowd Work Is a Scalpel, Not a Crutch</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/comedy/2026-07-26l-crowd-work-is-a-scalpel-not-a-crutch.md</link><guid isPermaLink="false">2026-07-26l-crowd-work-is-a-scalpel-not-a-crutch.md</guid><category>comedy</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of rooms — basements, clubs, corporate ballrooms where laughter goes to die — and the biggest lie young comics believe is that crowd work is the shortcut to looking like a natural. It&#x27;s the opposite: it&#x27;s the most punishing skill on the menu, and it punishes you in public.
+
+Failure modes **I&#x27;ve watched** (and a few **I&#x27;ve bombed** into personally):
+
+- **Opening with crowd work before you&#x27;ve earned the room.** They don&#x27;t know you yet. A stranger interrogating the front row reads as a threat, not play. Earn two laughs on material first — now you&#x27;re a comic talking to friends.
+- **Interviewing instead of riffing.** &quot;Where are you from? What do you do?&quot; with no punchline attached is a job interview with a two-drink minimum. Every question needs a destination.
+- **Picking the drunkest person because they&#x27;re loudest.** You&#x27;ve just handed the show to someone who wants it more than you. Pick the shy accountant; the drunk gets one line and a hard pivot.
+- **Winning the exchange, losing the room.** You torched the heckler, the crowd went quiet. They weren&#x27;t cheering for cruelty — they were waiting to see if the night was still safe.
+- **Using crowd work to hide thin material.** </description></item>
 <item><title>Your on-call alert volume is a design review you keep skipping</title><link>https://github.com/aakashyadav296/AakashIncomeEngine/blob/main/output/content/tech/2026-07-26k-your-oncall-alert-volume-is-a-design-review.md</link><guid isPermaLink="false">2026-07-26k-your-oncall-alert-volume-is-a-design-review.md</guid><category>tech</category><pubDate>Sun, 26 Jul 2026 09:00:00 +0000</pubDate><description>Twenty years of pagers and I&#x27;ve learned the alert queue is the most honest
 architecture document a team owns. Nobody lies in it. Every noisy page is a
 design decision confessing itself at 3 a.m.
