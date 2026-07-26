@@ -4,6 +4,16 @@
  "description": "Reviewed drafts across tech/health/comedy/psychology",
  "items": [
   {
+   "id": "tech/2026-07-26i-your-retry-logic-is-a-ddos-cannon.md",
+   "title": "[tech] Your retry logic is a DDoS cannon pointed at yourself",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Your retry logic is a DDoS cannon pointed at yourself\n\nTwenty years of incident bridges and the most common way I've watched a\nfive-minute blip become a five-hour outage is well-intentioned retries. The\ndependency hiccups, every client retries at once, and now the recovering\nservice gets hit with 10x its normal load the moment it stands up.\n\nNamed failure modes I've personally paid for:\n- **The synchronized stampede**: fixed retry intervals mean every caller comes\n  back on the same beat. The service recovers, absorbs the wave, dies again — a\n  metronome of self-inflicted outages. Fix: exponential backoff WITH jitter.\n  The jitter is not optional; it's the entire point.\n- **The retry amplification pyramid**: service A retries 3x, calls B which\n  retries 3x, which calls C which retries 3x. One user click becomes 27 requests\n  at the bottom of the stack. I've watched a team hunt a \"traffic spike\" for a\n  day before finding it was their own middleware. Fix: retries live at ONE\n  layer, usually the edge; everything below fails fast.\n- **The non-idempotent replay**: the charge went through, the response timed\n  out, the client retried. Customer billed twice, trust billed forever. Fix:\n  idempotency keys on every mutating call before a single retry is allowed —\n  and if the API can't accept one, that call never gets retried automatically.\n\nThe rule: a retry is a loan against the recovering system's capacity. Budget\nit — circuit breakers, retry budgets, jitter — or the collection call comes at\n3 a.m.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "tech",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "tech/2026-07-26h-your-backup-is-schrodingers-until-you-restore-it.md",
    "title": "[tech] Your backup is Schrödinger's until you restore it",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Your backup is Schrödinger's until you restore it\n\nTwenty years of on-call and I've never once been paged for \"backup failed.\"\nI've been paged plenty for \"restore failed\" — which is the same event,\ndiscovered at the worst possible moment. A backup you've never restored is a\nsuperstition with a cron schedule.\n\nNamed failure modes I've personally paid for:\n- **The green-checkmark theater**: the job exits 0 every night for a year —\n  because it's been snapshotting an empty volume since a mount path changed.\n  Nobody reads success logs. Fix: the monitoring asserts on restored-data\n  properties (row counts, checksums, newest-record age), never on job exit\n  codes.\n- **The restore-time surprise**: the backup is fine; it just takes 26 hours to\n  restore and your SLA promised four. I've watched a team discover their RTO\n  was fiction while the CEO watched. Fix: quarterly timed restore drills into a\n  scratch environment, with the wall-clock number written where leadership can\n  see it.\n- **The credentials coffin**: encrypted backups, key stored in the KMS of the\n  same account that just got compromised or deleted. The data survived; access\n  to it didn't. Fix: escrow the decryption path in a separate trust domain, and\n  test the break-glass procedure with a human who didn't set it up.\n\nThe rule: nobody wants backups — everybody wants restores. Schedule the\nrestore drill or admit you're running on hope.\n",
@@ -570,6 +580,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "tech",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "psychology/2026-07-26i-reassurance-seeking-is-a-slot-machine.md",
+   "title": "[psychology] Reassurance-seeking is a slot machine that pays in anxiety",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Reassurance-seeking is a slot machine that pays in anxiety\n\nTwo decades across the table and one loop shows up in anxious minds more than\nany other: ask for reassurance, feel better for an hour, feel worse by night,\nask again. It looks like comfort. It works like a slot machine — intermittent\nrelief that trains the very doubt it soothes.\n\nFailure modes I've watched play out:\n- **The certainty treadmill**: \"are you mad at me?\" answered honestly, believed\n  for 40 minutes, then the doubt regenerates and needs a fresh dose. I've\n  watched relationships buckle not under conflict but under the fifth daily\n  check-in. Fix: name the pattern together — the partner answers ONCE per\n  topic per day, warmly, and both treat the second ask as the anxiety talking.\n- **The symptom-google spiral**: every search that ends in \"it's probably\n  nothing\" teaches the brain that dread gets resolved by searching — so dread\n  returns with a search craving attached. Fix: a 24-hour rule; the worry gets\n  written down and earns a search only if it survives a full day.\n- **The outsourced judgment atrophy**: years of \"should I send this email?\"\n  asked to three friends, and the person's own decision muscle has quietly\n  wasted away. The anxiety was never about the email. Fix: decide first, THEN\n  tell someone what you decided — support after the choice, not instead of it.\n\nDo this: when the urge to check hits, delay it 20 minutes and let the wave\npeak and fall once without the fix. That single tolerated wave teaches more\nthan a hundred reassurances ever did.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "psychology",
     "veteran-voice"
    ]
   },
@@ -1144,6 +1164,16 @@
    ]
   },
   {
+   "id": "health/2026-07-26i-cardio-is-not-the-enemy-of-your-lifts.md",
+   "title": "[health] Cardio is not the enemy of your lifts — being gassed is",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Cardio is not the enemy of your lifts — being gassed is\n\nTwo decades coaching and I still meet lifters who avoid all conditioning like\nit's a curse on their squat. Then they hit a hard set of eight and need five\nminutes draped over the rack, heart pounding, and the rest of the session is\ngarbage. That's not a strength problem. That's an engine problem.\n\nFailure modes I watch on repeat:\n- **The interference-effect overreaction**: someone read that cardio kills\n  gains and deleted every step of walking. The research nuance was about\n  high-volume concurrent endurance training — not two easy Zone 2 sessions.\n  I've watched lifters get weaker from the resulting work-capacity collapse.\n  Fix: 2x30 minutes easy — conversational pace — protects the lifting, not\n  threatens it.\n- **The HIIT-only trap**: all conditioning done as gasping intervals, which is\n  just more recovery debt stacked on lifting stress. Joints bark, sleep tanks,\n  progress stalls, and cardio takes the blame. Fix: the hard-easy rule — if you\n  lift heavy, most cardio stays boring and easy on purpose.\n- **The rest-timer denial**: between-set recovery is an aerobic event. The\n  lifter with no base needs four minutes where a conditioned one needs 90\n  seconds — that's a shorter, worse session every single week, compounding.\n  Fix: track your between-set heart rate recovery; when it improves, so does\n  your total quality volume.\n\nDo this: add two easy sessions a week where you can hold a conversation the\nwhole time. Your fifth set of squats will thank you before the month is out.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "health",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "health/2026-07-26h-mobility-you-skip-is-the-injury-you-scheduled.md",
    "title": "[health] The mobility work you skip is the injury you scheduled",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# The mobility work you skip is the injury you scheduled\n\nTwo decades on gym floors and I can tell you the pattern by heart: the lifter\nwho \"doesn't have time\" for ten minutes of prep work always finds six weeks\nfor a rehab block. The joint doesn't send an invoice up front — it bills you\nlater, with interest.\n\nFailure modes I've watched on repeat:\n- **The warm-up amputation**: program says 45 minutes, life gives you 35, so\n  the warm-up dies first — never the top set. Then the top set moves through\n  cold hips and something in the low back files a complaint. Fix: the warm-up\n  scales down before it disappears; three minutes of targeted prep beats zero,\n  and the top set shrinks before the prep does.\n- **The stretching-as-penance trap**: lifter tweaks a shoulder, then spends a\n  month aggressively yanking it into end ranges it never owned, calling it\n  mobility. I've watched that turn a tweak into a tear. Fix: earn range with\n  load and control — slow tempo work in the range you have, expanding it\n  gradually, not wrenching into the range you want.\n- **The pain-silencing loop**: pre-workout, wraps, belt, and a playlist loud\n  enough to drown out the knee that's been whispering for a month. The whisper\n  becomes a conversation, then a shout. Fix: any ache that survives two\n  sessions gets a programming change that week — swap the movement, cut the\n  range, drop the load. Pain that gets ignored escalates; pain that gets\n  managed resolves.\n\nThe rule: you can pay for tissue prep in minutes now or in months later. Same\nbill, wildly different interest rates.\n",
@@ -1710,6 +1740,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "health",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "comedy/2026-07-26i-the-hosting-gig-is-the-real-masterclass.md",
+   "title": "[comedy] The hosting gig is the real masterclass everyone dodges",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# The hosting gig is the real masterclass everyone dodges\n\nTwenty years in rooms and the job young comics avoid hardest is the one that\nbuilt every reliable pro I know: hosting. Everybody wants the closer spot.\nNobody wants to walk into a cold room, warm up 80 strangers, do the birthday\nshout-outs, and hand the crowd over better than they found it.\n\nScar tissue, catalogued:\n- **The set-list rigidity**: a host who can only do their act in order dies the\n  moment the room needs something else. I've watched comics bomb the check\n  drop because they couldn't leave the script while servers clattered plates.\n  Fix: hosting forces modular material — chunks you can enter and exit\n  anywhere. That skill is the whole career.\n- **The energy-vampire open**: host comes out low-status and apologetic, and\n  the whole show inherits that ceiling. Every comic after spends five minutes\n  digging out of the hole the host dug. Fix: the host's first 90 seconds sets\n  the room's permission level — walk out like the show is already good.\n- **The announcement contempt**: mocking the venue's promos, rushing the\n  raffle, sneering at the crowd work obligations. Bookers watch that. The\n  comics got paid because that venue survives on those announcements. Fix:\n  treat the business of the room as part of the craft, and you become the\n  host who gets every room's repeat call.\n\nThe rule: closers get the applause, hosts get the phone calls. Learn the job\neveryone dodges and you'll never sit home on a weekend.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "comedy",
     "veteran-voice"
    ]
   },
