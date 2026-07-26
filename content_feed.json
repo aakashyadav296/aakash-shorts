@@ -4,6 +4,16 @@
  "description": "Reviewed drafts across tech/health/comedy/psychology",
  "items": [
   {
+   "id": "tech/2026-07-26j-your-staging-env-is-a-comfort-blanket.md",
+   "title": "[tech] Your staging environment is a comfort blanket, not a safety net",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Your staging environment is a comfort blanket, not a safety net\n\nTwenty years of shipping and I've watched more prod incidents get born in a\n\"green\" staging run than anywhere else. Staging passes, prod burns, and the\npostmortem always finds the same thing: staging wasn't prod, it was a diorama\nof prod built by whoever last had time to care.\n\nNamed failure modes I've personally paid for:\n- **The config drift trap**: staging runs one replica, prod runs forty. The\n  race condition that needs two writers never fires in staging, then fires in\n  prod on Black Friday. Fix: parity on topology, not just code — same replica\n  counts, same load balancer behavior, or admit you're not testing that class\n  of bug.\n- **The sanitized-data mirage**: staging has ten thousand clean synthetic rows;\n  prod has a customer name with an emoji, a null where the schema says NOT\n  NULL from a 2019 migration, and a 40MB JSON blob someone pasted into a text\n  field. I've watched a \"fully tested\" release die on the first real row it\n  touched. Fix: scrubbed prod snapshots, refreshed on a schedule someone owns.\n- **The shared-staging pileup**: six teams deploy to one staging box, so it's\n  perpetually broken and everyone learns to ignore red. When staging is always\n  red, it tests nothing. Fix: ephemeral per-branch environments, or ruthless\n  ownership of the shared one.\n\nThe rule: staging earns trust only to the degree it's boringly identical to\nprod. Every deliberate difference is a bug class you've chosen not to test —\nwrite those differences down, or stop calling it a safety net.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "tech",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "tech/2026-07-26i-your-retry-logic-is-a-ddos-cannon.md",
    "title": "[tech] Your retry logic is a DDoS cannon pointed at yourself",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Your retry logic is a DDoS cannon pointed at yourself\n\nTwenty years of incident bridges and the most common way I've watched a\nfive-minute blip become a five-hour outage is well-intentioned retries. The\ndependency hiccups, every client retries at once, and now the recovering\nservice gets hit with 10x its normal load the moment it stands up.\n\nNamed failure modes I've personally paid for:\n- **The synchronized stampede**: fixed retry intervals mean every caller comes\n  back on the same beat. The service recovers, absorbs the wave, dies again — a\n  metronome of self-inflicted outages. Fix: exponential backoff WITH jitter.\n  The jitter is not optional; it's the entire point.\n- **The retry amplification pyramid**: service A retries 3x, calls B which\n  retries 3x, which calls C which retries 3x. One user click becomes 27 requests\n  at the bottom of the stack. I've watched a team hunt a \"traffic spike\" for a\n  day before finding it was their own middleware. Fix: retries live at ONE\n  layer, usually the edge; everything below fails fast.\n- **The non-idempotent replay**: the charge went through, the response timed\n  out, the client retried. Customer billed twice, trust billed forever. Fix:\n  idempotency keys on every mutating call before a single retry is allowed —\n  and if the API can't accept one, that call never gets retried automatically.\n\nThe rule: a retry is a loan against the recovering system's capacity. Budget\nit — circuit breakers, retry budgets, jitter — or the collection call comes at\n3 a.m.\n",
@@ -580,6 +590,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "tech",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "psychology/2026-07-26j-self-diagnosis-as-identity-armor.md",
+   "title": "[psychology] When the label becomes armor: self-diagnosis as identity",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# When the label becomes armor: self-diagnosis as identity\n\nTwenty years in the therapy chair and I've watched the label shift from a map\nto a fortress. A client arrives having already decided what they have, and the\nwork stops being \"what's happening to you\" and becomes \"defend the flag.\"\nThe label that was supposed to open a door gets bricked into the doorway.\n\nNamed failure modes I've watched from the chair:\n- **The explanation-as-exemption swap**: \"I have X\" quietly becomes \"so I\n  can't be expected to Y.\" The label starts as understanding and calcifies\n  into a permission slip. Fix: every explanation must ship with an experiment\n  — what would change this week if the label were true AND workable?\n- **The symptom-shopping spiral**: a feed of relatable clips, each one adding\n  a diagnosis to the cart. Ordinary discomfort gets rebranded as pathology,\n  and the person ends up more frightened of their own mind, not less. Fix:\n  distress plus impairment plus duration — a clinician checks all three; a\n  30-second video checks none.\n- **The identity-merger lock-in**: when the label becomes who you are,\n  improvement becomes a threat. I've watched people flinch at their own good\n  weeks because getting better felt like losing themselves. Fix: language\n  hygiene — \"I'm experiencing,\" not \"I am.\" The grammar leaves an exit.\n\nThe rule: a good label is a trailhead, not a home address. If it explains\neverything and changes nothing, it's not insight anymore — it's armor, and\narmor is heavy.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "psychology",
     "veteran-voice"
    ]
   },
@@ -1164,6 +1184,16 @@
    ]
   },
   {
+   "id": "health/2026-07-26j-protein-timing-is-a-rounding-error.md",
+   "title": "[health] Protein timing is a rounding error; your weekly total is the invoice",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Protein timing is a rounding error; your weekly total is the invoice\n\nTwenty years coaching lifters and I've watched grown adults sprint to a shaker\nbottle like the anabolic window was a closing bank vault — then log a weekend\nof protein intake that wouldn't sustain a housecat. The order of operations is\nbackwards, and it costs people years of progress.\n\nNamed failure modes I've personally paid for:\n- **The shaker-sprint delusion**: obsessing over the 30 minutes post-workout\n  while breakfast is coffee and vibes. The body doesn't bill by the minute; it\n  bills by the day and the week. Fix: hit your daily target first, spread over\n  3–4 real feedings, and let timing be the garnish it is.\n- **The weekend amnesia cycle**: dialed Monday–Friday, then two days of\n  grazing that erase the deficit of discipline. I've watched clients stall for\n  months and swear the program was broken. Fix: log the weekend before you\n  blame the training.\n- **The powder-first pantry**: supplements before groceries. When the shake is\n  the plan instead of the patch, chewing becomes optional and satiety\n  collapses — then hunger wins at 11 p.m. Fix: food first, powder for the gaps\n  you can name.\n\nThe rule: consistency at the weekly scale beats precision at the hourly scale.\nGet the boring total right for twelve straight weeks and the \"window\" debate\nbecomes something you laugh at from further along.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "health",
+    "veteran-voice"
+   ]
+  },
+  {
    "id": "health/2026-07-26i-cardio-is-not-the-enemy-of-your-lifts.md",
    "title": "[health] Cardio is not the enemy of your lifts — being gassed is",
    "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Cardio is not the enemy of your lifts — being gassed is\n\nTwo decades coaching and I still meet lifters who avoid all conditioning like\nit's a curse on their squat. Then they hit a hard set of eight and need five\nminutes draped over the rack, heart pounding, and the rest of the session is\ngarbage. That's not a strength problem. That's an engine problem.\n\nFailure modes I watch on repeat:\n- **The interference-effect overreaction**: someone read that cardio kills\n  gains and deleted every step of walking. The research nuance was about\n  high-volume concurrent endurance training — not two easy Zone 2 sessions.\n  I've watched lifters get weaker from the resulting work-capacity collapse.\n  Fix: 2x30 minutes easy — conversational pace — protects the lifting, not\n  threatens it.\n- **The HIIT-only trap**: all conditioning done as gasping intervals, which is\n  just more recovery debt stacked on lifting stress. Joints bark, sleep tanks,\n  progress stalls, and cardio takes the blame. Fix: the hard-easy rule — if you\n  lift heavy, most cardio stays boring and easy on purpose.\n- **The rest-timer denial**: between-set recovery is an aerobic event. The\n  lifter with no base needs four minutes where a conditioned one needs 90\n  seconds — that's a shorter, worse session every single week, compounding.\n  Fix: track your between-set heart rate recovery; when it improves, so does\n  your total quality volume.\n\nDo this: add two easy sessions a week where you can hold a conversation the\nwhole time. Your fifth set of squats will thank you before the month is out.\n",
@@ -1740,6 +1770,16 @@
    "date_published": "2026-07-23T00:00:00+05:30",
    "tags": [
     "health",
+    "veteran-voice"
+   ]
+  },
+  {
+   "id": "comedy/2026-07-26j-the-crowd-work-crutch.md",
+   "title": "[comedy] Crowd work is a crutch until you can walk without it",
+   "content_text": "STATUS: DRAFT — reviewed (content_gate, veteran-voice)\n# Crowd work is a crutch until you can walk without it\n\nTwenty years of open mics, clubs, and one-nighters, and I've watched a whole\ngeneration decide crowd work is the act. It clips well, it feels dangerous,\nand it lets you skip the hardest part of the job: writing something that works\nwhen nobody in the front row is wearing a funny hat.\n\nNamed failure modes I've personally bombed through:\n- **The clip-chaser's hollow twenty**: kills on Friday when the crowd's loose,\n  dies on the corporate gig where nobody wants to be talked to. No written\n  spine means no floor. Fix: crowd work is seasoning; the meal is material you\n  could do to a wall and still know where the laughs live.\n- **The one-victim hostage crisis**: grinding the same guy in row two for ten\n  minutes while the other two hundred people check their phones. I've watched\n  the room turn protective of him and against the comic — that's a death you\n  earn. Fix: touch, get the laugh, move; the room is the scene partner, not\n  one man's job title.\n- **The false-spontaneity tell**: doing your \"improvised\" bit word-for-word\n  two shows in a row while a bachelorette party live-posts both. Audiences\n  forgive planned; they never forgive fake-spontaneous. Fix: build real\n  branches — stock structures with genuinely open slots.\n\nThe rule: earn crowd work by having an act that doesn't need it. When the\nwritten stuff can carry the room alone, the ad-libs stop being a life raft and\nstart being a flex.\n",
+   "date_published": "2026-07-26T00:00:00+05:30",
+   "tags": [
+    "comedy",
     "veteran-voice"
    ]
   },
