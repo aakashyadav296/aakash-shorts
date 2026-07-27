@@ -1,5 +1,3 @@
 User-agent: *
 Allow: /
 Sitemap: https://aakashyadav296.github.io/aakash-shorts/sitemap.xml
-Sitemap: https://aakashyadav296.github.io/aakash-shorts/video_sitemap.xml
-Sitemap: https://aakashyadav296.github.io/aakash-shorts/mrss.xml
