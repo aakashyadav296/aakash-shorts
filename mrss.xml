@@ -1432,5 +1432,17 @@
 <media:thumbnail url="https://aakashyadav296.github.io/aakash-shorts/thumbs/tech.jpg"/>
 </media:content>
 </item>
+<item>
+<title>Tech veteran short — tech 2026-07-28o</title>
+<link>https://aakashyadav296.github.io/aakash-shorts/blog.html#short_tech_2026-07-28o.mp4</link>
+<guid isPermaLink="false">short_tech_2026-07-28o.mp4</guid>
+<pubDate>Tue, 28 Jul 2026 09:00:00 +0530</pubDate>
+<description>20-year veteran engineering take: named failure modes and concrete fixes.</description>
+<media:content url="https://raw.githubusercontent.com/aakashyadav296/aakash-shorts/main/short_tech_2026-07-28o.mp4" fileSize="1260739" type="video/mp4" medium="video" duration="15" expression="full">
+<media:title>Tech veteran short — tech 2026-07-28o</media:title>
+<media:description>20-year veteran engineering take: named failure modes and concrete fixes.</media:description>
+<media:thumbnail url="https://aakashyadav296.github.io/aakash-shorts/thumbs/tech.jpg"/>
+</media:content>
+</item>
 </channel>
 </rss>
