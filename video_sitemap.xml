@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://aakashyadav296.github.io/aakash-shorts/blog.html#short_braze_01.mp4</loc><video:video>
+<video:thumbnail_loc>https://aakashyadav296.github.io/aakash-shorts/thumbs/tech.jpg</video:thumbnail_loc>
+<video:title>Tech veteran short — braze 01</video:title>
+<video:description>20-year veteran engineering take: named failure modes and concrete fixes.</video:description>
+<video:content_loc>https://raw.githubusercontent.com/aakashyadav296/aakash-shorts/main/short_braze_01.mp4</video:content_loc>
+<video:publication_date>2026-07-27T09:00:00+05:30</video:publication_date>
+</video:video></url>
 <url><loc>https://aakashyadav296.github.io/aakash-shorts/blog.html#short_comedy_2026-07-23.mp4</loc><video:video>
 <video:thumbnail_loc>https://aakashyadav296.github.io/aakash-shorts/thumbs/comedy.jpg</video:thumbnail_loc>
 <video:title>Comedy veteran short — comedy 2026-07-23</video:title>
@@ -56,6 +63,13 @@
 <video:content_loc>https://raw.githubusercontent.com/aakashyadav296/aakash-shorts/main/short_health_2026-07-27i.mp4</video:content_loc>
 <video:publication_date>2026-07-27T09:00:00+05:30</video:publication_date>
 </video:video></url>
+<url><loc>https://aakashyadav296.github.io/aakash-shorts/blog.html#short_pardot_01.mp4</loc><video:video>
+<video:thumbnail_loc>https://aakashyadav296.github.io/aakash-shorts/thumbs/tech.jpg</video:thumbnail_loc>
+<video:title>Tech veteran short — pardot 01</video:title>
+<video:description>20-year veteran engineering take: named failure modes and concrete fixes.</video:description>
+<video:content_loc>https://raw.githubusercontent.com/aakashyadav296/aakash-shorts/main/short_pardot_01.mp4</video:content_loc>
+<video:publication_date>2026-07-27T09:00:00+05:30</video:publication_date>
+</video:video></url>
 <url><loc>https://aakashyadav296.github.io/aakash-shorts/blog.html#short_psych_2026-07-27f.mp4</loc><video:video>
 <video:thumbnail_loc>https://aakashyadav296.github.io/aakash-shorts/thumbs/psychology.jpg</video:thumbnail_loc>
 <video:title>Psychology veteran short — psych 2026-07-27f</video:title>
@@ -76,6 +90,20 @@
 <video:description>Two decades of practice: real behavioral failure modes and usable fixes.</video:description>
 <video:content_loc>https://raw.githubusercontent.com/aakashyadav296/aakash-shorts/main/short_psychology_2026-07-24.mp4</video:content_loc>
 <video:publication_date>2026-07-24T09:00:00+05:30</video:publication_date>
+</video:video></url>
+<url><loc>https://aakashyadav296.github.io/aakash-shorts/blog.html#short_sfmc_01.mp4</loc><video:video>
+<video:thumbnail_loc>https://aakashyadav296.github.io/aakash-shorts/thumbs/tech.jpg</video:thumbnail_loc>
+<video:title>Tech veteran short — sfmc 01</video:title>
+<video:description>20-year veteran engineering take: named failure modes and concrete fixes.</video:description>
+<video:content_loc>https://raw.githubusercontent.com/aakashyadav296/aakash-shorts/main/short_sfmc_01.mp4</video:content_loc>
+<video:publication_date>2026-07-27T09:00:00+05:30</video:publication_date>
+</video:video></url>
+<url><loc>https://aakashyadav296.github.io/aakash-shorts/blog.html#short_sfmc_dedup_2026-08-01.mp4</loc><video:video>
+<video:thumbnail_loc>https://aakashyadav296.github.io/aakash-shorts/thumbs/tech.jpg</video:thumbnail_loc>
+<video:title>Tech veteran short — sfmc dedup 2026-08-01</video:title>
+<video:description>20-year veteran engineering take: named failure modes and concrete fixes.</video:description>
+<video:content_loc>https://raw.githubusercontent.com/aakashyadav296/aakash-shorts/main/short_sfmc_dedup_2026-08-01.mp4</video:content_loc>
+<video:publication_date>2026-07-27T09:00:00+05:30</video:publication_date>
 </video:video></url>
 <url><loc>https://aakashyadav296.github.io/aakash-shorts/blog.html#short_tech_2026-07-23.mp4</loc><video:video>
 <video:thumbnail_loc>https://aakashyadav296.github.io/aakash-shorts/thumbs/tech.jpg</video:thumbnail_loc>
@@ -881,5 +909,12 @@
 <video:description>20-year veteran engineering take: named failure modes and concrete fixes.</video:description>
 <video:content_loc>https://raw.githubusercontent.com/aakashyadav296/aakash-shorts/main/short_tech_2026-07-28u.mp4</video:content_loc>
 <video:publication_date>2026-07-28T09:00:00+05:30</video:publication_date>
+</video:video></url>
+<url><loc>https://aakashyadav296.github.io/aakash-shorts/blog.html#short_tech_2026-07-29a.mp4</loc><video:video>
+<video:thumbnail_loc>https://aakashyadav296.github.io/aakash-shorts/thumbs/tech.jpg</video:thumbnail_loc>
+<video:title>Tech veteran short — tech 2026-07-29a</video:title>
+<video:description>20-year veteran engineering take: named failure modes and concrete fixes.</video:description>
+<video:content_loc>https://raw.githubusercontent.com/aakashyadav296/aakash-shorts/main/short_tech_2026-07-29a.mp4</video:content_loc>
+<video:publication_date>2026-07-29T09:00:00+05:30</video:publication_date>
 </video:video></url>
 </urlset>
